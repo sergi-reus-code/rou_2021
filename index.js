@@ -27,6 +27,17 @@ let indice_array = 0;
 
 let combi = [[indice_array,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
 
+let test_array1 = [];
+let test_array2 = [];
+let test_array3 = [];
+let test_array4 = [];
+let test_array5 = [];
+let test_array6 = [];
+let test_array7 = [];
+let test_array8 = [];
+let test_array9 = [];
+let test_array10 = [];
+
 
 
 function randomIntFromInterval(min, max) { // min and max included 
@@ -278,11 +289,14 @@ function gen_combi2() {
 
                                                                                                                                                         //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36);
                                                                                                                                                         let v = i1+i2+i3+i4+i5+i6+i7+i8+i9+i10+i11+i12+i13+i14+i15+i16+i17+i18+i19+i20+i21+i22+i23+i24+i25+i26+i27+i28+i29+i30+i31+i32+i33+i34+i35+i36;
+                                                                                                                                                        
+                                                                                                                                                        if(combinaciones_totales>10000000){break;}
+
                                                                                                                                                         if (v == 18) {
                                                                                                                                                             combinaciones_totales = combinaciones_totales + 1;
                                                                                                                                                             combi.push([combinaciones_totales,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36]);     
-                                                                                                                                                            console.log(combinaciones_totales);
-
+                                                                                                                                                            //console.log(combinaciones_totales);
+                                                                                                                                                            
 
 
                                                                                                                                                         }
@@ -364,7 +378,76 @@ for (let index = 0; index < 500; index++) {     //array.length   34560000
 }
 
 
-mostrar_resultados();
+
+
+
+
+
+
+
+
+
+
+function test_array(){
+
+    indice = 0;
+
+
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array1.push([indice,123456789]); 
+        
+    }
+    
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array2.push([indice,123456789]); 
+        
+    }
+
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array3.push([indice,123456789]); 
+        
+    }
+
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array4.push([indice,123456789]); 
+        
+    }
+indice=0;
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array5.push([indice,123456789]); 
+        
+    }
+
+
+
+  
+    
+
+
+    
+
+
+
+    //console.log(test_array1.length);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+//mostrar_resultados();
 
 console.log("Fin programa");
 
@@ -372,7 +455,10 @@ let now2= new Date();
 console.log('La fecha actual es',now2);
 
 
-gen_combi2();
+//gen_combi2();
+
+test_array();
+
 
 let now= new Date();
 console.log('La fecha actual es',now);
