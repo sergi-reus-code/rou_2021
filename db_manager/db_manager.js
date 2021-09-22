@@ -16,6 +16,26 @@ class User {
       Email: ${this.email}
     `;
   }
+
+  gettest(){
+
+      return test();
+  }
+
+
+
+
 }
 
+
+function test(){
+
+return 10;
+
+}
+
+
+
+
 module.exports = User;
+exports.test = test;
