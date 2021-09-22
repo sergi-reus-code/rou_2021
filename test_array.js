@@ -1,3 +1,6 @@
+let rectan = require('./db_manager');
+let retang = new Rectangle(10,10);
+
 //let test_array = [[0,0,0,"A","B","C","D","E","G"]];
 let test_array1 = [];
 let test_array2 = [];
@@ -22,8 +25,9 @@ let test_array20 = [];
 
 
 
+function someOtherFunction(){
 
-for (let index = 0; index < 90000000; index++) {       //25000000
+for (let index = 0; index < 225; index++) {       //25000000    90000000
     test_array1.push("A");
     test_array2.push("A");
     test_array3.push("A");
@@ -44,21 +48,20 @@ for (let index = 0; index < 90000000; index++) {       //25000000
     //test_array18.push("A");
     //test_array19.push("A");
     //test_array20.push("A");
-
-
-
-
-
-
-
-    
+   
+}
 }
 
 
 
 
-
-
+async function someFunction() {
+    try {
+      await someOtherFunction()
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
 
 
@@ -72,5 +75,11 @@ for (let index = 0; index < 90000000; index++) {       //25000000
 //console.table(test_array);
 
 //console.table(test_array[248][5]);
+
+someFunction();
+
+
+
+
 
 console.log(test_array2.length);
