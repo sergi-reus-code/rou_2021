@@ -2,13 +2,16 @@
   "name": "spy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "spy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prompt": "^1.2.0"
+    "node-tesseract-ocr": "^2.2.1",
+    "node-window-manager": "^2.2.4",
+    "prompt": "^1.2.0",
+    "robotjs": "^0.6.0"
   }
 }
