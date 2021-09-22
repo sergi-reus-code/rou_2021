@@ -105,13 +105,23 @@ function getwindow(title) {
 }
 
 
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 720 });
-console.log(getwindow('Casino en vivo - Mozilla Firefox').bringToTop());
-console.log(getwindow('Casino en vivo - Mozilla Firefox').getBounds().height);
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
 
 
+
+
+
+
+
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+//getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 720 });
+//console.log(getwindow('Casino en vivo - Mozilla Firefox').bringToTop());
+//console.log(getwindow('Casino en vivo - Mozilla Firefox').getBounds().height);
+
+sleep(2000);
 robot.moveMouse(100, 100);
 
 
