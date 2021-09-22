@@ -469,8 +469,6 @@ for (let index = 0; index < 59520; index++) {     //100 años 70080000   //1 mes
     tier_seguidas(rndInt);
     tier_no_seguidas(rndInt);
 
-    
-
     orphelins_seguidas(rndInt);
     orphelins_no_seguidas(rndInt);
 
@@ -518,6 +516,12 @@ const numberToGuess = Math.floor(Math.random() * 10) + 1;
 // This variable is used to determine if the app should continue prompting the user for input
 let foundCorrectNumber = false;
  
+
+
+
+
+
+
 while (!foundCorrectNumber) {
   // Get user input
   let guess = prompt('Guess a number from 1 to 10: ');
@@ -533,4 +537,7 @@ while (!foundCorrectNumber) {
   } else {
     console.log('Sorry, guess again!');
   }
+
+
+
 }
