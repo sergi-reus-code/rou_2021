@@ -25,7 +25,7 @@ let repeticiones_docenarias = 0;
 let combinaciones_totales = 0;
 let indice_array = 0;
 
-let combi = [[indice_array,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+let combi = [[indice_array, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 let test_array1 = [];
 let test_array2 = [];
@@ -244,11 +244,65 @@ function mostrar_resultados() {
 
 }
 
+function gen_combi_18_9() {
+
+    combinaciones_totales = 0;
+
+    for (let i1 = 0; i1 < 2; i1++) {
+        for (let i2 = 0; i2 < 2; i2++) {
+            for (let i3 = 0; i3 < 2; i3++) {
+                for (let i4 = 0; i4 < 2; i4++) {
+                    for (let i5 = 0; i5 < 2; i5++) {
+                        for (let i6 = 0; i6 < 2; i6++) {
+                            for (let i7 = 0; i7 < 2; i7++) {
+                                for (let i8 = 0; i8 < 2; i8++) {
+                                    for (let i9 = 0; i9 < 2; i9++) {
+                                        for (let i10 = 0; i10 < 2; i10++) {
+                                            for (let i11 = 0; i11 < 2; i11++) {
+                                                for (let i12 = 0; i12 < 2; i12++) {
+                                                    for (let i13 = 0; i13 < 2; i13++) {
+                                                        for (let i14 = 0; i14 < 2; i14++) {
+                                                            for (let i15 = 0; i15 < 2; i15++) {
+                                                                for (let i16 = 0; i16 < 2; i16++) {
+                                                                    for (let i17 = 0; i17 < 2; i17++) {
+                                                                        for (let i18 = 0; i18 < 2; i18++) {
+
+                                                                            //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18);
+                                                                            let v = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18;
+                                                                            //if(combinaciones_totales>10000000){break;}
+                                                                            if (v == 9) {
+                                                                                combinaciones_totales = combinaciones_totales + 1;
+                                                                                //combi.push([combinaciones_totales,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18]);     
+                                                                                //console.log(combinaciones_totales);
+                                                                            }
+
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
 
-function gen_combi2() {
+
+function gen_combi_36_18() {
+
+    combinaciones_totales = 0;
 
     for (let i1 = 0; i1 < 2; i1++) {
         for (let i2 = 0; i2 < 2; i2++) {
@@ -282,29 +336,23 @@ function gen_combi2() {
                                                                                                                         for (let i30 = 0; i30 < 2; i30++) {
                                                                                                                             for (let i31 = 0; i31 < 2; i31++) {
                                                                                                                                 for (let i32 = 0; i32 < 2; i32++) {
-                                                                                                                                    for (let i33 = 0; i33 < 2; i33++) {
-                                                                                                                                        for (let i34 = 0; i34 < 2; i34++) {
-                                                                                                                                            for (let i35 = 0; i35 < 2; i35++) {
-                                                                                                                                                for (let i36 = 0; i36 < 2; i36++) {
+                                                                                                                                  //  for (let i33 = 0; i33 < 2; i33++) {
+                                                                                                                                       // for (let i34 = 0; i34 < 2; i34++) {
+                                                                                                                                          //  for (let i35 = 0; i35 < 2; i35++) {
+                                                                                                                                              //  for (let i36 = 0; i36 < 2; i36++) {
+                                                                                                                                                    //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36);
+                                                                                                                                                    let v = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32;// + i33 + i34 + i35 + i36;
+                                                                                                                                                    //if(combinaciones_totales>10000000){break;}
+                                                                                                                                                    if (v == 16) {
+                                                                                                                                                        combinaciones_totales = combinaciones_totales + 1;
+                                                                                                                                                        //combi.push([combinaciones_totales,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36]);     
+                                                                                                                                                        //console.log(combinaciones_totales);
+                                                                                                                                                    }
 
-                                                                                                                                                        //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36);
-                                                                                                                                                        let v = i1+i2+i3+i4+i5+i6+i7+i8+i9+i10+i11+i12+i13+i14+i15+i16+i17+i18+i19+i20+i21+i22+i23+i24+i25+i26+i27+i28+i29+i30+i31+i32+i33+i34+i35+i36;
-                                                                                                                                                        
-                                                                                                                                                        if(combinaciones_totales>10000000){break;}
-
-                                                                                                                                                        if (v == 18) {
-                                                                                                                                                            combinaciones_totales = combinaciones_totales + 1;
-                                                                                                                                                            combi.push([combinaciones_totales,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36]);     
-                                                                                                                                                            //console.log(combinaciones_totales);
-                                                                                                                                                            
-
-
-                                                                                                                                                        }
-
-                                                                                                                                                }
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    }
+                                                                                                                                               // }
+                                                                                                                                           // }
+                                                                                                                                       // }
+                                                                                                                                  //  }
                                                                                                                                 }
                                                                                                                             }
                                                                                                                         }
@@ -341,20 +389,7 @@ function gen_combi2() {
 
 
 
-
-
-
-
-
-/**
- * Inicio programa
- */
-
-console.log("Inicio programa....");
-
-
-
-
+/*
 
 for (let index = 0; index < 500; index++) {     //array.length   34560000
 
@@ -378,58 +413,50 @@ for (let index = 0; index < 500; index++) {     //array.length   34560000
 }
 
 
+*/
 
-
-
-
-
-
-
-
-
-
-function test_array(){
+function test_array() {
 
     indice = 0;
 
 
     for (let index = 0; index < 56000000; index++) {
         indice++;
-        test_array1.push([indice,123456789]); 
-        
-    }
-    
-    for (let index = 0; index < 56000000; index++) {
-        indice++;
-        test_array2.push([indice,123456789]); 
-        
+        test_array1.push([indice, 123456789]);
+
     }
 
     for (let index = 0; index < 56000000; index++) {
         indice++;
-        test_array3.push([indice,123456789]); 
-        
+        test_array2.push([indice, 123456789]);
+
     }
 
     for (let index = 0; index < 56000000; index++) {
         indice++;
-        test_array4.push([indice,123456789]); 
-        
+        test_array3.push([indice, 123456789]);
+
     }
-indice=0;
+
     for (let index = 0; index < 56000000; index++) {
         indice++;
-        test_array5.push([indice,123456789]); 
-        
+        test_array4.push([indice, 123456789]);
+
+    }
+    indice = 0;
+    for (let index = 0; index < 56000000; index++) {
+        indice++;
+        test_array5.push([indice, 123456789]);
+
     }
 
 
 
-  
-    
 
 
-    
+
+
+
 
 
 
@@ -446,22 +473,20 @@ indice=0;
 
 
 
+/**
+ * Inicio programa test de combinaciones
+ */
+console.log("Inicio programa test de combinaciones....");
 
-//mostrar_resultados();
+let now2 = new Date();
+console.log('La fecha actual es ', Date(now2));
 
-console.log("Fin programa");
+gen_combi_36_18();
 
-let now2= new Date();
-console.log('La fecha actual es',now2);
+//gen_combi_18_9();
 
-
-//gen_combi2();
-
-test_array();
-
-
-let now= new Date();
-console.log('La fecha actual es',now);
+let now = new Date();
+console.log('La fecha actual es', Date(now));
 
 
 console.log("Fin programa combi, combinaciones totales : ", combinaciones_totales);
