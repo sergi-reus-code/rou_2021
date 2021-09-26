@@ -1,16 +1,15 @@
 {
-  "name": "spy",
+  "name": "master",
   "version": "1.0.0",
   "description": "",
-  "main": "spy.js",
+  "main": "master.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-tesseract-ocr": "^2.2.1",
-    "node-window-manager": "^2.2.4",
-    "robotjs": "^0.6.0"
+    "express": "^4.17.1",
+    "socket.io": "^4.2.0"
   }
 }
