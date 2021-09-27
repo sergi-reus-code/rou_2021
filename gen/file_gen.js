@@ -12,57 +12,51 @@ var fs = require('fs');
 
 function borrar_archivos (linia){
 
-    if (fs.existsSync('2e36_0_18.txt')) { fs.unlink('2e36_0_18.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_1_17.txt')) { fs.unlink('2e36_1_17.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_2_16.txt')) { fs.unlink('2e36_2_16.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_3_15.txt')) { fs.unlink('2e36_3_15.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_4_14.txt')) { fs.unlink('2e36_4_14.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_5_13.txt')) { fs.unlink('2e36_5_13.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_6_12.txt')) { fs.unlink('2e36_6_12.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_7_11.txt')) { fs.unlink('2e36_7_11.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_8_10.txt')) { fs.unlink('2e36_8_10.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_9_9.txt'))  { fs.unlink('2e36_9_9.txt',  function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_10_8.txt')) { fs.unlink('2e36_10_8.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_11_7.txt')) { fs.unlink('2e36_11_7.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_12_6.txt')) { fs.unlink('2e36_12_6.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_13_5.txt')) { fs.unlink('2e36_13_5.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_14_4.txt')) { fs.unlink('2e36_14_4.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_15_3.txt')) { fs.unlink('2e36_15_3.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_16_2.txt')) { fs.unlink('2e36_16_2.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_17_1.txt')) { fs.unlink('2e36_17_1.txt', function (err) { if (err) throw err; }); }
-    if (fs.existsSync('2e36_18_0.txt')) { fs.unlink('2e36_18_0.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_0_18.txt')) { fs.unlink('c:\\combi\\2e36_0_18.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_1_17.txt')) { fs.unlink('c:\\combi\\2e36_1_17.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_2_16.txt')) { fs.unlink('c:\\combi\\2e36_2_16.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_3_15.txt')) { fs.unlink('c:\\combi\\2e36_3_15.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_4_14.txt')) { fs.unlink('c:\\combi\\2e36_4_14.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_5_13.txt')) { fs.unlink('c:\\combi\\2e36_5_13.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_6_12.txt')) { fs.unlink('c:\\combi\\2e36_6_12.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_7_11.txt')) { fs.unlink('c:\\combi\\2e36_7_11.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_8_10.txt')) { fs.unlink('c:\\combi\\2e36_8_10.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_9_9.txt'))  { fs.unlink('c:\\combi\\2e36_9_9.txt',  function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_10_8.txt')) { fs.unlink('c:\\combi\\2e36_10_8.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_11_7.txt')) { fs.unlink('c:\\combi\\2e36_11_7.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_12_6.txt')) { fs.unlink('c:\\combi\\2e36_12_6.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_13_5.txt')) { fs.unlink('c:\\combi\\2e36_13_5.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_14_4.txt')) { fs.unlink('c:\\combi\\2e36_14_4.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_15_3.txt')) { fs.unlink('c:\\combi\\2e36_15_3.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_16_2.txt')) { fs.unlink('c:\\combi\\2e36_16_2.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_17_1.txt')) { fs.unlink('c:\\combi\\2e36_17_1.txt', function (err) { if (err) throw err; }); }
+    if (fs.existsSync('c:\\combi\\2e36_18_0.txt')) { fs.unlink('c:\\combi\\2e36_18_0.txt', function (err) { if (err) throw err; }); }
     
 } 
-
-
-
-
-
-
 
 
 function gravar_archivos (file, data){
 
     switch (file) {
-        case 0:   fs.appendFileSync('2e36_0_18.txt',data); break;
-        case 1:   fs.appendFileSync('2e36_1_17.txt',data); break;
-        case 2:   fs.appendFileSync('2e36_2_16.txt',data); break;
-        case 3:   fs.appendFileSync('2e36_3_15.txt',data); break;
-        case 4:   fs.appendFileSync('2e36_4_14.txt',data); break;
-        case 5:   fs.appendFileSync('2e36_5_13.txt',data); break;
-        case 6:   fs.appendFileSync('2e36_6_12.txt',data); break;
-        case 7:   fs.appendFileSync('2e36_7_11.txt',data); break;
-        case 8:   fs.appendFileSync('2e36_8_10.txt',data); break;
-        case 9:   fs.appendFileSync('2e36_9_9.txt',data); break;
-        case 10:  fs.appendFileSync('2e36_10_8.txt',data); break;
-        case 11:  fs.appendFileSync('2e36_11_7.txt',data); break;
-        case 12:  fs.appendFileSync('2e36_12_6.txt',data); break;
-        case 13:  fs.appendFileSync('2e36_13_5.txt',data); break;
-        case 14:  fs.appendFileSync('2e36_14_4.txt',data); break;
-        case 15:  fs.appendFileSync('2e36_15_3.txt',data); break;
-        case 16:  fs.appendFileSync('2e36_16_2.txt',data); break;
-        case 17:  fs.appendFileSync('2e36_17_1.txt',data); break;
-        case 18:  fs.appendFileSync('2e36_18_0.txt',data); break;
+        case 0:   fs.appendFileSync('c:\\combi\\2e36_0_18.txt',data); break;
+        case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;
+        case 2:   fs.appendFileSync('c:\\combi\\2e36_2_16.txt',data); break;
+        case 3:   fs.appendFileSync('c:\\combi\\2e36_3_15.txt',data); break;
+        case 4:   fs.appendFileSync('c:\\combi\\2e36_4_14.txt',data); break;
+        case 5:   fs.appendFileSync('c:\\combi\\2e36_5_13.txt',data); break;
+        case 6:   fs.appendFileSync('c:\\combi\\2e36_6_12.txt',data); break;
+        case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
+        case 8:   fs.appendFileSync('c:\\combi\\2e36_8_10.txt',data); break;
+        case 9:   fs.appendFileSync('c:\\combi\\2e36_9_9.txt',data); break;
+        case 10:  fs.appendFileSync('c:\\combi\\2e36_10_8.txt',data); break;
+        case 11:  fs.appendFileSync('c:\\combi\\2e36_11_7.txt',data); break;
+        case 12:  fs.appendFileSync('c:\\combi\\2e36_12_6.txt',data); break;
+        case 13:  fs.appendFileSync('c:\\combi\\2e36_13_5.txt',data); break;
+        case 14:  fs.appendFileSync('c:\\combi\\2e36_14_4.txt',data); break;
+        case 15:  fs.appendFileSync('c:\\combi\\2e36_15_3.txt',data); break;
+        case 16:  fs.appendFileSync('c:\\combi\\2e36_16_2.txt',data); break;
+        case 17:  fs.appendFileSync('c:\\combi\\2e36_17_1.txt',data); break;
+        case 18:  fs.appendFileSync('c:\\combi\\2e36_18_0.txt',data); break;
         
         default:
             break;
