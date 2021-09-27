@@ -10,66 +10,6 @@ let combi = [];
 
 
 
-function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-
-function actualizar_resultados(spin) {
-
-    switch (rndInt) {
-
-        case 0: resultados[0] = resultados[0] + 1; break;
-        case 1: resultados[1] = resultados[1] + 1; break;
-        case 2: resultados[2] = resultados[2] + 1; break;
-        case 3: resultados[3] = resultados[3] + 1; break;
-        case 4: resultados[4] = resultados[4] + 1; break;
-        case 5: resultados[5] = resultados[5] + 1; break;
-        case 6: resultados[6] = resultados[6] + 1; break;
-        case 7: resultados[7] = resultados[7] + 1; break;
-        case 8: resultados[8] = resultados[8] + 1; break;
-        case 9: resultados[9] = resultados[9] + 1; break;
-        case 10: resultados[10] = resultados[10] + 1; break;
-        case 11: resultados[11] = resultados[11] + 1; break;
-        case 12: resultados[12] = resultados[12] + 1; break;
-        case 13: resultados[13] = resultados[13] + 1; break;
-        case 14: resultados[14] = resultados[14] + 1; break;
-        case 15: resultados[15] = resultados[15] + 1; break;
-        case 16: resultados[16] = resultados[16] + 1; break;
-        case 17: resultados[17] = resultados[17] + 1; break;
-        case 18: resultados[18] = resultados[18] + 1; break;
-        case 19: resultados[19] = resultados[19] + 1; break;
-        case 20: resultados[20] = resultados[20] + 1; break;
-        case 21: resultados[21] = resultados[21] + 1; break;
-        case 22: resultados[22] = resultados[22] + 1; break;
-        case 23: resultados[23] = resultados[23] + 1; break;
-        case 24: resultados[24] = resultados[24] + 1; break;
-        case 25: resultados[25] = resultados[25] + 1; break;
-        case 26: resultados[26] = resultados[26] + 1; break;
-        case 27: resultados[27] = resultados[27] + 1; break;
-        case 28: resultados[28] = resultados[28] + 1; break;
-        case 29: resultados[29] = resultados[29] + 1; break;
-        case 30: resultados[30] = resultados[30] + 1; break;
-        case 31: resultados[31] = resultados[31] + 1; break;
-        case 32: resultados[32] = resultados[32] + 1; break;
-        case 33: resultados[33] = resultados[33] + 1; break;
-        case 34: resultados[34] = resultados[34] + 1; break;
-        case 35: resultados[35] = resultados[35] + 1; break;
-        case 36: resultados[36] = resultados[36] + 1; break;
-
-        default:
-
-            console.log("error")
-
-            break;
-    }
-
-
-
-
-}
-
-
 
 
 function gen_combi_36_18() {
@@ -82,6 +22,8 @@ function gen_combi_36_18() {
       if (err) throw err;
       console.log('File deleted!');
     }); 
+
+    //fs = openSync('2e36_18.txt.txt', 'w');
 
 
     for (let i1 = 0; i1 < 2; i1++) {
@@ -103,10 +45,10 @@ function gen_combi_36_18() {
                                                                     for (let i17 = 0; i17 < 2; i17++) {
                                                                         for (let i18 = 0; i18 < 2; i18++) {
                                                                             
-                                                                            var nombre_archivo = "C:\\combi\\" + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18+ ".txt"
+                                                                            //var nombre_archivo = "C:\\combi\\" + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18+ ".txt"
                                                                             
                                                                             //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18);
-                                                                            console.log(nombre_archivo);
+                                                                            //console.log(nombre_archivo);
                                                                             
                                                                             for (let i19 = 0; i19 < 2; i19++) {
                                                                                 for (let i20 = 0; i20 < 2; i20++) {
@@ -131,13 +73,21 @@ function gen_combi_36_18() {
                                                                                                                                                     //if(combinaciones_totales > 9999 ){return;}
                                                                                                                                                     if (v == 18) {
                                                                                                                                                         combinaciones_totales = combinaciones_totales + 1;
-                                                                                                                                                        //var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
-                                                                                                                                                        var data = i19.toString() + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
+                                                                                                                                                        var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
+                                                                                                                                                        //var data = i19.toString() + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
                                                                                                                                                         //var data = "" , i1n , i2 , i3 , i4 , i5 , i6 , i7 , i8 , i9 , i10 , i11 , i12 , i13 , i14 , i15 , i16 , i17 , i18 , i19 , i20 , i21 , i22 , i23 , i24 , i25 , i26 , i27 , i28 , i29 , i30 , i31 , i32 , i33 , i34 , i35 , i36, "\\\r");
-                                                                                                                                                        fs.appendFileSync(nombre_archivo,data, function (err) {
-                                                                                                                                                            if (err) throw err;
-                                                                                                                                                            console.log('Saved!');
-                                                                                                                                                          }); 
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
+                                                                                                                                                        
                                                                                                                                                         
                                                                                                                                                         //combi.push(1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0);     
                                                                                                                                                         //combi.push([256,256,256,256,0,0,0]);  
@@ -219,13 +169,13 @@ gen_combi_36_18();
 timestamp2 = Date.now();
 
 console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos");
-console.log("se han hecho : " , combi.length , " combinaciones");
+//console.log("se han hecho : " , combi.length , " combinaciones");
 
-test_combi();
+//test_combi();
 
-timestamp3 = Date.now();
+//timestamp3 = Date.now();
 
-console.log(" ha tardado : " , (timestamp3 - timestamp2)/1000 , "segundos");
+//console.log(" ha tardado : " , (timestamp3 - timestamp2)/1000 , "segundos");
 //console.log("Fin programa combi, combinaciones totales : " +  combinaciones_totales.length);
 
-console.log("se han hecho : " , combi.length , " combinaciones");
+//console.log("se han hecho : " , combi.length , " combinaciones");
