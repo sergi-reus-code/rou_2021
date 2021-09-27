@@ -102,6 +102,12 @@ function gen_combi_36_18() {
                                                                 for (let i16 = 0; i16 < 2; i16++) {
                                                                     for (let i17 = 0; i17 < 2; i17++) {
                                                                         for (let i18 = 0; i18 < 2; i18++) {
+                                                                            
+                                                                            var nombre_archivo = "C:\\combi\\" + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18+ ".txt"
+                                                                            
+                                                                            //console.log(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18);
+                                                                            console.log(nombre_archivo);
+                                                                            
                                                                             for (let i19 = 0; i19 < 2; i19++) {
                                                                                 for (let i20 = 0; i20 < 2; i20++) {
                                                                                     for (let i21 = 0; i21 < 2; i21++) {
@@ -125,9 +131,10 @@ function gen_combi_36_18() {
                                                                                                                                                     //if(combinaciones_totales > 9999 ){return;}
                                                                                                                                                     if (v == 18) {
                                                                                                                                                         combinaciones_totales = combinaciones_totales + 1;
-                                                                                                                                                        var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
+                                                                                                                                                        //var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
+                                                                                                                                                        var data = i19.toString() + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 + "\r";
                                                                                                                                                         //var data = "" , i1n , i2 , i3 , i4 , i5 , i6 , i7 , i8 , i9 , i10 , i11 , i12 , i13 , i14 , i15 , i16 , i17 , i18 , i19 , i20 , i21 , i22 , i23 , i24 , i25 , i26 , i27 , i28 , i29 , i30 , i31 , i32 , i33 , i34 , i35 , i36, "\\\r");
-                                                                                                                                                        fs.appendFileSync('2e36_18.txt',data, function (err) {
+                                                                                                                                                        fs.appendFileSync(nombre_archivo,data, function (err) {
                                                                                                                                                             if (err) throw err;
                                                                                                                                                             console.log('Saved!');
                                                                                                                                                           }); 
