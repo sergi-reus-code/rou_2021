@@ -1,13 +1,13 @@
-const { windowManager } = require ("node-window-manager");
+//const { windowManager } = require ("node-window-manager");
 var robot = require("robotjs");
 const tesseract = require("node-tesseract-ocr");
 
-windowManager.requestAccessibility();   //for mac
+//windowManager.requestAccessibility();   //for mac
 
 
 
 
-
+/*
 
 function getwindow(title) {
 
@@ -40,7 +40,7 @@ function getwindow(title) {
   
 }
 
-
+*/
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
@@ -51,10 +51,10 @@ function sleep(ms) {
 
 
 
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+//getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 /*
 sleep(1000);
 robot.moveMouse(1378, 781);
@@ -111,10 +111,10 @@ robot.mouseClick("left");
 
 
 
-console.log(getwindow('Casino en vivo - Mozilla Firefox').getBounds().height);
+//console.log(getwindow('Casino en vivo - Mozilla Firefox').getBounds().height);
 
-sleep(2000);
-robot.moveMouse(777, 455);
+//sleep(2000);
+//robot.moveMouse(777, 455);
 
 //var img = robot.screen.capture(743, 436, 70, 63);
 
@@ -127,9 +127,9 @@ console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.ge
 //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(777, 455) );
 sleep(500);
 
-var img = robot.screen.capture(777, 455, 2, 2);
+//var img = robot.screen.capture(777, 455, 2, 2);
 
-console.log(img.width)
+//console.log(img.width)
 
 //Get pixel color at 50, 50.
 //var hex = img.colorAt(1, 1);

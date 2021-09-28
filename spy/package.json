@@ -1,7 +1,6 @@
 {
   "name": "spy",
   "version": "1.0.0",
-  "description": "",
   "main": "spy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +12,7 @@
     "node-window-manager": "^2.2.4",
     "readline-sync": "^1.4.10",
     "robotjs": "^0.6.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

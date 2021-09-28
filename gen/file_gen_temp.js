@@ -39,36 +39,36 @@ function gravar_archivos (file, data){
 
     //if (fs.existsSync('43375670.txt')) { fs.unlink('43375670.txt', function (err) { if (err) throw err; }); }
     
-    fs.appendFileSync('43375670.txt',data); 
+    //fs.appendFileSync('43375670.txt',data); 
 
 
-/*
+
 
     switch (file) {
         case 0:   fs.appendFileSync('c:\\combi\\2e36_0_18.txt',data); break;
         case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;
-        case 2:   fs.appendFileSync('c:\\combi\\2e36_2_16.txt',data); break;
-        case 3:   fs.appendFileSync('c:\\combi\\2e36_3_15.txt',data); break;
-        case 4:   fs.appendFileSync('c:\\combi\\2e36_4_14.txt',data); break;
-        case 5:   fs.appendFileSync('c:\\combi\\2e36_5_13.txt',data); break;
-        case 6:   fs.appendFileSync('c:\\combi\\2e36_6_12.txt',data); break;
-        case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
-        case 8:   fs.appendFileSync('c:\\combi\\2e36_8_10.txt',data); break;
-        case 9:   fs.appendFileSync('c:\\combi\\2e36_9_9.txt',data); break;
-        case 10:  fs.appendFileSync('c:\\combi\\2e36_10_8.txt',data); break;
-        case 11:  fs.appendFileSync('c:\\combi\\2e36_11_7.txt',data); break;
-        case 12:  fs.appendFileSync('c:\\combi\\2e36_12_6.txt',data); break;
-        case 13:  fs.appendFileSync('c:\\combi\\2e36_13_5.txt',data); break;
-        case 14:  fs.appendFileSync('c:\\combi\\2e36_14_4.txt',data); break;
-        case 15:  fs.appendFileSync('c:\\combi\\2e36_15_3.txt',data); break;
-        case 16:  fs.appendFileSync('c:\\combi\\2e36_16_2.txt',data); break;
+        case 2:   break;//fs.appendFileSync('c:\\combi\\2e36_2_16.txt',data); break;
+        case 3:   break;//fs.appendFileSync('c:\\combi\\2e36_3_15.txt',data); break;
+        case 4:   break;//fs.appendFileSync('c:\\combi\\2e36_4_14.txt',data); break;
+        case 5:   break;//fs.appendFileSync('c:\\combi\\2e36_5_13.txt',data); break;
+        case 6:   break;//fs.appendFileSync('c:\\combi\\2e36_6_12.txt',data); break;
+        case 7:   break;//fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
+        case 8:   break;//fs.appendFileSync('c:\\combi\\2e36_8_10.txt',data); break;
+        case 9:   break;//fs.appendFileSync('c:\\combi\\2e36_9_9.txt',data); break;
+        case 10:  break;//fs.appendFileSync('c:\\combi\\2e36_10_8.txt',data); break;
+        case 11:  break;//fs.appendFileSync('c:\\combi\\2e36_11_7.txt',data); break;
+        case 12:  break;//fs.appendFileSync('c:\\combi\\2e36_12_6.txt',data); break;
+        case 13:  break;//fs.appendFileSync('c:\\combi\\2e36_13_5.txt',data); break;
+        case 14:  break;//fs.appendFileSync('c:\\combi\\2e36_14_4.txt',data); break;
+        case 15:  break;//fs.appendFileSync('c:\\combi\\2e36_15_3.txt',data); break;
+        case 16:  break;//fs.appendFileSync('c:\\combi\\2e36_16_2.txt',data); break;
         case 17:  fs.appendFileSync('c:\\combi\\2e36_17_1.txt',data); break;
         case 18:  fs.appendFileSync('c:\\combi\\2e36_18_0.txt',data); break;
         
         default:
             break;
     }
-*/
+
 
 } 
 
@@ -121,14 +121,14 @@ function gen_combi_36_18() {
                                                                                                                                                     let v = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36;
                                                                                                                                                     let v_18 = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18;
                                                                                                                                                     
-                                                                                                                                                    if(combinaciones_totales > 43375670 ){return;}
+                                                                                                                                                    //if(combinaciones_totales > 43375670 ){return;}
                                                                                                                                                     
                                                                                                                                                     if (v == 18) {
                                                                                                                                                         
                                                                                                                                                         combinaciones_totales = combinaciones_totales + 1;
                                                                                                                                                         var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 +"\r";
                                                                                                                                                                                                                                                                                                     
-                                                                                                                                                        gravar_archivos(v_18,data);
+                                                                                                                                                        //gravar_archivos(v_18,data);
                                                                                                                                                     }
                                                                                                                                                 }
                                                                                                                                             }
