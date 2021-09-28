@@ -11,6 +11,7 @@
   "dependencies": {
     "node-tesseract-ocr": "^2.2.1",
     "node-window-manager": "^2.2.4",
+    "readline-sync": "^1.4.10",
     "robotjs": "^0.6.0"
   }
 }
