@@ -40,13 +40,13 @@ function gravar_archivos (file, data){
 
     switch (file) {
         //case 0:   fs.appendFileSync('c:\\combi\\2e36_0_18.txt',data); break;  DONE
-        //case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;  DONE
+        case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;  DONE
         //case 2:   fs.appendFileSync('c:\\combi\\2e36_2_16.txt',data); break;  DONE
         //case 3:   fs.appendFileSync('c:\\combi\\2e36_3_15.txt',data); break;
         //case 4:   fs.appendFileSync('c:\\combi\\2e36_4_14.txt',data); break;
         //case 5:   fs.appendFileSync('c:\\combi\\2e36_5_13.txt',data); break;
         //case 6:   fs.appendFileSync('c:\\combi\\2e36_6_12.txt',data); break;
-        case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
+        //case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
         //case 8:   fs.appendFileSync('c:\\combi\\2e36_8_10.txt',data); break;
         //case 9:   fs.appendFileSync('c:\\combi\\2e36_9_9.txt',data); break;
         //case 10:  fs.appendFileSync('c:\\combi\\2e36_10_8.txt',data); break;
@@ -119,8 +119,8 @@ function gen_combi_36_18() {
                                                                                                                                                         
                                                                                                                                                         combinaciones_totales = combinaciones_totales + 1;
                                                                                                                                                         var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 +"\r";
-                                                                                                                                                        fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data);                                                                                                                                           
-                                                                                                                                                        //gravar_archivos(v_18,data);
+                                                                                                                                                        //fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data);                                                                                                                                           
+                                                                                                                                                        gravar_archivos(v_18,data);
                                                                                                                                                     }
                                                                                                                                                 }
                                                                                                                                             }

@@ -4,6 +4,9 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
+const array_slaves = require('./array_slaves');
+
+
 
 app.use(express.json());
 
@@ -29,20 +32,6 @@ server.listen(8080, function () {
 
 
 
-var messages = [
-  {
-    author: "Carlos",
-    text: "Hola! que tal?",
-  },
-  {
-    author: "Pepe",
-    text: "Muy bien! y tu??",
-  },
-  {
-    author: "Paco",
-    text: "Genial!",
-  },
-];
 
 
 
@@ -59,7 +48,7 @@ io.on("connection", function (socket) {
 
   });
 
-  socket.on('spy_spin', function (msg) { 
+socket.on('spy_spin', function (msg) { 
     console.log(Number(msg));  
   });
 
@@ -69,24 +58,27 @@ io.on("connection", function (socket) {
 
 
 // slave //  
-  socket.on('first_connection_slave', function (msg) { 
-    console.log('message: ' + msg);  
-  });
+socket.on('first_connection_slave', function (msg) { 
+    console.log(`slave: ${msg} on-line -> sending conf ` + msg);  
+
+
+    var mensage_first_config = [1,1,1];
 
 
 
 
-
- //console.log("Un slave se ha conectado");
-  
+    socket.emit("message", mensage_first_config);
 
 
- socket.on('message', function (msg) { 
+});
+
+socket.on('message', function (msg) { 
     console.log('messageeeee: ' + msg);  
-  });
+});
   
 
-  socket.emit("messages", messages);
+//socket.emit("messages", messages);
+
 
 });
 

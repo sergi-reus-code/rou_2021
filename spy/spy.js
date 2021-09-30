@@ -9,13 +9,7 @@ var robot = require("robotjs");
 
 
 
-const { Socket } = require("socket.io");
-const io = require("socket.io-client");
 
-var socket = io.connect("http://localhost:8080", { forceNew: true });
-
-
-//socket.emit('first_connection', "soy spy");
 
 
 
@@ -159,40 +153,6 @@ robot.mouseClick("left");
 
 
 
-var readlineSync = require('readline-sync'),
-  modo = ['Modo Test Archivo', 'Modo Test Rnd', 'Modo Test Manual', 'Modo Normal Manual', 'Modo Normal Automatico (Default)'],
-  index = readlineSync.keyInSelect(modo, 'Que modo deseas utilizar?');
-  
-  switch (index) {
-    case 0:
-        console.log("Modo 1 -> Modo Test desde archivo \'tiradas.txt\'");  
-         
-        test_archivo(socket);
-        break;
-      
-    case 1:
-      console.log("Modo 2 -> Modo Test automatico con random number");
-      test_random(socket);  
-        break;
-  
-    case 2:
-      console.log("Modo 3 -> Modo Test con entrada de numeros manual");  
-      test_manual(socket);  
-      break;
-  
-    case 3:
-      console.log("Modo 4 -> Modo Normal manual con entrada de numeros desde consola");  
-      normal_manual();
-      break;
-      
-    case 4:
-      console.log("Modo 5 -> Modo Normal automatico (Default)");  
-      normal_automatico(socket);
-      break; 
-
-    default:
-      break;
-  }
 
 
 
@@ -202,58 +162,18 @@ var readlineSync = require('readline-sync'),
 
 
 
-function test_archivo(socket1) {
-
-   socket1.emit('spy_first_connection', "Spy: Spy funcionando en modo test desde archivo \'tiradas.txt\'"); 
-
-
-   socket1.on('spy_first_connection', function (msg) { 
-    console.log('message: ' + msg);  
-  });
-
-
-}
-
-function test_random(socket1) {
-
-  socket1.emit('spy_first_connection', "Spy: Spy funcionando en modo test automatico random"); 
-
-}
-
-function test_manual(socket1) {
-
-  
-
-  socket1.emit('spy_first_connection', "Spy: Spy funcionando en modo test manual");
-  
-
-
-  spin = readlineSync.question('Spin ? ');
-  socket1.emit('spy_spin', spin);
-  socket1.emit('spy_spin', spin+1);
-  socket1.emit('spy_spin', spin+2);
-  socket1.emit('spy_spin', spin+3);
-  socket1.emit('spy_spin', spin+4);
-
-    
-    
-
-  }
 
 
 
 
-function normal_manual(socket1) {
 
-  socket1.emit('spy_first_connection', "Spy: Spy funcionando en modo test manual"); 
 
-}
 
-function normal_automatico(socket1) {
 
-  socket1.emit('spy_first_connection', "Spy: Spy funcionando en modo test manual"); 
 
-}
+
+
+
 
 
 

@@ -3,17 +3,45 @@ const io = require("socket.io-client");
 
 var socket = io.connect("http://localhost:8080", { forceNew: true });
 
-var num_slave = 1;
+function sleep(ms) {
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+  }
 
-socket.emit('first_connection_slave', `Slave: Soy slave  ${num_slave} `);
 
-/*
-socket.on("messages", function (data) {
+
+
+
+
+
+socket.on("message", function (data) {     //data es un objeto json
+
+    
+
     console.log(data);
+    sleep(2000);
+    socket.emit('message', "fgsdfgsdfg");
+
+
+
+
+
 });
 
 
-*/
 
-//socket.emit('message', "fgsdfgsdfg");
+
+//1.0 darse de alta en master (no hace falta)
+socket.emit('first_connection_slave', "wake on lan");
+
+//2.0 inicializar array con config desde master
+//3.0 aceptar i procesar peticiones 
+
+
+
+
+
+
+
+
+
 
