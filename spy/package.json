@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.4",
+    "inquirer": "^8.1.5",
     "node-fetch": "^3.0.0",
     "node-tesseract-ocr": "^2.2.1",
     "node-window-manager": "^2.2.4",
