@@ -60,7 +60,7 @@ io.on("connection", function (socket) {
   });
 
   socket.on('spy_spin', function (msg) { 
-    console.log('spin: ' + msg);  
+    console.log(Number(msg));  
   });
 
 

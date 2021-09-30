@@ -1,45 +1,36 @@
-const axios = require("axios");
 const prompt = require('prompt-sync')({sigint: true});
+const forceSync = require('sync-rpc')
+const syncFunction = forceSync(require.resolve('./async'))
+
+// inside your thing that needs to be sync (for whatever reason)
+const paramOne = 'foo'
+const paramTwo = 'bar'
+console.log('start')
 
 
 
-const url = "http://localhost:3000/";
+while(1){
 
-
-
-const getData = async url => {
-  try {
-    const response = await axios.get(url);
-    const data = response.data;
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
-
-
-
-
-async function ask() {
-  
-    let spin = prompt('Spin: ');
-    spin = Number(spin);
+  let spin = prompt('Spin: ');
+  spin = Number(spin);
     
-    //socket.emit('spy_spin', `Spy: Spy funcionando  ${spin}  `); 
-      
-      
-      if (spin<36) {
-        getData(url);
-        ask();
-      } else {
-        console.log('Your favorite TV Shows:');
-      }
-  };
-  
-  
-  ask();
 
 
 
+
+
+const syncReturn = syncFunction(spin, paramTwo)
+console.log('syncReturn', syncReturn)
+
+
+
+
+
+
+
+}
+
+// result after 2 seconds
+// { one: `foo-value`, two: `bar-value` }
+
+// Do the rest of your stuff with `syncReturn` value
