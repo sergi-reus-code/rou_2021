@@ -40,13 +40,13 @@ function gravar_archivos (file, data){
 
     switch (file) {
         //case 0:   fs.appendFileSync('c:\\combi\\2e36_0_18.txt',data); break;  DONE
-        case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;  DONE
+        //case 1:   fs.appendFileSync('c:\\combi\\2e36_1_17.txt',data); break;  DONE
         //case 2:   fs.appendFileSync('c:\\combi\\2e36_2_16.txt',data); break;  DONE
         //case 3:   fs.appendFileSync('c:\\combi\\2e36_3_15.txt',data); break;
         //case 4:   fs.appendFileSync('c:\\combi\\2e36_4_14.txt',data); break;
         //case 5:   fs.appendFileSync('c:\\combi\\2e36_5_13.txt',data); break;
         //case 6:   fs.appendFileSync('c:\\combi\\2e36_6_12.txt',data); break;
-        //case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
+        case 7:   fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data); break;
         //case 8:   fs.appendFileSync('c:\\combi\\2e36_8_10.txt',data); break;
         //case 9:   fs.appendFileSync('c:\\combi\\2e36_9_9.txt',data); break;
         //case 10:  fs.appendFileSync('c:\\combi\\2e36_10_8.txt',data); break;

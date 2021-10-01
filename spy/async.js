@@ -12,7 +12,12 @@ function asyncFunction() {
 
 
       socket.emit('spy_spin', paramOne); 
-
+      
+      socket.on('spy_spin', function (msg) { 
+        console.log("dftgdfghdfh" + msg); 
+        
+        
+      });
 
 
 
