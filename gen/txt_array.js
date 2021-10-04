@@ -1,17 +1,11 @@
 var fs = require('fs');
 const readline = require('readline');
 
-/*
-
-const readInterface = readline.createInterface({
-    input: fs.createReadStream('2e36_4_14.txt'),
-    //output: process.stdout,
-    console: false
-});
-
-*/
-
 let combi_array = [];
+
+var limite = 10;
+let ii=0;
+
 
 function llenar_array(linia) {
 
@@ -53,13 +47,11 @@ function llenar_array(linia) {
     let v34 = parseInt(linia.substr(33, 1));
     let v35 = parseInt(linia.substr(34, 1));
     let v36 = parseInt(linia.substr(35, 1));
-    
-    
-
 
     combi_array.push([v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v2,v13,v14,v15,v16,v17,v18,v19,v20,v21,v22,v23,v24,v25,v26,v27,v28,v29,v30,v31,v32,v33,v34,v35,v36,0,0,0]);
-    
-}
+    //combi_array.push([256,256,256,256,0,0,0]);
+
+  }
 
 
 function sleep(ms) {
@@ -71,36 +63,109 @@ function sleep(ms) {
 
 
 
-console.log("Inicio programa test de combinaciones....");
 
-timestamp = Date.now();
 
-/*
 
-readInterface.on('line', function(line) {
-    
-    llenar_array(line.toString());
-    //console.log(combi_array.length);
- 
-});
-*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 function update_array(spin){
 
 
-    let i = 0;
+
+
+
+for (let index = 0; index < combi_array.length; index++) {
+  const lin_array = combi_array[index];
+  
 
 
 
 
-return combi_array[i];
+
+
+
+  ii++;
+  //console.log(ii);
+
+  if (lin_array[spin] == 1) {
+
+
+    if (lin_array[5] > 0) {
+
+        lin_array[6] = 0;
+      
+    } else {
+      
+        lin_array[6] = lin_array[39]++;
+
+    }
+
+    lin_array[4]=lin_array[4]++;
+    lin_array[5]=0;
+    
+  } else {
+    
+    if (lin_array[4] > 0) {
+
+      lin_array[6] = lin_array[6]++;
+      
+    } else {
+      
+      lin_array[6] = 0;
+
+    }
+
+    lin_array[4]=0;
+    lin_array[5]= lin_array[5]++
+
+  }
+
+
+  //console.log(lin_array);
+
+
+
+
+
+
+
+
+
 
 }
 
 
 
+
+
+    
+
+
+
+
+
+
+
+}
+
+
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
 
 
@@ -122,7 +187,13 @@ async function processLineByLine() {
     });
     // Note: we use the crlfDelay option to recognize all instances of CR LF
     // ('\r\n') in input.txt as a single line break.
-  
+    
+
+
+    console.log("Inicio programa test de combinaciones....");
+
+    timestamp = Date.now();
+    
     for await (const line of rl) {
       // Each line in input.txt will be successively available here as `line`.
 
@@ -145,19 +216,25 @@ async function processLineByLine() {
     console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos");
 
 
-    let spin =36;
+    let spin = randomIntFromInterval(0, 35)
+
+    
 
     const bet = update_array(spin);
 
-    console.log(bet);
+    //console.log(bet);
 
 
+    timestamp3 = Date.now();
 
+    console.log(" ha tardado : " , (timestamp3 - timestamp2)/1000 , "segundos");
 
 
   }
   
-  processLineByLine();
+
+
+processLineByLine();
 
 
 
