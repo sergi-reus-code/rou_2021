@@ -176,7 +176,7 @@ timestamp = Date.now();
 borrar_archivos();
 
 
-gen_combi_36_18(0,100000000,'c:\\combi\\0_100000000.txt');                          //  100.000.000 combinaciones
+gen_combi_36_18(0,100000000,'c:\\combi\\0_100000000.txt');                          //  100.000.000 combinaciones   // aprox 4,5GB por archivo
 gen_combi_36_18(100000000,200000000,'c:\\combi\\100000000_200000000.txt');          //  200.000.000 combinaciones
 gen_combi_36_18(200000000,300000000,'c:\\combi\\200000000_300000000.txt');          //  300.000.000 combinaciones
 gen_combi_36_18(300000000,400000000,'c:\\combi\\300000000_400000000.txt');          //  400.000.000 combinaciones
@@ -221,7 +221,7 @@ gen_combi_36_18(3500000000,3600000000,'c:\\combi\\3500000000_3600000000.txt');  
 gen_combi_36_18(3600000000,3700000000,'c:\\combi\\3600000000_3700000000.txt');      //3.700.000.000 combinaciones
 gen_combi_36_18(3700000000,3800000000,'c:\\combi\\3700000000_3800000000.txt');      //3.800.000.000 combinaciones
 gen_combi_36_18(3800000000,3900000000,'c:\\combi\\3800000000_3900000000.txt');      //3.900.000.000 combinaciones
-gen_combi_36_18(3900000000,4000000000,'c:\\combi\\3900000000_4000000000.txt');      //3.000.000.000 combinaciones
+gen_combi_36_18(3900000000,4000000000,'c:\\combi\\3900000000_4000000000.txt');      //4.000.000.000 combinaciones
 
 
 gen_combi_36_18(4000000000,4100000000,'c:\\combi\\4000000000_4100000000.txt');      //4.100.000.000 combinaciones
@@ -238,3 +238,5 @@ gen_combi_36_18(4500000000,4600000000,'c:\\combi\\4500000000_4600000000.txt');  
 timestamp2 = Date.now();
 
 console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos, en hacer : " + combinaciones_totales);
+
+
