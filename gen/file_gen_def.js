@@ -69,7 +69,7 @@ function gravar_archivos (file, data){
 
 
 
-function gen_combi_36_18() {
+function gen_combi_36_18(lim_inf, lim_sup,file) {
 
     combinaciones_totales = 0;
 
@@ -118,12 +118,12 @@ function gen_combi_36_18() {
                                                                                                                                                     if (v == 18) {
                                                                                                                                                         
                                                                                                                                                         combinaciones_totales = combinaciones_totales + 1;
-                                                                                                                                                        var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 +"\r";
+                                                                                                                                                        var data = i1.toString() + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36 +"-"+ combinaciones_totales + "\r";
                                                                                                                                                         //fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data);                                                                                                                                           
                                                                                                                                                         //gravar_archivos(v_18,data);
 
-                                                                                                                                                        if(300000000 < combinaciones_totales && combinaciones_totales < 600000000 ) {fs.appendFileSync('c:\\combi\\2e36_7_11_2.txt',data);} 
-                                                                                                                                                    
+                                                                                                                                                        if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {fs.appendFileSync(file,data);} 
+                                                                                                                                                        if(combinaciones_totales > lim_sup) {return;}
                                                                                                                                                                                                                                                                                              
                                                                                                                                                     
                                                                                                                                                     }
@@ -175,7 +175,20 @@ timestamp = Date.now();
 
 borrar_archivos();
 
-gen_combi_36_18();
+// Para hacer 1.000.000.000 combinaciones
+gen_combi_36_18(0,100000000,'c:\\combi\\0_100000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(100000000,200000000,'c:\\combi\\100000000_200000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(200000000,300000000,'c:\\combi\\200000000_300000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(300000000,400000000,'c:\\combi\\300000000_400000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(400000000,500000000,'c:\\combi\\400000000_500000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(500000000,600000000,'c:\\combi\\500000000_600000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(600000000,700000000,'c:\\combi\\600000000_700000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(700000000,800000000,'c:\\combi\\700000000_800000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(800000000,900000000,'c:\\combi\\800000000_900000000.txt'); //100.000.000 combinaciones
+gen_combi_36_18(900000000,1000000000,'c:\\combi\\900000000_1000000000.txt'); //100.000.000 combinaciones
+
+
+
 
 timestamp2 = Date.now();
 
