@@ -1,26 +1,12 @@
 
 
-//const { windowManager } = require ("node-window-manager");
+const { windowManager } = require ("node-window-manager");
 var robot = require("robotjs");
-//const tesseract = require("node-tesseract-ocr");
+const tesseract = require("node-tesseract-ocr");
 
-//windowManager.requestAccessibility();   //for mac
+var Jimp = require('jimp');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
+windowManager.requestAccessibility();   //for mac
 
 function getwindow(title) {
 
@@ -31,9 +17,6 @@ function getwindow(title) {
 
   for (let index = 0; index < windows.length; index++) {
     
-   
-    
-
     if(windows[index].getTitle().toLowerCase() == title.toLowerCase()){
 
       console.log(windows[index].getTitle().toLowerCase());
@@ -43,9 +26,6 @@ function getwindow(title) {
     }
 
 
-
-
-
     
   }
 
@@ -53,151 +33,70 @@ function getwindow(title) {
   
 }
 
-*/
-
-
 
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 
+getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
+getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
 
+function captureImage({ x, y, w, h }) {
+  const pic = robot.screen.capture(x, y, w, h)
+  const width = pic.byteWidth / pic.bytesPerPixel // pic.width is sometimes wrong!
+  const height = pic.height
+  const image = new Jimp(width, height)
+  let red, green, blue
+  pic.image.forEach((byte, i) => {
+    switch (i % 4) {
+      case 0: return blue = byte
+      case 1: return green = byte
+      case 2: return red = byte
+      case 3: 
+        image.bitmap.data[i - 3] = red
+        image.bitmap.data[i - 2] = green
+        image.bitmap.data[i - 1] = blue
+        image.bitmap.data[i] = 255
+    }
+  })
+  //return image.write('capture.png')
+  image.write('capture.png')
+}
 
-
-
-//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-//getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-//getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
-//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-/*
-sleep(1000);
-robot.moveMouse(1378, 781);
-sleep(500);
-robot.mouseClick("left");
-
-
-sleep(1000);
-robot.moveMouse(36, 98);
-robot.mouseClick("left");
-
-sleep(1000);
-robot.moveMouse(160, 411);
-sleep(500);
-robot.mouseClick("left");
-
-
-sleep(1000);
-robot.moveMouse(347, 149);
-sleep(500);
-robot.mouseClick("left");
-
-sleep(1000);
-robot.moveMouse(69, 249);
-sleep(500);
-robot.mouseClick("left");
-
-sleep(2000);
-robot.moveMouse(541, 113);
-sleep(500);
-robot.mouseClick("left");
-
-sleep(4000);
-robot.moveMouse(1127, 396);
-sleep(500);
-robot.mouseClick("left");
-
-
-sleep(4000);
-robot.moveMouse(1461, 613);
-sleep(500);
-robot.mouseClick("left");
-
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-//console.log(getwindow('Casino en vivo - Mozilla Firefox').getBounds().height);
-
-//sleep(2000);
-//robot.moveMouse(777, 455);
-
-//var img = robot.screen.capture(743, 436, 70, 63);
-
-/*
-
-
-
-
-
-
-
-
-
-
+function tomafoto(){
+  const x = 0;
+  const y = 0;
+  const w = 300;
+  const h = 300;
+  console.log(22);
+  captureImage({ x, y, w, h })//.write('capture.png')
+  console.log(2222);
+  sleep(6000);
 
 }
 
-*/
 
 
+robot.moveMouse(518, 317);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  while (1){
-
-    var mouse = robot.getMousePos();
-    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(mouse.x, mouse.y) );
-    //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(2015, 503) );
-    sleep(5);
+while (1){
+   
+  //var mouse = robot.getMousePos();
+  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(mouse.x, mouse.y) );
+  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(2015, 503) );
+  //sleep(5);
+  var color = robot.getPixelColor(518, 317); 
+  
+  if (color == "060606" || color == "070707" || color == "660000" || color == "650000" ) {
     
-    //var img = robot.screen.capture(777, 455, 2, 2);
-    
-    //console.log(img.width)
-    
-    //Get pixel color at 50, 50.
-    //var hex = img.colorAt(1, 1);
-    //console.log(hex);
+
+    tomafoto();
+   
   }
+}
+

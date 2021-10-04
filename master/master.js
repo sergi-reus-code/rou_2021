@@ -4,9 +4,11 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const array_slaves = require('./array_slaves');
+const {getConfig} = require('./array_slaves');
 
-
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
 
 
 /**
@@ -68,22 +70,23 @@ io.on("connection", function (socket) {
 
 
 // slave //  
- socket.on('first_connection_slave', function (msg) { 
-    console.log(`slave: ${msg} on-line -> sending conf ` + msg);  
+ socket.on('config_slave', function (msg) { 
+    
+   
+  
+    console.log(`slave: ${msg} is on-line -> sending conf `);  
+    
+    var mensage_first_config = getConfig();
 
 
-    var mensage_first_config = [1,1,1];
+
+    socket.emit("config_slave", mensage_first_config);
 
 
-
-
-    socket.emit("message", mensage_first_config);
-
-
-    socket.emit("spin","el spin es 4");
-
+    
 
   });
+
 
  socket.on('message', function (msg) { 
     console.log('messageeeee: ' + msg);  
