@@ -39,10 +39,10 @@ function sleep(ms) {
 }
 
 
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+//getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
 
 function captureImage({ x, y, w, h }) {
@@ -72,18 +72,15 @@ function tomafoto(){
   const y = 0;
   const w = 300;
   const h = 300;
-  console.log(22);
   captureImage({ x, y, w, h })//.write('capture.png')
-  console.log(2222);
-  sleep(6000);
-
+  
 }
 
 
 
 robot.moveMouse(518, 317);
 
-
+/*
 while (1){
    
   //var mouse = robot.getMousePos();
@@ -100,3 +97,43 @@ while (1){
   }
 }
 
+
+*/
+
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: 'OHAI> '
+});
+
+rl.prompt();
+
+rl.on('line', (line) => {
+  switch (line.trim()) {
+    case 'hello':
+      console.log('world!');
+      break;
+
+    case '1' :
+      console.log('toma foto');
+      tomafoto();
+      console.log('ocr');
+      console.log('enviar para update array');
+      break;
+
+
+
+    default:
+      console.log(`Say what? I might have heard '${line.trim()}'`);
+      break;
+
+
+
+
+  }
+  rl.prompt();
+}).on('close', () => {
+  console.log('Have a great day!');
+  process.exit(0);
+});

@@ -199,8 +199,8 @@ async function processLineByLine() {
 
 
 
-      //console.log(`Line from file: ${line}`);
-      llenar_array(line.toString());
+      console.log(`Line from file: ${line}`);
+      //llenar_array(line.toString());
     
     
     
