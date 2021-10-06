@@ -30,25 +30,25 @@ app.listen(3000, function() {
   console.log('Express, escuchando el puerto http://localhost:3000');
 });
 
-
-/**
- * SOCKETS
- */
-
 server.listen(8080, function () {
   console.log("Websockets corriendo en http://localhost:8080");
 });
 
 
-//endpoint donde se conecta slave
-io.on("connection", function (socket) {
 
+
+
+io.on(())
+
+
+// event fired every time a new client connects:
+io.on("connection", (socket) => {
+
+  console.info(`Client connected [id=${socket.id}]`);
   
-
-
   
 // spy //
- socket.on('spy_config', function (msg) { 
+ socket.on('spy_config', (msg) => { 
 
     socket.emit('spy_config',"asdasdfasd");
     console.log('message: ' + msg);  
@@ -56,7 +56,7 @@ io.on("connection", function (socket) {
 
   });
 
- socket.on('spy_spin', function (msg) { 
+ socket.on('spy_spin', (msg) => { 
     console.log(Number(msg)); 
     
     socket.emit('spy_spin',`resultado del ${ msg }`);
@@ -65,33 +65,17 @@ io.on("connection", function (socket) {
 });
 
 
+socket.on("disconnect", () => {
+  console.info(`Client gone [id=${socket.id}]`);
+});
 
 
 
 
-// slave //  
- socket.on('config_slave', function (msg) { 
-    
-   
-  
-    console.log(`slave: ${msg} is on-line -> sending conf `);  
-    
-    var mensage_first_config = getConfig();
 
 
 
-    socket.emit("config_slave", mensage_first_config);
 
-
-    
-
-  });
-
-
- socket.on('message', function (msg) { 
-    console.log('messageeeee: ' + msg);  
-  });
-  
 
 
 
@@ -99,5 +83,25 @@ io.on("connection", function (socket) {
 });
 
 
+/*
+// event fired every time a new client connects:
+server.on("connection", (socket) => {
+  console.info(`Client connected [id=${socket.id}]`);
+  // initialize this client's sequence number
+  socket.on("spy-first",(msg)=>{
+      console.log(msg)
+  })
+  socket.on("number",(number)=>{
+      console.log(number)
+      var a= Number(number)
 
+      socket.emit("sum",isNaN(a)?"Please Enter Valid Number":a*a)
+  })
+  
 
+  // when socket disconnects, remove it from the list:
+  socket.on("disconnect", () => {
+      console.info(`Client gone [id=${socket.id}]`);
+  });
+});
+*/
