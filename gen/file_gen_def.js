@@ -180,10 +180,10 @@ borrar_archivos();
  * PUIGCERDA
  * 
  */
-gen_combi_36_18(0,100000000,'c:\\combi\\0_100000000.txt');                          //  100.000.000 combinaciones   // aprox 4,5GB por archivo
-gen_combi_36_18(100000000,200000000,'c:\\combi\\100000000_200000000.txt');          //  200.000.000 combinaciones
-gen_combi_36_18(200000000,300000000,'c:\\combi\\200000000_300000000.txt');          //  300.000.000 combinaciones
-gen_combi_36_18(300000000,400000000,'c:\\combi\\300000000_400000000.txt');          //  400.000.000 combinaciones
+//gen_combi_36_18(0,100000000,'c:\\combi\\0_100000000.txt');                          //  100.000.000 combinaciones   // aprox 4,5GB por archivo
+//gen_combi_36_18(100000000,200000000,'c:\\combi\\100000000_200000000.txt');          //  200.000.000 combinaciones
+//gen_combi_36_18(200000000,300000000,'c:\\combi\\200000000_300000000.txt');          //  300.000.000 combinaciones
+//gen_combi_36_18(300000000,400000000,'c:\\combi\\300000000_400000000.txt');          //  400.000.000 combinaciones
 gen_combi_36_18(400000000,500000000,'c:\\combi\\400000000_500000000.txt');          //  500.000.000 combinaciones
 gen_combi_36_18(500000000,600000000,'c:\\combi\\500000000_600000000.txt');          //  600.000.000 combinaciones
 gen_combi_36_18(600000000,700000000,'c:\\combi\\600000000_700000000.txt');          //  700.000.000 combinaciones
