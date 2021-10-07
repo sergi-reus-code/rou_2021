@@ -1,18 +1,35 @@
-const { Socket } = require("socket.io");
 const io = require("socket.io-client");
 
-var socket = io.connect("http://localhost:8080", { forceNew: true });
+const {crear_array, check_array} = require('./utils/utils');
 
-const {processTxt, combi_array} = require('./txt_array');
+
 
 function sleep(ms) {
-    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-  }
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
 
 
-socket.emit('config_slave');
 
 
+array_preparado = false;
+
+
+while (!array_preparado){
+
+
+  sleep(2000);
+  array_preparado = check_array();
+
+  
+}
+
+/*
+
+
+var socket = io.connect("http://localhost:8080", { forceNew: true });  
+//socket.emit('config_slave');
+*/
+/*
 socket.on("config_slave", function (data) {     
 
   
@@ -26,9 +43,12 @@ socket.on("config_slave", function (data) {
 
 
 
+
+
 });
 
-
+*/
+/*
 
 
 
@@ -49,7 +69,7 @@ socket.on("spin", function (data) {
 
 });
 
-
+*/
 
 
 //2.0 inicializar array con config desde master
