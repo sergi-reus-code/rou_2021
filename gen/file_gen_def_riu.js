@@ -196,8 +196,8 @@ borrar_archivos();
 //gen_combi_36_18(700000000,800000000,'c:\\combi\\700000000_800000000.txt');          //  800.000.000 combinaciones
 //console.log('800.000.000')
 //gen_combi_36_18(800000000,900000000,'c:\\combi\\800000000_900000000.txt');          //  900.000.000 combinaciones
-//console.log('900.000.000')
-//gen_combi_36_18(900000000,1000000000,'c:\\combi\\900000000_1000000000.txt');        //1.000.000.000 combinaciones
+console.log('900.000.000')
+gen_combi_36_18(900000000,1000000000,'c:\\combi\\900000000_1000000000.txt');        //1.000.000.000 combinaciones
 //console.log('1.000.000.000')
 //gen_combi_36_18(1000000000,1100000000,'c:\\combi\\1000000000_1100000000.txt');      //1.100.000.000 combinaciones
 //console.log('1.100.000.000')
@@ -236,7 +236,7 @@ borrar_archivos();
 
 
 //console.log('2.800.000.000')
-//gen_combi_36_18(2800000000,2900000000,'c:\\combi\\2800000000_2900000000.txt');      //2.900.000.000 combinaciones
+//gen_combi_36_18(2800000000,2900000000,'c:\\combi\\2800000000_2900000000.txt');      //2.900.000.000 combinaciones 
 //console.log('2.900.000.000')
 //gen_combi_36_18(2900000000,3000000000,'c:\\combi\\2900000000_3000000000.txt');      //3.000.000.000 combinaciones
 //console.log('3.000.000.000')
