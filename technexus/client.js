@@ -12,7 +12,7 @@ const r1 = readline.createInterface({
 setInterval(() => {
     r1.question('Enter A number : ', (num) => {
         
-        ioClient.emit("number",num);})
+        ioClient.emit("spy_spin",num);})
     
 }, 1000);
 
