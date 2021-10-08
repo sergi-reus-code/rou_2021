@@ -10,44 +10,37 @@ function sleep(ms) {
 
 
 
-
-array_preparado = false;
-
-
-while (!array_preparado){
-
-
-  sleep(2000);
-  array_preparado = check_array();
-
-  
-}
-
-/*
-
-
 var socket = io.connect("http://localhost:8080", { forceNew: true });  
-//socket.emit('config_slave');
-*/
-/*
-socket.on("config_slave", function (data) {     
-
-  
-  var ee = processTxt();
-  
-  console.log(data , combi_array.length);
-  
-  //socket.emit('message', "fgsdfgsdfg");
 
 
 
+socket.on("connect", () => {
 
-
-
+  console.log(socket.id);
 
 });
 
-*/
+
+
+
+
+socket.on('slave_config', (msg) => {
+
+  console.log(msg);
+
+});
+
+
+
+socket.on('slave_spin', (msg) => {
+
+  console.log(msg);
+
+});
+
+
+
+
 /*
 
 
@@ -73,14 +66,5 @@ socket.on("spin", function (data) {
 
 
 //2.0 inicializar array con config desde master
+
 //3.0 aceptar i procesar peticiones 
-
-
-
-
-
-
-
-
-
-

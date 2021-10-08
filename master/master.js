@@ -1,5 +1,6 @@
 var express = require("express");
-const { Socket } = require("socket.io");
+//const { Socket } = require("socket.io");
+//const { Socket } = require("socket.io");
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
@@ -17,11 +18,6 @@ function sleep(ms) {
 
 app.use(express.json());
 
-app.post('/', function(req, res) {
-  console.log(req.body.spin);  
-  res.send('Hola Mundo!');
-});
-
 app.get('/', function(req, res) {
   res.send('Hola Mundo1111!');
 });
@@ -38,44 +34,37 @@ server.listen(8080, function () {
 
 
 
-io.on(())
+
 
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
   console.info(`Client connected [id=${socket.id}]`);
-  
-  
-// spy //
- socket.on('spy_config', (msg) => { 
 
-    socket.emit('spy_config',"asdasdfasd");
-    console.log('message: ' + msg);  
+  //1ra conexion.... devolver parametros
+  socket.emit('slave_config',"asdasdfasd");
 
+  
+
+  
+
+   
+
+ socket.on("spy_spin", (msg) => { 
+    console.log(Number(msg)); 
+    
+    //socket.emit('slave_spin',`resultado del ${ msg }`);
+
+    socket.emit('slave_spin',"sdfasdfsdfasdfasd");
 
   });
 
- socket.on('spy_spin', (msg) => { 
-    console.log(Number(msg)); 
-    
-    socket.emit('spy_spin',`resultado del ${ msg }`);
-
-
-});
 
 
 socket.on("disconnect", () => {
   console.info(`Client gone [id=${socket.id}]`);
 });
-
-
-
-
-
-
-
-
 
 
 
