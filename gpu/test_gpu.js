@@ -1,11 +1,17 @@
 const { GPU } = require('gpu.js');
-const gpu = new GPU();
-const multiplyMatrix = gpu.createKernel(function(a, b) {
-    let sum = 0;
-    for (let i = 0; i < 512; i++) {
-        sum += a[this.thread.y][i] * b[i][this.thread.x];
-    }
-    return sum;
-}).setOutput([512, 512]);
 
-const c = multiplyMatrix(a, b);
+const gpu = new GPU({ mode: 'gpu' });
+
+// Look ma! I can javascript on my GPU!
+function kernelFunction(anInt, anArray, aNestedArray) {
+  const x = .25 + anInt + anArray[this.thread.x] + aNestedArray[this.thread.x][this.thread.y];
+  return x;
+}
+
+const kernel = gpu.createKernel(kernelFunction, {
+  output: [1]
+});
+
+const result = kernel(1, [.25], [[1.5]]);
+
+console.log(result[0]); // 3
