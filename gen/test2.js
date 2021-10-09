@@ -3,8 +3,8 @@ const readline = require('readline');
 
 
 
-//let arr = Array(45375676);
-let arr = Array(46000000);
+let arr = Array(45375676);
+
 let i =0;
 
 function sleep(ms) {
@@ -52,8 +52,7 @@ function sleep(ms) {
     let v36 = parseInt(linia.substr(35, 1));
 
     arr[i]=[v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17,v18,v19,v20,v21,v22,v23,v24,v25,v26,v27,v28,v29,v30,v31,v32,v33,v34,v35,v36,0,0,0];
-
-    console.log(i);
+    
     i++;
 
   }
@@ -92,28 +91,28 @@ function fill_dump_array() {
 }
 
 
-async function fill_real_array(){
 
-    
-        const fileStream = fs.createReadStream('test.txt');
+
+function fill_real_array() {
+  
+  var data = '';
+
+  var readStream = fs.createReadStream('47000000.txt', 'utf8');
+  
+  
+  readStream.on('data', function(chunk) {
+      data = chunk;
+  
+      llenar_array(data);
+  
       
-        const rl = readline.createInterface({
-          input: fileStream,
-          crlfDelay: Infinity
-        });
-        // Note: we use the crlfDelay option to recognize all instances of CR LF
-        // ('\r\n') in input.txt as a single line break.
-        
-           
-        
-        for await(const line of rl) {
-          // Each line in input.txt will be successively available here as `line`.
-            
-            llenar_array(line);
-                    
-            //if(i>10){return;}
-        
-        }
+  
+  }).on('end', function() {
+      console.log("he acabado");
+      console.log(arr[i-2]);
+    });
+  
+
 
 }
 
@@ -145,9 +144,11 @@ console.log("fill_dump_array takes :" , (timestamp2-timestamp)/1000 , "seconds")
 console.log("fill_real_array");
 
 
-fill_real_array();
+//fill_real_array();
 
-sleep(1000);
+
+
+
 
 timestamp3 = Date.now();
 console.log("fill_real_array takes:" , (timestamp3-timestamp2/1000) , "segundos");

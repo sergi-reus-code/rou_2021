@@ -122,7 +122,8 @@ function gen_combi_36_18(lim_inf, lim_sup,file) {
                                                                                                                                                         //fs.appendFileSync('c:\\combi\\2e36_7_11.txt',data);                                                                                                                                           
                                                                                                                                                         //gravar_archivos(v_18,data);
 
-                                                                                                                                                        if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {fs.appendFileSync(file,data);} 
+                                                                                                                                                        //if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {fs.appendFileSync(file,data);} 
+                                                                                                                                                        if(combinaciones_totales == lim_sup ) {fs.appendFileSync(file,data);} 
                                                                                                                                                         if(combinaciones_totales > lim_sup) {return;}
                                                                                                                                                                                                                                                                                              
                                                                                                                                                     
@@ -237,8 +238,12 @@ borrar_archivos();
 
 //console.log('2.800.000.000')
 //gen_combi_36_18(2800000000,2900000000,'c:\\combi\\2800000000_2900000000.txt');      //2.900.000.000 combinaciones 
-//console.log('2.900.000.000')
-//gen_combi_36_18(2900000000,3000000000,'c:\\combi\\2900000000_3000000000.txt');      //3.000.000.000 combinaciones
+
+
+
+
+console.log('2.900.000.000')
+gen_combi_36_18(2900000000,3000000000,'c:\\combi\\2900000000_3000000000.txt');      //3.000.000.000 combinaciones
 //console.log('3.000.000.000')
 //gen_combi_36_18(3000000000,3100000000,'c:\\combi\\3000000000_3100000000.txt');      //3.100.000.000 combinaciones
 //console.log('3.100.000.000')
@@ -259,8 +264,8 @@ borrar_archivos();
 
 //console.log('3.800.000.000')
 //gen_combi_36_18(3800000000,3900000000,'c:\\combi\\3800000000_3900000000.txt');      //3.900.000.000 combinaciones
-console.log('3.900.000.000')
-gen_combi_36_18(3900000000,4000000000,'c:\\combi\\3900000000_4000000000.txt');      //4.000.000.000 combinaciones
+//console.log('3.900.000.000')
+//gen_combi_36_18(3900000000,4000000000,'c:\\combi\\3900000000_4000000000.txt');      //4.000.000.000 combinaciones
 //console.log('4.000.000.000')
 //gen_combi_36_18(4000000000,4100000000,'c:\\combi\\4000000000_4100000000.txt');      //4.100.000.000 combinaciones
 //console.log('4.100.000.000')
@@ -272,9 +277,123 @@ gen_combi_36_18(3900000000,4000000000,'c:\\combi\\3900000000_4000000000.txt');  
 //console.log('4.400.000.000')
 //gen_combi_36_18(4400000000,4500000000,'c:\\combi\\4400000000_4500000000.txt');      //4.500.000.000 combinaciones
 //console.log('4.500.000.000')
-//gen_combi_36_18(4500000000,4600000000,'c:\\combi\\4500000000_4600000000.txt');      //4.600.000.000 combinaciones
+//gen_combi_36_18(4500000000,4537567650,'c:\\combi\\4500000000_4600000000.txt');      //4.600.000.000 combinaciones
 
-gen_combi_36_18(4600000000,4700000000,'c:\\combi\\4500000000_4600000000.txt');      //4.600.000.000 combinaciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//gen_combi_36_18(0,100000000,'c:\\combi\\100000000.txt');                          //  100.000.000 combinaciones   // aprox 4,5GB por archivo
+//gen_combi_36_18(0,200000000,'c:\\combi\\200000000.txt');          //  200.000.000 combinaciones
+//gen_combi_36_18(0,300000000,'c:\\combi\\300000000.txt');          //  300.000.000 combinaciones
+gen_combi_36_18(0,400000000,'c:\\combi\\400000000.txt');          //  400.000.000 combinaciones
+gen_combi_36_18(0,500000000,'c:\\combi\\500000000.txt');          //  500.000.000 combinaciones
+gen_combi_36_18(0,600000000,'c:\\combi\\600000000.txt');          //  600.000.000 combinaciones
+gen_combi_36_18(0,700000000,'c:\\combi\\700000000.txt');          //  700.000.000 combinaciones
+gen_combi_36_18(0,800000000,'c:\\combi\\800000000.txt');          //  800.000.000 combinaciones
+gen_combi_36_18(0,900000000,'c:\\combi\\900000000.txt');          //  900.000.000 combinaciones
+gen_combi_36_18(0,1000000000,'c:\\combi\\1000000000.txt');        //1.000.000.000 combinaciones
+gen_combi_36_18(0,1100000000,'c:\\combi\\1100000000.txt');      //1.100.000.000 combinaciones
+gen_combi_36_18(0,1200000000,'c:\\combi\\1200000000.txt');      //1.200.000.000 combinaciones
+gen_combi_36_18(0,1300000000,'c:\\combi\\1300000000.txt');      //1.300.000.000 combinaciones
+gen_combi_36_18(0,1400000000,'c:\\combi\\1400000000.txt');      //1.400.000.000 combinaciones
+gen_combi_36_18(0,1500000000,'c:\\combi\\1500000000.txt');      //1.500.000.000 combinaciones
+gen_combi_36_18(0,1600000000,'c:\\combi\\1600000000.txt');      //1.600.000.000 combinaciones
+gen_combi_36_18(0,1700000000,'c:\\combi\\1700000000.txt');      //1.700.000.000 combinaciones
+gen_combi_36_18(0,1800000000,'c:\\combi\\1800000000.txt');      //1.800.000.000 combinaciones
+gen_combi_36_18(0,1900000000,'c:\\combi\\1900000000.txt');      //1.900.000.000 combinaciones
+gen_combi_36_18(0,2000000000,'c:\\combi\\2000000000.txt');      //2.000.000.000 combinaciones
+gen_combi_36_18(0,2100000000,'c:\\combi\\2100000000.txt');      //2.100.000.000 combinaciones
+gen_combi_36_18(0,2200000000,'c:\\combi\\2200000000.txt');      //2.200.000.000 combinaciones
+gen_combi_36_18(0,2300000000,'c:\\combi\\2300000000.txt');      //2.300.000.000 combinaciones
+gen_combi_36_18(0,2400000000,'c:\\combi\\2400000000.txt');      //2.400.000.000 combinaciones
+gen_combi_36_18(0,2500000000,'c:\\combi\\2500000000.txt');      //2.500.000.000 combinaciones
+gen_combi_36_18(0,2600000000,'c:\\combi\\2600000000.txt');      //2.600.000.000 combinaciones
+gen_combi_36_18(0,2700000000,'c:\\combi\\2700000000.txt');      //2.700.000.000 combinaciones
+gen_combi_36_18(0,2800000000,'c:\\combi\\2800000000.txt');      //2.800.000.000 combinaciones
+gen_combi_36_18(0,2900000000,'c:\\combi\\2900000000.txt');      //2.900.000.000 combinaciones 
+gen_combi_36_18(0,3000000000,'c:\\combi\\3000000000.txt');      //3.000.000.000 combinaciones
+gen_combi_36_18(0,3100000000,'c:\\combi\\3100000000.txt');      //3.100.000.000 combinaciones
+gen_combi_36_18(0,3200000000,'c:\\combi\\3200000000.txt');      //3.200.000.000 combinaciones
+gen_combi_36_18(0,3300000000,'c:\\combi\\3300000000.txt');      //3.300.000.000 combinaciones
+gen_combi_36_18(0,3400000000,'c:\\combi\\3400000000.txt');      //3.400.000.000 combinaciones
+gen_combi_36_18(0,3500000000,'c:\\combi\\3500000000.txt');      //3.500.000.000 combinaciones
+gen_combi_36_18(0,3600000000,'c:\\combi\\3600000000.txt');      //3.600.000.000 combinaciones
+gen_combi_36_18(0,3700000000,'c:\\combi\\3700000000.txt');      //3.700.000.000 combinaciones
+gen_combi_36_18(0,3800000000,'c:\\combi\\3800000000.txt');      //3.800.000.000 combinaciones
+gen_combi_36_18(0,3900000000,'c:\\combi\\3900000000.txt');      //3.900.000.000 combinaciones
+
+*/
+
+//gen_combi_36_18(0,4000000000,'c:\\combi\\4000000000.txt');      //4.000.000.000 combinaciones
+//gen_combi_36_18(0,4100000000,'c:\\combi\\4100000000.txt');      //4.100.000.000 combinaciones
+//gen_combi_36_18(0,4200000000,'c:\\combi\\4200000000.txt');      //4.200.000.000 combinaciones
+//gen_combi_36_18(0,4300000000,'c:\\combi\\4300000000.txt');      //4.300.000.000 combinaciones
+//gen_combi_36_18(0,4400000000,'c:\\combi\\4400000000.txt');      //4.400.000.000 combinaciones
+//gen_combi_36_18(0,4500000000,'c:\\combi\\4500000000.txt');      //4.500.000.000 combinaciones
+//gen_combi_36_18(0,4537567650,'c:\\combi\\4500000000_4600000000.txt');      //4.600.000.000 combinaciones
+
+
+
+//gen_combi_36_18(0,4537537650,'c:\\combi\\4537537650.txt');      //4.500.000.000 combinaciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
