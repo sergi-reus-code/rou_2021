@@ -6,7 +6,7 @@ let combi_pool = [];
 function añadir_slave(socket){
 
   slave_pool.shift()
-  slave_pool.push(socket, 0,0);
+  slave_pool.push(socket);
   console.log(slave_pool);
  
 
@@ -16,7 +16,7 @@ function añadir_slave(socket){
 function añadir_spy(socket){
 
 spy_pool.shift();
-  spy_pool.push(socket, 0,0);
+  spy_pool.push(socket);
   console.log(spy_pool);
   
 }

@@ -7,7 +7,7 @@ console.log("Inicio programa test de combinaciones....!!");
 timestamp = Date.now();
 
 
-create_array(0,100); //Hacemos cinco millones de combinaciones para provar
+create_array(0,5000); //Hacemos cinco millones de combinaciones para provar
 
 
 console.log(combi_array.length);
@@ -38,12 +38,18 @@ ioClient.on("config_slave",(msg)=>{
 
 ioClient.on("from_master_to_slave_spin",(spin)=>{
     
-    
-    console.log(spin);
-    //console.log(combi_array);
-    var bet = check_array(spin);
-    //var bet = update_array(spin);
 
+    console.log("test de velocidad....!!");
+
+    timestamp = Date.now();
+        
+    var bet = check_array(spin);
+    
+    
+    
+    timestamp2 = Date.now();
+    
+    console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos");
 
     ioClient.emit("from_slave_to_master_bet",bet);
 
