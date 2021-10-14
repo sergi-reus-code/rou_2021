@@ -1,28 +1,16 @@
-
-pool_slaves = [];
-
-pool_spy = []
-
+let spy_pool = [];
+let client_pool = [];
+let combi_pool = [];
 
 
 
-const getConfig = () => {
-    
+
+
+
+
+
+  exports.spy_pool = spy_pool,
   
-    for (let i = 0; i < array_slaves.length; i++) {
-        if (array_slaves[i][1] ==0 ) {
-            array_slaves[i][1] = 1;
-            return array_slaves[i];
-        }
-        
-    }
-};
-
-
-exports.pool_slaves = pool_slaves;  
-exports.pool_spy = pool_spy;
-exports.getConfig = getConfig;
+  exports.client_pool = client_pool,
   
-
-
-
+  exports.combi_pool = combi_pool

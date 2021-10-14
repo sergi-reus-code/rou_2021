@@ -1,5 +1,3 @@
-
-
 const { windowManager } = require ("node-window-manager");
 var robot = require("robotjs");
 const tesseract = require("node-tesseract-ocr");
