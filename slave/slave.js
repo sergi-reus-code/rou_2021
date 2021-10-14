@@ -1,70 +1,39 @@
-const io = require("socket.io-client");
-
-const {crear_array, check_array} = require('./utils/utils');
-
-
-
-function sleep(ms) {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-}
-
-
-
-var socket = io.connect("http://localhost:8080", { forceNew: true });  
-
-
-
-socket.on("connect", () => {
-
-  console.log(socket.id);
-
-});
-
-
-
-
-
-socket.on('slave_config', (msg) => {
-
-  console.log(msg);
-
-});
-
-
-
-socket.on('slave_spin', (msg) => {
-
-  console.log(msg);
-
-});
-
-
-
-
-/*
+var {create_array, check_array, update_array} = require('./utils/slave_utils.js');
 
 
 
 
 
 
-socket.on("spin", function (data) {     
+create_array();
 
+
+
+
+
+
+const io = require("socket.io-client"),
+ioClient = io.connect("http://localhost:8080", { forceNew: false });
+
+
+ioClient.on("spy_or_slave",(p)=>{
+    ioClient.emit("spy_slave", "slave");
+})
+
+
+
+ioClient.on("from_master_to_slave_spin",(spin)=>{
     
-
-  console.log(data);
-  sleep(2000);
-  socket.emit('message', "fgsdfgsdfg");
-
+    
+    //actualizar base de datos
+    var bet = update_array(spin);
 
 
+    ioClient.emit("from_slave_to_master_bet",bet);
 
 
-});
-
-*/
+})
 
 
-//2.0 inicializar array con config desde master
 
-//3.0 aceptar i procesar peticiones 
+

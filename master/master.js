@@ -1,11 +1,10 @@
 var express = require("express");
-//const { Socket } = require("socket.io");
-//const { Socket } = require("socket.io");
+
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const {getConfig} = require('./array_slaves');
+const {getConfig, pool_slaves, pool_spy} = require('./pools');
 
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
@@ -71,26 +70,3 @@ socket.on("disconnect", () => {
 
 });
 
-
-/*
-// event fired every time a new client connects:
-server.on("connection", (socket) => {
-  console.info(`Client connected [id=${socket.id}]`);
-  // initialize this client's sequence number
-  socket.on("spy-first",(msg)=>{
-      console.log(msg)
-  })
-  socket.on("number",(number)=>{
-      console.log(number)
-      var a= Number(number)
-
-      socket.emit("sum",isNaN(a)?"Please Enter Valid Number":a*a)
-  })
-  
-
-  // when socket disconnects, remove it from the list:
-  socket.on("disconnect", () => {
-      console.info(`Client gone [id=${socket.id}]`);
-  });
-});
-*/

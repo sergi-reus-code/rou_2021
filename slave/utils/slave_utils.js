@@ -5,7 +5,7 @@ let combi_array = [];
 
 
 
-function crear_array(){
+function create_array(){
 
 
 
@@ -26,7 +26,7 @@ function check_array(){
 
 
 
-  exports.crear_array = crear_array;
+  exports.create_array = create_array;
   
   exports.check_array = check_array;
   
