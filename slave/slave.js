@@ -1,14 +1,39 @@
-var {create_array, check_array, update_array} = require('./utils/slave_utils.js');
+var {combi_array, create_array, check_array, update_array} = require('./utils/slave_utils.js');
+
+
+
+console.log("Inicio programa test de combinaciones....!!");
+
+timestamp = Date.now();
+
+
+create_array(0,5000000); //Hacemos cinco millones de combinaciones para provar
+
+
+console.log(combi_array.length);
+
+timestamp2 = Date.now();
+
+console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos");
 
 
 
 
 
 
-create_array();
 
 
 
+
+
+
+
+
+
+
+
+
+/*
 
 
 
@@ -36,4 +61,4 @@ ioClient.on("from_master_to_slave_spin",(spin)=>{
 
 
 
-
+*/
