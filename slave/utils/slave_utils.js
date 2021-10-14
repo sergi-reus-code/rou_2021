@@ -118,6 +118,17 @@ function check_array(){
 
 
 
+
+
+
+
+
+    
+var bet = [0,0,0,0,0,0,0,0,1]
+
+
+
+return bet
 }
 
 

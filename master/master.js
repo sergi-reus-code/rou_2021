@@ -4,7 +4,7 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const {getConfig, pool_slaves, pool_spy} = require('./pools');
+const {spy_pool, slave_pool, combi_pool, añadir_slave, añadir_spy} = require('./pools');
 
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
@@ -41,23 +41,53 @@ io.on("connection", (socket) => {
 
   console.info(`Client connected [id=${socket.id}]`);
 
-  //1ra conexion.... devolver parametros
-  socket.emit('slave_config',"asdasdfasd");
-
-  
-
-  
-
    
-
- socket.on("spy_spin", (msg) => { 
-    console.log(Number(msg)); 
+  socket.on("spy_or_slave", (msg) => { 
     
-    //socket.emit('slave_spin',`resultado del ${ msg }`);
+    switch (msg) {
+      case "slave":
+        añadir_slave(socket.id);
+        break;         
 
-    socket.emit('slave_spin',"sdfasdfsdfasdfasd");
 
+        case "spy":
+          añadir_spy(socket.id);
+          break;
+    
+      default:
+        break;
+    }
+    
+
+
+
+    
   });
+
+
+
+
+
+ socket.on("from_spy_to_master_spin", (msg) => { 
+    console.log("spin recibido de spy : " + Number(msg)); 
+    
+  console.log(slave_pool[0]);
+
+    io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
+    
+  });
+
+  socket.on("from_slave_to_master_bet", (msg) => { 
+    console.log(msg); 
+    
+    io.to(spy_pool[0]).emit('from_master_to_spy_bet', msg );
+    
+  });
+
+  
+
+
+
 
 
 

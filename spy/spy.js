@@ -4,6 +4,12 @@ const tesseract = require("node-tesseract-ocr");
 
 var Jimp = require('jimp');
 
+
+const io = require("socket.io-client"),
+ioClient = io.connect("http://localhost:8080", { forceNew: true });
+
+
+
 windowManager.requestAccessibility();   //for mac
 
 function getwindow(title) {
@@ -42,6 +48,20 @@ function sleep(ms) {
 //getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1000, height: 670 });
 //getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
+/*
+ioClient.on("spy_or_slave",(p)=>{
+  ioClient.emit("spy_slave", "slave");
+})
+*/
+
+
+
+
+
+
+
+
+
 
 function captureImage({ x, y, w, h }) {
   const pic = robot.screen.capture(x, y, w, h)
@@ -76,7 +96,7 @@ function tomafoto(){
 
 
 
-robot.moveMouse(518, 317);
+//robot.moveMouse(518, 317);
 
 /*
 while (1){
@@ -97,6 +117,21 @@ while (1){
 
 
 */
+
+
+ioClient.on("from_master_to_spy_bet",(msg)=>{
+
+  console.log("apuesta" + msg);
+
+  //ioClient.emit("spy_slave", "slave");
+})
+
+
+
+
+ioClient.emit("spy_or_slave","spy");
+
+
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -123,7 +158,8 @@ rl.on('line', (line) => {
 
 
     default:
-      console.log(`Say what? I might have heard '${line.trim()}'`);
+      console.log(`Say what? I might have heard ${line.trim()}`);
+      ioClient.emit("from_spy_to_master_spin", line.trim());
       break;
 
 

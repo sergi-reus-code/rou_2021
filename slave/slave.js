@@ -7,7 +7,7 @@ console.log("Inicio programa test de combinaciones....!!");
 timestamp = Date.now();
 
 
-create_array(0,5000000); //Hacemos cinco millones de combinaciones para provar
+create_array(0,100); //Hacemos cinco millones de combinaciones para provar
 
 
 console.log(combi_array.length);
@@ -25,24 +25,13 @@ console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos");
 
 
 
-
-
-
-
-
-
-
-
-/*
-
-
-
 const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080", { forceNew: false });
+ioClient = io.connect("http://localhost:8080", { forceNew: true });
 
 
-ioClient.on("spy_or_slave",(p)=>{
-    ioClient.emit("spy_slave", "slave");
+ioClient.on("config_slave",(msg)=>{
+
+    //ioClient.emit("spy_slave", "slave");
 })
 
 
@@ -50,8 +39,10 @@ ioClient.on("spy_or_slave",(p)=>{
 ioClient.on("from_master_to_slave_spin",(spin)=>{
     
     
-    //actualizar base de datos
-    var bet = update_array(spin);
+    console.log(spin);
+    //console.log(combi_array);
+    var bet = check_array(spin);
+    //var bet = update_array(spin);
 
 
     ioClient.emit("from_slave_to_master_bet",bet);
@@ -60,5 +51,5 @@ ioClient.on("from_master_to_slave_spin",(spin)=>{
 })
 
 
+ioClient.emit("spy_or_slave","slave");
 
-*/
