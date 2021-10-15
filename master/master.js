@@ -71,7 +71,7 @@ io.on("connection", (socket) => {
  socket.on("from_spy_to_master_spin", (msg) => { 
     console.log("spin recibido de spy : " + Number(msg)); 
     
-  console.log(slave_pool[0]);
+    console.log(slave_pool[0]);
 
     io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
     
@@ -94,7 +94,9 @@ io.on("connection", (socket) => {
 socket.on("disconnect", () => {
   console.info(`Client gone [id=${socket.id}]`);
   //solo borrar el que se va
-  spy_pool.shift();
+
+
+  //spy_pool.shift();
   slave_pool.shift();
 });
 

@@ -116,8 +116,6 @@ function create_array(lim_inf, lim_sup){
 
 function check_array(spin){
 
-    console.log("spin : " + spin);
-
     var best_bet = [0,0,0,0,0,0];
 
     for (let i = 0; i< combi_array.length ; i++) {
@@ -166,7 +164,9 @@ return bet
 
 }
 
-
+function sleep(ms) {
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+  }
 
 
 
@@ -178,7 +178,7 @@ return bet
   
   exports.combi_array = combi_array;
 
-
+  exports.sleep = sleep;
 
 
 

@@ -4,6 +4,13 @@ const tesseract = require("node-tesseract-ocr");
 
 var Jimp = require('jimp');
 
+var {sleep, randomInt, } = require('./utils/spy_utils.js');
+
+
+
+
+
+
 
 const io = require("socket.io-client"),
 ioClient = io.connect("http://localhost:8080", { forceNew: true });
@@ -167,6 +174,8 @@ ioClient.emit("spy_or_slave","spy");
  * 
  */
 
+
+/*
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -181,28 +190,16 @@ rl.on('line', (line) => {
   var spin = Number(line.trim());
   
   switch (spin) {
-
-
     case 99 : 
-
       rl.close();
-
       break;
-
-
-
     default:
-    
       if(spin<0 || spin>36) {
-        
         console.log(`${spin} -> Ha de estar entre 0 y 36`);
-
       } else {
         ioClient.emit("from_spy_to_master_spin", line.trim());
         break;
       }
-
-
   }
   
 
@@ -211,8 +208,24 @@ rl.on('line', (line) => {
   process.exit(0);
 });
 
+*/
 
 
+/**
+ * 
+ * SISTEMA ALEATORIO
+ * 
+ */
+
+
+ 
+  var data = randomInt(0,36);
+ 
+  console.log(data);
+
+  ioClient.emit("from_spy_to_master_spin", data);
+
+  sleep(5000);
 
 
 
