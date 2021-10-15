@@ -3,7 +3,9 @@ const readline = require('readline');
 
 let combi_array = [];
 
-
+let best_bet_rep =   [0];
+let best_bet_norep = [0];
+let best_bet_salto = [0];
 
 function create_array(lim_inf, lim_sup){
 
@@ -116,8 +118,6 @@ function create_array(lim_inf, lim_sup){
 
 function check_array(spin){
 
-    var best_bet = [0,0,0,0,0,0];
-
     for (let i = 0; i< combi_array.length ; i++) {
 
 
@@ -153,14 +153,40 @@ function check_array(spin){
             combi_array[i][38]++;
 
             }
+/*
+            //check rep
+            if (combi_array[i][37]>best_bet_rep){
+
+                best_bet_rep = combi_array[i][37];
+                
+            }
+
+            if (combi_array[i][38]>best_bet_rep){
+
+                best_bet_norep = combi_array[i][38];
+                
+            }
+
+            if (combi_array[i][39]>best_bet_rep){
+
+                best_bet_salto = combi_array[i][39];
+                
+            }
+
+*/
 
 
+               best_bet_rep = combi_array[i][37];
+               best_bet_norep = combi_array[i][38];
+               best_bet_salto = combi_array[i][39];
+                
+   
     }
 
 
-var bet = [0,0,0,0,0,0,0,0,1]
+var bet = [best_bet_rep,best_bet_norep,best_bet_salto];
 
-return bet
+    return bet
 
 }
 

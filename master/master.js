@@ -33,37 +33,27 @@ server.listen(8080, function () {
 
 
 
-
+const cookie = require("cookie");
 
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
-  console.info(`Client connected [id=${socket.id}]`);
+  data = JSON.stringify(socket.handshake.query)
 
-   
-  socket.on("spy_or_slave", (msg) => { 
-    
-    switch (msg) {
-      case "slave":
-        añadir_slave(socket.id);
-        break;         
+  
+  if(data.includes("spy")){
 
+    console.info(`Spy connected with socket.id [id=${socket.id}]`);
+    spy_pool.shift();
+    añadir_spy(socket.id);
+  
+  } else if (data.includes("slave")){
+    console.info(`Slave connected with socket.id [id=${socket.id}]`);
+    slave_pool.shift();
+    añadir_slave(socket.id);
 
-        case "spy":
-          añadir_spy(socket.id);
-          break;
-    
-      default:
-        break;
-    }
-    
-
-
-
-    
-  });
-
+  }
 
 
 
@@ -76,6 +66,7 @@ io.on("connection", (socket) => {
     io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
     
   });
+  
 
   socket.on("from_slave_to_master_bet", (msg) => { 
     console.log(msg); 
@@ -93,11 +84,7 @@ io.on("connection", (socket) => {
 
 socket.on("disconnect", () => {
   console.info(`Client gone [id=${socket.id}]`);
-  //solo borrar el que se va
 
-
-  //spy_pool.shift();
-  slave_pool.shift();
 });
 
 

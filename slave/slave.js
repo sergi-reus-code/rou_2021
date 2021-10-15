@@ -26,9 +26,7 @@ console.log(" ha tardado : " , (timestamp2 - timestamp)/1000 , "segundos");
 
 
 const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080", { forceNew: true });
-
-ioClient.emit("spy_or_slave","slave");
+ioClient = io.connect("http://localhost:8080", { forceNew: true, query : "slave" });
 
 
 ioClient.on("from_master_to_slave_spin",(spin)=>{

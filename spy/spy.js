@@ -11,12 +11,6 @@ var {sleep, randomInt, } = require('./utils/spy_utils.js');
 
 
 
-
-const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080", { forceNew: true });
-
-
-
 windowManager.requestAccessibility();   //for mac
 
 function getwindow(title) {
@@ -126,17 +120,10 @@ while (1){
 */
 
 
-ioClient.on("from_master_to_spy_bet",(msg)=>{
-
-  console.log("apuesta" + msg);
-
-  //ioClient.emit("spy_slave", "slave");
-})
 
 
 
 
-ioClient.emit("spy_or_slave","spy");
 
 
 
@@ -214,19 +201,46 @@ rl.on('line', (line) => {
 /**
  * 
  * SISTEMA ALEATORIO
- * 
+ *  |
  */
 
 
- 
+
+
+
+const io = require("socket.io-client"),
+//ioClient = io.connect("http://localhost:8080",{ forceNew: true });
+ioClient = io.connect("http://localhost:8080" , {forceNew: true , query : "spy" }); 
+
+ //const ioClient = io("http://localhost:8080", {  reconnectionDelayMax: 10000,  auth: {    token: "123"  },  query: {    "my-key": "my-value"  }});
+
+
+
+
+ ioClient.on("from_master_to_spy_bet",(msg)=>{
+
+  console.log("apuesta" + msg);
+
+  
+})
+
+
+
+
+
+
+function intervalFunc(){
+
+
   var data = randomInt(0,36);
  
   console.log(data);
 
   ioClient.emit("from_spy_to_master_spin", data);
 
-  sleep(5000);
+  
+}
 
 
-
+  setInterval(intervalFunc, 250);
 
