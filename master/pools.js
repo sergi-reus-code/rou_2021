@@ -15,7 +15,7 @@ function añadir_slave(socket){
 
 function añadir_spy(socket){
 
-spy_pool.shift();
+  spy_pool.shift();
   spy_pool.push(socket);
   console.log(spy_pool);
   

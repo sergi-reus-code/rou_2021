@@ -93,6 +93,9 @@ io.on("connection", (socket) => {
 
 socket.on("disconnect", () => {
   console.info(`Client gone [id=${socket.id}]`);
+  //solo borrar el que se va
+  spy_pool.shift();
+  slave_pool.shift();
 });
 
 

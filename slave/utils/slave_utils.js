@@ -116,17 +116,9 @@ function create_array(lim_inf, lim_sup){
 
 function check_array(spin){
 
-   
     console.log("spin : " + spin);
 
-
     var best_bet = [0,0,0,0,0,0];
-
-
-
-
-
-
 
     for (let i = 0; i< combi_array.length ; i++) {
 
@@ -143,10 +135,8 @@ function check_array(spin){
                     
                 }
 
-
                 combi_array[i][37]++;
                 combi_array[i][38]=0;
-
 
             }
             else{
@@ -161,37 +151,19 @@ function check_array(spin){
                 
             }
 
-
             combi_array[i][37]=0;
             combi_array[i][38]++;
 
-
             }
-
-
-        
-
-
-
-
-
-
-
-
 
 
     }
 
 
-
-
-
-    
 var bet = [0,0,0,0,0,0,0,0,1]
 
-
-
 return bet
+
 }
 
 

@@ -133,6 +133,40 @@ ioClient.emit("spy_or_slave","spy");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 
+ * Sistema prompt
+ * 
+ */
+
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -143,31 +177,43 @@ const rl = readline.createInterface({
 rl.prompt();
 
 rl.on('line', (line) => {
-  switch (line.trim()) {
-    case 'hello':
-      console.log('world!');
-      break;
+  
+  var spin = Number(line.trim());
+  
+  switch (spin) {
 
-    case '1' :
-      console.log('toma foto');
-      tomafoto();
-      console.log('ocr');
-      console.log('enviar para update array');
+
+    case 99 : 
+
+      rl.close();
+
       break;
 
 
 
     default:
-      console.log(`Say what? I might have heard ${line.trim()}`);
-      ioClient.emit("from_spy_to_master_spin", line.trim());
-      break;
+    
+      if(spin<0 || spin>36) {
+        
+        console.log(`${spin} -> Ha de estar entre 0 y 36`);
 
-
+      } else {
+        ioClient.emit("from_spy_to_master_spin", line.trim());
+        break;
+      }
 
 
   }
-  rl.prompt();
+  
+
 }).on('close', () => {
-  console.log('Have a great day!');
+  console.log('Adeu!');
   process.exit(0);
 });
+
+
+
+
+
+
+
