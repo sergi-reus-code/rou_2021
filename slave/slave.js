@@ -2,7 +2,7 @@ var {sleep, combi_array, create_array, check_array, update_array} = require('./u
 
 
 const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080", { forceNew: true, query : "slave" });
+ioClient = io.connect("http://192.168.18.3:8080", { forceNew: true, query : "slave" });
 
 
 ioClient.on("from_master_to_slave_config",(config)=>{
@@ -15,8 +15,9 @@ ioClient.on("from_master_to_slave_config",(config)=>{
     timestamp = Date.now();
 
     create_array(lim_inf,lim_sup); //Hacemos cinco millones de combinaciones para provar
+    //create_array(0,10); //Hacemos cinco millones de combinaciones para provar
 
-    console.log(combi_array.length);
+    //console.log(combi_array.length);
 
     timestamp2 = Date.now();
 
@@ -37,7 +38,7 @@ ioClient.on("from_master_to_slave_spin",(spin)=>{
     
     timestamp2 = Date.now();
     
-    console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos" + bet);
+    console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos");
 
     ioClient.emit("from_slave_to_master_bet",bet);
 
