@@ -11,8 +11,8 @@ var {sleep, randomInt, } = require('./utils/spy_utils.js');
 
 
 
-windowManager.requestAccessibility();   //for mac
-
+//windowManager.requestAccessibility();   //for mac
+/*
 function getwindow(title) {
 
   let windows = windowManager.getWindows();
@@ -38,7 +38,7 @@ function getwindow(title) {
   
 }
 
-
+*/
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
@@ -99,25 +99,29 @@ function tomafoto(){
 
 //robot.moveMouse(518, 317);
 
-/*
+
 while (1){
    
-  //var mouse = robot.getMousePos();
-  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(mouse.x, mouse.y) );
+  var mouse = robot.getMousePos();
+  console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(mouse.x, mouse.y) );
   //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + robot.getPixelColor(2015, 503) );
   //sleep(5);
-  var color = robot.getPixelColor(518, 317); 
+  
+  var color = robot.getPixelColor(mouse.x, mouse.y);
+  
+  //var color = robot.getPixelColor(518, 317); 
   
   if (color == "060606" || color == "070707" || color == "660000" || color == "650000" ) {
     
 
     tomafoto();
-   
+
+
   }
 }
 
 
-*/
+
 
 
 
@@ -206,7 +210,7 @@ rl.on('line', (line) => {
 
 
 
-
+/*
 
 const io = require("socket.io-client"),
 //ioClient = io.connect("http://localhost:8080",{ forceNew: true });
@@ -223,12 +227,12 @@ ioClient = io.connect("http://localhost:8080" , {forceNew: true , query : "spy" 
 
   
 })
+*/
 
 
 
 
-
-
+/*
 function intervalFunc(){
 
 
@@ -244,3 +248,4 @@ function intervalFunc(){
 
   setInterval(intervalFunc, 50);
 
+*/
