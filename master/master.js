@@ -4,7 +4,7 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const {spy_pool, slave_pool, combi_pool, añadir_slave, añadir_spy} = require('./pools');
+const {spy_pool, slave_pool, añadir_slave, añadir_spy, quitar_slave} = require('./pools');
 
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
@@ -33,9 +33,6 @@ server.listen(8080, function () {
 
 
 
-const cookie = require("cookie");
-
-
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
@@ -43,39 +40,34 @@ io.on("connection", (socket) => {
 
   
   if(data.includes("spy")){
-
-    console.info(`Spy connected with socket.id [id=${socket.id}]`);
-    spy_pool.shift();
     añadir_spy(socket.id);
-  
+    //io.to(slave_pool[0]).emit('from_master_to_slave_config', "configurate pecador" );
   } else if (data.includes("slave")){
-    console.info(`Slave connected with socket.id [id=${socket.id}]`);
-    slave_pool.shift();
     añadir_slave(socket.id);
-
+    //io.to(slave_pool[0]).emit('from_master_to_slave_config', "configurate pecador" );
   }
 
 
 
 
  socket.on("from_spy_to_master_spin", (msg) => { 
-    console.log("spin recibido de spy : " + Number(msg)); 
+    //console.log("spin recibido de spy : " + Number(msg)); 
     
-    console.log(slave_pool[0]);
+    //console.log(slave_pool[0]);
 
     io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
-    
+   
   });
   
 
   socket.on("from_slave_to_master_bet", (msg) => { 
-    console.log(msg); 
+    //console.log(msg); 
     
     io.to(spy_pool[0]).emit('from_master_to_spy_bet', msg );
     
   });
 
-  
+
 
 
 
@@ -83,7 +75,10 @@ io.on("connection", (socket) => {
 
 
 socket.on("disconnect", () => {
-  console.info(`Client gone [id=${socket.id}]`);
+
+  //console.info(`Client gone [id=${socket.id}]`);
+
+  quitar_slave(socket.id);
 
 });
 
