@@ -10,14 +10,13 @@ ioClient.on("from_master_to_slave_config",(config)=>{
     var lim_inf = Number(config[0]);
     var lim_sup = Number(config[1]);
 
+
+    
     console.log(`Config recived : Lim Inf = ${lim_inf} || Lim Inf = ${lim_sup}`);
 
     timestamp = Date.now();
 
-    create_array(lim_inf,lim_sup); //Hacemos cinco millones de combinaciones para provar
-    //create_array(0,10); //Hacemos cinco millones de combinaciones para provar
-
-    //console.log(combi_array.length);
+    create_array(lim_inf,lim_sup);  
 
     timestamp2 = Date.now();
 
@@ -41,7 +40,6 @@ ioClient.on("from_master_to_slave_spin",(spin)=>{
     console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos");
 
     ioClient.emit("from_slave_to_master_bet",bet);
-
 
 })
 

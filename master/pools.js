@@ -58,7 +58,7 @@ function añadir_slave(socket){
 
   console.log(`Slave conecting with socket.id : ${socket} || Total Pool-Slaves: ${slave_pool.length}`);
   
-  console.log(`Combi inf = : ${limits[0]} || Combi sup = : ${limits[1]}  ||  Total Combis ${limits[2]}`);
+  console.log(`Combi inf = : ${limits[0]} || Combi sup = : ${limits[1]}  ||  Total Combis ${limits[1]-limits[0]}`);
 
   return limits;
 

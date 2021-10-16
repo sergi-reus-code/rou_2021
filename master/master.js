@@ -10,6 +10,10 @@ function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
+var best_rep = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var best_norep = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var best_salto = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 
 /**
  * EXPRESS
@@ -58,8 +62,10 @@ io.on("connection", (socket) => {
 
 
  socket.on("from_spy_to_master_spin", (msg) => { 
-    console.log("spin recibido de spy : " + Number(msg)); 
     
+    //console.log("spin recibido de spy : " + Number(msg)); 
+    
+    io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
     io.to(slave_pool[1]).emit('from_master_to_slave_spin', Number(msg) );
     io.to(slave_pool[2]).emit('from_master_to_slave_spin', Number(msg) );
     io.to(slave_pool[3]).emit('from_master_to_slave_spin', Number(msg) );
@@ -69,7 +75,6 @@ io.on("connection", (socket) => {
     io.to(slave_pool[7]).emit('from_master_to_slave_spin', Number(msg) );
     io.to(slave_pool[8]).emit('from_master_to_slave_spin', Number(msg) );
     io.to(slave_pool[9]).emit('from_master_to_slave_spin', Number(msg) );
-    io.to(slave_pool[10]).emit('from_master_to_slave_spin', Number(msg) );
 
   
 
@@ -91,9 +96,30 @@ io.on("connection", (socket) => {
   
 
   socket.on("from_slave_to_master_bet", (msg) => { 
-    console.log(msg); 
     
-    io.to(spy_pool[0]).emit('from_master_to_spy_bet', msg );
+    var date = JSON.stringify(msg)
+    
+    var date2 = JSON.parse(date)
+
+    //console.log(date2);
+
+
+    var rep = Number(date2.rep); 
+    var norep = Number(date2.no_rep);
+    var salto = Number(date2.salto);
+
+    if(isNaN(rep) ) {rep=0;}
+    if(isNaN(norep)  ) {norep=0;}
+    if(isNaN(salto) ) {salto=0;}
+
+    best_rep[rep] = best_rep[rep] + 1;
+    best_norep[norep] = best_norep[norep] + 1;
+    best_salto[salto] = best_salto[salto] + 1;
+
+    
+
+
+    //io.to(spy_pool[0]).emit('from_master_to_spy_bet', date2 );
     
   });
 
@@ -106,9 +132,9 @@ io.on("connection", (socket) => {
 
 socket.on("disconnect", () => {
 
-  //console.info(`Client gone [id=${socket.id}]`);
-
   quitar_slave_spy(socket.id);
+
+  console.log("rep: " + best_rep.toString() + " norep: " + best_norep.toString() + " salto: " + best_salto.toString());
 
 });
 
