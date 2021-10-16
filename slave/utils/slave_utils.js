@@ -3,9 +3,11 @@ const readline = require('readline');
 
 let combi_array = [];
 
-let best_bet_rep =   [0];
-let best_bet_norep = [0];
-let best_bet_salto = [0];
+let best_bet_rep =   [0,[]];
+let best_bet_norep = [0,[]];
+let best_bet_salto = [0,[]];
+
+
 
 function create_array(lim_inf, lim_sup){
 
@@ -58,7 +60,7 @@ function create_array(lim_inf, lim_sup){
                                                                                                                                                                                                                 
                                                                                                                                                         if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {
                                                                                                                                                           
-                                                                                                                                                          data = [0,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
+                                                                                                                                                          data = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
                                                                                                                                                           
                                                                                                                                                           combi_array.push(data);
                                                                                                                                                                                                                                                                                         
@@ -112,13 +114,31 @@ function create_array(lim_inf, lim_sup){
     
 }
 
-
-
-  
-
 function check_array(spin){
 
     console.log(combi_array[0].length);
+
+    if (spin==0) {
+        console.log("actualizar valores");
+        for (let i = 0; i< combi_array.length ; i++) {
+
+            if (combi_array[i][36] >0) {
+                combi_array[i][36] = combi_array[i][36]+1;
+            }
+
+            if (combi_array[i][37] >0) {
+                combi_array[i][37] = combi_array[i][37]+1;
+            }
+
+            if (combi_array[i][38] >0) {
+                combi_array[i][38] = combi_array[i][38]+1;
+            }
+
+
+        var bet = [best_bet_rep,best_bet_norep,best_bet_salto];    
+
+        return bet
+    }
 
 
     for (let i = 0; i< combi_array.length ; i++) {
@@ -126,24 +146,24 @@ function check_array(spin){
 
             if (combi_array[i][spin]==1) {          //ACIERTO
 
-                if (combi_array[i][38] >0) {
+                if (combi_array[i][37] >0) {
 
-                    combi_array[i][39]++;
+                    combi_array[i][38]++;
 
                 } else {
 
-                    combi_array[i][39]=0;
+                    combi_array[i][38]=0;
    
                 }
 
-                combi_array[i][37]++;
-                combi_array[i][38]=0;
+                combi_array[i][36]++;
+                combi_array[i][37]=0;
 
             } else {                                //NO ACIERTO
 
-                if (combi_array[i][37] >0) {
+                if (combi_array[i][36] >0) {
 
-                    combi_array[i][39]++;
+                    combi_array[i][38]++;
 
                 } else {
 
@@ -151,27 +171,27 @@ function check_array(spin){
                 
                 }
 
-                combi_array[i][37]=0;
-                combi_array[i][38]++;
+                combi_array[i][36]=0;
+                combi_array[i][37]++;
 
             }
 
             //check rep
-            if (combi_array[i][37]>best_bet_rep){
+            if (combi_array[i][36]>best_bet_rep[0]){
 
-                best_bet_rep = combi_array[i][37];
+                best_bet_rep[1] = combi_array[i][36];
                 
             }
 
-            if (combi_array[i][38]>best_bet_norep){
+            if (combi_array[i][37]>best_bet_norep[0]){
 
-                best_bet_norep = combi_array[i][38];
+                best_bet_norep[1] = combi_array[i][37];
                 
             }
 
-            if (combi_array[i][39]>best_bet_salto){
+            if (combi_array[i][38]>best_bet_salto[0]){
 
-                best_bet_salto = combi_array[i][39];
+                best_bet_salto[1] = combi_array[i][38];
                 
             }
 
@@ -181,15 +201,15 @@ function check_array(spin){
     }
 
 
-var bet = [best_bet_rep,best_bet_norep,best_bet_salto];
+    var bet = [best_bet_rep[1],best_bet_norep[1],best_bet_salto[1]];   
 
     return bet
 
-}
+}}
 
 function sleep(ms) {
     Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-  }
+}
 
 
 
@@ -201,21 +221,5 @@ function sleep(ms) {
   
   exports.combi_array = combi_array;
 
-  exports.sleep = sleep;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  exports.sleep = sleep
 
