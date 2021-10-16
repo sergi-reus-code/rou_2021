@@ -1,6 +1,6 @@
 var {sleep, randomInt, } = require('./utils/spy_utils.js');
 const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080" , {forceNew: true , query : "spy" }); 
+ioClient = io.connect("http://192.168.18.3:8080" , {forceNew: true , query : "spy" }); 
 
 /**
  * 
