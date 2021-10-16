@@ -58,7 +58,7 @@ function create_array(lim_inf, lim_sup){
                                                                                                                                                                                                                 
                                                                                                                                                         if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {
                                                                                                                                                           
-                                                                                                                                                          data = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
+                                                                                                                                                          data = [0,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
                                                                                                                                                           
                                                                                                                                                           combi_array.push(data);
                                                                                                                                                                                                                                                                                         
@@ -118,42 +118,44 @@ function create_array(lim_inf, lim_sup){
 
 function check_array(spin){
 
+    console.log(combi_array[0].length);
+
+
     for (let i = 0; i< combi_array.length ; i++) {
 
 
-            if (combi_array[i][spin]==1) {
+            if (combi_array[i][spin]==1) {          //ACIERTO
 
                 if (combi_array[i][38] >0) {
 
-                        combi_array[i][39]++;
+                    combi_array[i][39]++;
 
                 } else {
 
-                        combi_array[i][39]=0;
-                    
+                    combi_array[i][39]=0;
+   
                 }
 
                 combi_array[i][37]++;
                 combi_array[i][38]=0;
 
-            }
-            else{
+            } else {                                //NO ACIERTO
 
                 if (combi_array[i][37] >0) {
 
                     combi_array[i][39]++;
 
-            } else {
+                } else {
 
                     combi_array[i][39]=0;
                 
+                }
+
+                combi_array[i][37]=0;
+                combi_array[i][38]++;
+
             }
 
-            combi_array[i][37]=0;
-            combi_array[i][38]++;
-
-            }
-/*
             //check rep
             if (combi_array[i][37]>best_bet_rep){
 
@@ -161,24 +163,19 @@ function check_array(spin){
                 
             }
 
-            if (combi_array[i][38]>best_bet_rep){
+            if (combi_array[i][38]>best_bet_norep){
 
                 best_bet_norep = combi_array[i][38];
                 
             }
 
-            if (combi_array[i][39]>best_bet_rep){
+            if (combi_array[i][39]>best_bet_salto){
 
                 best_bet_salto = combi_array[i][39];
                 
             }
 
-*/
 
-
-               best_bet_rep = combi_array[i][37];
-               best_bet_norep = combi_array[i][38];
-               best_bet_salto = combi_array[i][39];
                 
    
     }

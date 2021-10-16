@@ -7,7 +7,7 @@ console.log("Inicio programa test de combinaciones....!!");
 timestamp = Date.now();
 
 
-create_array(0,500000); //Hacemos cinco millones de combinaciones para provar
+create_array(0,2); //Hacemos cinco millones de combinaciones para provar
 
 
 console.log(combi_array.length);

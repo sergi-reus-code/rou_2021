@@ -242,5 +242,5 @@ function intervalFunc(){
 }
 
 
-  setInterval(intervalFunc, 250);
+  setInterval(intervalFunc, 50);
 
