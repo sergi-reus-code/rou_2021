@@ -1,6 +1,6 @@
 var {sleep, randomInt, } = require('./utils/spy_utils.js');
 const io = require("socket.io-client"),
-ioClient = io.connect("http://localhost:8080" , {forceNew: true , query : "spy" }); 
+ioClient = io.connect("http://192.168.18.3:8080" , {forceNew: true , query : "spy" }); 
 
 /**
  * 
@@ -10,13 +10,14 @@ ioClient = io.connect("http://localhost:8080" , {forceNew: true , query : "spy" 
 
  ioClient.on("from_master_to_spy_bet",(msg)=>{
 
-  console.log("apuesta" + msg);
-
+  data = msg.rep;
+  
+  console.log(data);
 
  })
 
 
-
+/*
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -50,7 +51,7 @@ rl.on('line', (line) => {
   process.exit(0);
 });
 
-
+*/
 
 
 /**
@@ -61,27 +62,8 @@ rl.on('line', (line) => {
 
 
 
-/*
 
 
-
- //const ioClient = io("http://localhost:8080", {  reconnectionDelayMax: 10000,  auth: {    token: "123"  },  query: {    "my-key": "my-value"  }});
-
-
-
-
- ioClient.on("from_master_to_spy_bet",(msg)=>{
-
-  console.log("apuesta" + msg);
-
-  
-})
-*/
-
-
-
-
-/*
 function intervalFunc(){
 
 
@@ -95,6 +77,5 @@ function intervalFunc(){
 }
 
 
-  setInterval(intervalFunc, 50);
+  setInterval(intervalFunc, 5000);
 
-*/
