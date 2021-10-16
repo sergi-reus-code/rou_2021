@@ -41,13 +41,21 @@ io.on("connection", (socket) => {
   
   if(data.includes("spy")){
     añadir_spy(socket.id);
-    //io.to(slave_pool[0]).emit('from_master_to_slave_config', "configurate pecador" );
-  } else if (data.includes("slave")){
-    añadir_slave(socket.id);
-    //io.to(slave_pool[0]).emit('from_master_to_slave_config', "configurate pecador" );
+    //io.to(spy_pool[0]).emit('from_master_to_spy_config', "configurate pecador" );
+  } else 
+  if (data.includes("slave")){
+    var limits = añadir_slave(socket.id);
+    io.to(socket.id).emit('from_master_to_slave_config', limits );
   }
 
 
+  socket.on("from_slave_to_master_config_done", (msg) => { 
+    
+    console.log(msg); 
+    //io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
+   
+  });
+  
 
 
  socket.on("from_spy_to_master_spin", (msg) => { 
