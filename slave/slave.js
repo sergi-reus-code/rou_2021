@@ -37,7 +37,7 @@ ioClient.on("from_master_to_slave_spin",(spin)=>{
     
     timestamp2 = Date.now();
     
-    console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos");
+    console.log(" ha tardado en recorrer: " , (timestamp2 - timestamp)/1000 , "segundos" + bet);
 
     ioClient.emit("from_slave_to_master_bet",bet);
 

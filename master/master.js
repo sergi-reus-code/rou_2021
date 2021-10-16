@@ -59,7 +59,7 @@ io.on("connection", (socket) => {
 
 
  socket.on("from_spy_to_master_spin", (msg) => { 
-    //console.log("spin recibido de spy : " + Number(msg)); 
+    console.log("spin recibido de spy : " + Number(msg)); 
     
     //console.log(slave_pool[0]);
 
@@ -69,7 +69,7 @@ io.on("connection", (socket) => {
   
 
   socket.on("from_slave_to_master_bet", (msg) => { 
-    //console.log(msg); 
+    console.log(msg); 
     
     io.to(spy_pool[0]).emit('from_master_to_spy_bet', msg );
     
