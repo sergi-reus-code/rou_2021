@@ -4,7 +4,7 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const {spy_pool, slave_pool, añadir_slave, añadir_spy, quitar_slave} = require('./pools');
+const {spy_pool, slave_pool, añadir_slave, añadir_spy, quitar_slave_spy} = require('./pools');
 
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
@@ -41,7 +41,6 @@ io.on("connection", (socket) => {
   
   if(data.includes("spy")){
     añadir_spy(socket.id);
-    //io.to(spy_pool[0]).emit('from_master_to_spy_config', "configurate pecador" );
   } else 
   if (data.includes("slave")){
     var limits = añadir_slave(socket.id);
@@ -61,10 +60,33 @@ io.on("connection", (socket) => {
  socket.on("from_spy_to_master_spin", (msg) => { 
     console.log("spin recibido de spy : " + Number(msg)); 
     
-    //console.log(slave_pool[0]);
+    io.to(slave_pool[1]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[2]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[3]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[4]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[5]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[6]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[7]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[8]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[9]).emit('from_master_to_slave_spin', Number(msg) );
+    io.to(slave_pool[10]).emit('from_master_to_slave_spin', Number(msg) );
 
-    io.to(slave_pool[0]).emit('from_master_to_slave_spin', Number(msg) );
-   
+  
+
+
+
+
+
+    /*
+    for (let index = 0; index < slave_pool.length; index++) {
+      
+      
+    
+
+    io.to(slave_pool[index]).emit('from_master_to_slave_spin', Number(msg) );
+ 
+  }*/
+
   });
   
 
@@ -86,7 +108,7 @@ socket.on("disconnect", () => {
 
   //console.info(`Client gone [id=${socket.id}]`);
 
-  quitar_slave(socket.id);
+  quitar_slave_spy(socket.id);
 
 });
 

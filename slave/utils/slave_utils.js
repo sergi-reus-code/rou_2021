@@ -3,11 +3,6 @@ const readline = require('readline');
 
 let combi_array = [];
 
-let best_bet_rep =   [0,[]];
-let best_bet_norep = [0,[]];
-let best_bet_salto = [0,[]];
-
-
 
 function create_array(lim_inf, lim_sup){
 
@@ -116,103 +111,132 @@ function create_array(lim_inf, lim_sup){
 
 function check_array(spin){
 
-    console.log(combi_array[0].length);
+    let best_bet_rep =   [];
+    let best_bet_rep_rep = 0;    
+    let best_bet_norep = [];
+    let best_bet_norep_rep = 0;
+    let best_bet_salto = [];
+    let best_bet_salto_rep = 0;
+
+
+    /**
+     * Primero actualizamos los valores
+     */
 
     if (spin==0) {
-        console.log("actualizar valores");
-        for (let i = 0; i< combi_array.length ; i++) {
+           /*
+            for (let i = 0; i< combi_array.length ; i++) {
 
-            if (combi_array[i][36] >0) {
-                combi_array[i][36] = combi_array[i][36]+1;
+                    if (combi_array[i][36] > 0) {
+                       combi_array[i][36] = combi_array[i][36]+1;
+                    }
+
+                    if (combi_array[i][37] > 0) {
+                        combi_array[i][37] = combi_array[i][37]+1;
+                    }
+
+                    if (combi_array[i][38] > 0) {
+                        combi_array[i][38] = combi_array[i][38]+1;
+                    }
+            } */ 
+    
+    } else {
+
+            spin = spin -1;
+
+            for (let i = 0; i< combi_array.length ; i++) {
+
+                    if (combi_array[i][spin]==1) {          //ACIERTO
+
+                            if (combi_array[i][37] > 0) {
+
+                                    combi_array[i][36] = combi_array[i][36] +1;
+                                    combi_array[i][37] = 0;
+                                    combi_array[i][38] = combi_array[i][38] +1;
+
+                            } else {
+
+                                    combi_array[i][36] = combi_array[i][36] +1;
+                                    combi_array[i][37] = 0;
+                                    combi_array[i][38] = 0;
+                            }
+
+              
+
+                    } else {  
+
+                            if (combi_array[i][36] > 0) {
+
+                                    combi_array[i][36] = 0;
+                                    combi_array[i][37] = combi_array[i][37] +1;
+                                    combi_array[i][38] = combi_array[i][38] +1;
+
+                            } else {
+
+                                    combi_array[i][36] = 0;  
+                                    combi_array[i][37] = combi_array[i][37] +1;
+                                    combi_array[i][38] = 0;
+                
+                            }
+
+                    }
+
+
             }
-
-            if (combi_array[i][37] >0) {
-                combi_array[i][37] = combi_array[i][37]+1;
-            }
-
-            if (combi_array[i][38] >0) {
-                combi_array[i][38] = combi_array[i][38]+1;
-            }
-
-
-        var bet = [best_bet_rep,best_bet_norep,best_bet_salto];    
-
-        return bet
     }
+
+
+    /**
+     * Buscamos los mas repetidos
+     */
+
 
 
     for (let i = 0; i< combi_array.length ; i++) {
 
 
-            if (combi_array[i][spin]==1) {          //ACIERTO
-
-                if (combi_array[i][37] >0) {
-
-                    combi_array[i][38]++;
-
-                } else {
-
-                    combi_array[i][38]=0;
-   
-                }
-
-                combi_array[i][36]++;
-                combi_array[i][37]=0;
-
-            } else {                                //NO ACIERTO
-
-                if (combi_array[i][36] >0) {
-
-                    combi_array[i][38]++;
-
-                } else {
-
-                    combi_array[i][39]=0;
-                
-                }
-
-                combi_array[i][36]=0;
-                combi_array[i][37]++;
-
-            }
-
             //check rep
-            if (combi_array[i][36]>best_bet_rep[0]){
-
-                best_bet_rep[1] = combi_array[i][36];
+            if (combi_array[i][36] > best_bet_rep_rep){
+                
+                best_bet_rep = combi_array[i];                
                 
             }
 
-            if (combi_array[i][37]>best_bet_norep[0]){
-
-                best_bet_norep[1] = combi_array[i][37];
+            if (combi_array[i][37] > best_bet_norep_rep){
+                
+                best_bet_norep = combi_array[i];
                 
             }
 
-            if (combi_array[i][38]>best_bet_salto[0]){
-
-                best_bet_salto[1] = combi_array[i][38];
+            if (combi_array[i][38] > best_bet_salto_rep){
+                
+                best_bet_salto = combi_array[i];
                 
             }
 
 
-                
-   
-    }
+        }
 
 
-    var bet = [best_bet_rep[1],best_bet_norep[1],best_bet_salto[1]];   
+
+
+    var bet = JSON.parse(`{"rep" : "${best_bet_rep[36]}",
+                           "combi_rep" : "${best_bet_rep}",
+                           "no_rep" : "${best_bet_norep[37]}",
+                           "combi_norep" : "${best_bet_norep}",
+                           "salto" : "${best_bet_salto[38]}",
+                           "combi_salto" : "${best_bet_salto}"
+    
+    
+    }`);    
 
     return bet
 
-}}
+}
 
 function sleep(ms) {
     Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
-
-
-
 
 
   exports.create_array = create_array;
