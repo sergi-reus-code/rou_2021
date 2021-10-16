@@ -20,9 +20,10 @@ const start = process.memoryUsage().heapUsed;
 
     //10.000.000 -> 1032.7 MB -> 14 seg
     //20.000.000 -> 2042.1 MB -> 24 seg
-    //30.000.000
+    //30.000.000 -> 2780.7 MB -> 34 seg
+    //40.000.000 -> 3749.8 MB -> 70 seg
 
-    create_array(0,10000000); 
+    create_array(30000000,78000000); 
     
     const used = (process.memoryUsage().heapUsed - start) / 1024 / 1024;
     console.log(`${Math.round(used * 100) / 100} MB`);
