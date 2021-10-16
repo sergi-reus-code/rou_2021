@@ -11,13 +11,13 @@ var {sleep, randomInt, } = require('./utils/spy_utils.js');
 
 
 
-//windowManager.requestAccessibility();   //for mac
-/*
+windowManager.requestAccessibility();   //for mac
+
 function getwindow(title) {
 
   let windows = windowManager.getWindows();
 
-  //console.log(windows);
+  console.log(windows);
 
 
   for (let index = 0; index < windows.length; index++) {
@@ -38,7 +38,7 @@ function getwindow(title) {
   
 }
 
-*/
+
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
@@ -56,7 +56,9 @@ ioClient.on("spy_or_slave",(p)=>{
 */
 
 
+let windows = windowManager.getWindows();
 
+console.log(windows);
 
 
 
@@ -99,7 +101,7 @@ function tomafoto(){
 
 //robot.moveMouse(518, 317);
 
-
+/*
 while (1){
    
   var mouse = robot.getMousePos();
@@ -120,7 +122,7 @@ while (1){
   }
 }
 
-
+*/
 
 
 
