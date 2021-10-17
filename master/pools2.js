@@ -1,5 +1,6 @@
 let spy_pool = [];
 let combi_pool = [];
+var v19 = 0;
 
 
 function update_combi_pool(data){
@@ -54,33 +55,17 @@ function update_combi_pool(data){
                             combi_pool[index][40] = data[1];
 
 }
-  
-  
-  
+    
+   
+
+  while(combi_pool[0][39] == 18){
+    //degollo
+    combi_pool.shift();
+
+  }
+
   console.log(combi_pool[0].toString());
 
-  if((combi_pool[0][39]>18) ) {
-
-    return combi_pool[0];
-  
-  }
-
-  if
-
-
-
-
-
-
-}
-
-function degollar_combi_pool(){
-
-  while ((combi_pool[0][39]<=19) ) {
-
-    combi_pool.shift();
-    
-  }
 }
 
 
@@ -113,4 +98,4 @@ exports.añadir_spy = añadir_spy,
 exports.quitar_slave_spy = quitar_slave_spy,
 exports.spy_pool = spy_pool,
 exports.update_combi_pool = update_combi_pool
-exports.degollar_combi_pool = degollar_combi_pool
+

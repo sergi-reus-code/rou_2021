@@ -6,7 +6,10 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
 const {spy_pool,  añadir_spy, quitar_slave_spy, update_combi_pool, degollar_combi_pool} = require('./pools2');
-const {} = require('./money2');
+const {check_bet} = require('./money2');
+
+var bet_ongoing = false;
+var bet = [];
 
 /**
  * EXPRESS
@@ -34,42 +37,20 @@ io.on("connection", (socket) => {
   data = JSON.stringify(socket.handshake.query)
   if(data.includes("spy")){añadir_spy(socket.id);} 
 
+
   socket.on("from_spy_to_master_spin", (msg) => { 
     
-    var bet = update_combi_pool(msg);
-    
+    update_combi_pool(msg);
 
-  
+  });
 
-  //if (typeof bet === 'undefined') { 
-  
-  
+  socket.on("disconnect", () => {
 
-    
+    quitar_slave_spy(socket.id);
 
-   
-
-    //io.to(spy_pool[0]).emit('from_master_to_spy_bet', Number(msg) );
-
- });
-  
-
-
-
-
-
-
-
-socket.on("disconnect", () => {
-
-  quitar_slave_spy(socket.id);
-
-  console.log("rep: " + best_rep.toString() + " norep: " + best_norep.toString() + " salto: " + best_salto.toString());
+  });
 
 });
 
 
-
-
-});
 
