@@ -6,20 +6,55 @@ let combi_array = [];
 
 function create_array(lim_inf, lim_sup){
 
+  let v = 0;
+
+  let i1=0;  
+  let i2=0;
+  let i3=0;
+  let i4=0;
+  let i5=0;
+  let i6=0;
+  let i7=0;
+  let i8=0;
+  let i9=0;
+  let i10=0;
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   combinaciones_totales = 0;
 
-    for (let i1 = 0; i1 < 2; i1++) {
-        for (let i2 = 0; i2 < 2; i2++) {
-            for (let i3 = 0; i3 < 2; i3++) {
-                for (let i4 = 0; i4 < 2; i4++) {
-                    for (let i5 = 0; i5 < 2; i5++) {
-                        for (let i6 = 0; i6 < 2; i6++) {
-                            for (let i7 = 0; i7 < 2; i7++) {
+    for (i1 ; i1 < 2; i1++) {
+        for (i2; i2 < 2; i2++) {
+            for (i3; i3 < 2; i3++) {
+                for (i4; i4 < 2; i4++) {
+                    for (i5; i5 < 2; i5++) {
+                        for (i6; i6 < 2; i6++) {
+                            for (i7; i7 < 2; i7++) {
                                 for (let i8 = 0; i8 < 2; i8++) {
-                                    for (let i9 = 0; i9 < 2; i9++) {
-                                        for (let i10 = 0; i10 < 2; i10++) {
+                                    for (let i9=0; i9 < 2; i9++) {
+                                        for (let i10=0; i10 < 2; i10++) {
                                             for (let i11 = 0; i11 < 2; i11++) {
                                                 for (let i12 = 0; i12 < 2; i12++) {
                                                     for (let i13 = 0; i13 < 2; i13++) {
@@ -47,7 +82,7 @@ function create_array(lim_inf, lim_sup){
                                                                                                                                             for (let i35 = 0; i35 < 2; i35++) {
                                                                                                                                                 for (let i36 = 0; i36 < 2; i36++) {
                                                                                                                                                     
-                                                                                                                                                  let v = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36;
+                                                                                                                                                   v = i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27 + i28 + i29 + i30 + i31 + i32 + i33 + i34 + i35 + i36;
                                                                                                                                                     
                                                                                                                                                         if (v == 18) {
                                                                                                                                                         
@@ -55,10 +90,16 @@ function create_array(lim_inf, lim_sup){
                                                                                                                                                                                                                 
                                                                                                                                                         if(lim_inf < combinaciones_totales && combinaciones_totales < lim_sup ) {
                                                                                                                                                           
-                                                                                                                                                          data = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
+                                                                                                                                                          //data = [i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,0,0,0];
                                                                                                                                                           
-                                                                                                                                                          combi_array.push(data);
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                          //data1 = i1.toString()+i2+i3+i4+i5+i6+i7+i8+i9+i10+i11+i12+i13+i14+i15+i16+i17+i18;
+                                                                                                                                                          //data2 = i19.toString()+i20+i21+i22+i23+i24+i25+i26+i27+i28+i29+i30+i31+i32+i33+i34+i35+i36;
+                                                                                                                                                          data3 = i1.toString()+i2+i3+i4+i5+i6+i7+i8+i9+i10+i11+i12+i13+i14+i15+i16+i17+i18+i19+i20+i21+i22+i23+i24+i25+i26+i27+i28+i29+i30+i31+i32+i33+i34+i35+i36;
+                                                                                                                                                          
+                                                                                                                                                          //data = [parseInt(data1,2),parseInt(data2,2),0];
+                                                                                                                                                          //data = [parseInt(data3,2),0];
+                                                                                                                                                          combi_array.push([parseInt(data3,2),0]);
+                                                                                                                                                                                                                                                                                                                                                                                                                               
                                                                                                                                                         } 
                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                         if(combinaciones_totales > lim_sup) {return;}
