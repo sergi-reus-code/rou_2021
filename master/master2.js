@@ -5,11 +5,11 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-const {spy_pool,  añadir_spy, quitar_slave_spy, update_combi_pool, degollar_combi_pool} = require('./pools2');
-const {check_bet} = require('./money2');
+const {hacer_apuesta, check_apuesta, get_best_bet,spy_pool,  añadir_spy, quitar_slave_spy, update_combi_pool, degollar_combi_pool} = require('./pools2');
+const {} = require('./money2');
 
-var bet_ongoing = false;
-var bet = [];
+var hay_bet = false;
+var best_bet = [];
 
 /**
  * EXPRESS
@@ -41,6 +41,8 @@ io.on("connection", (socket) => {
   socket.on("from_spy_to_master_spin", (msg) => { 
     
     update_combi_pool(msg);
+
+    data = get_best_bet();
 
   });
 

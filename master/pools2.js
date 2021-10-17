@@ -64,7 +64,7 @@ function update_combi_pool(data){
 
   }
 
-  console.log(combi_pool[0].toString());
+  //console.log(combi_pool[0].toString());
 
 }
 
@@ -90,8 +90,29 @@ function quitar_slave_spy(socket) {
   }
 
 
-
+  function check_apuesta(bet) {
+   
+    
+    console.log(bet.toString());
   
+  
+  }
+  
+  function get_best_bet() {
+  
+      return combi_pool[0];
+  
+  }
+  
+
+function hacer_apuesta(){
+
+    
+
+}
+
+
+
 
 
 exports.añadir_spy = añadir_spy,
@@ -99,3 +120,9 @@ exports.quitar_slave_spy = quitar_slave_spy,
 exports.spy_pool = spy_pool,
 exports.update_combi_pool = update_combi_pool
 
+
+
+
+exports.check_apuesta = check_apuesta,
+exports.get_best_bet = get_best_bet,
+exports.hacer_apuesta = hacer_apuesta

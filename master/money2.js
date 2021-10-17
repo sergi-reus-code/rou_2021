@@ -26,6 +26,23 @@ function check_bet(bet) {
 
 }
 
+function get_best_bet() {
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+}
 
 
 exports.check_bet = check_bet
+exports.get_best_bet = get_best_bet
