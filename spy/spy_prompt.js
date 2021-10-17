@@ -78,15 +78,17 @@ function intervalFunc(){
 
   spins_desde_inicio++;
  
-  if(spins_desde_inicio>360) {return;}
-
   console.log(data);
+
+
 
   ioClient.emit("from_spy_to_master_spin", data);
 
-  
+  //if (spins_desde_inicio > 150) {process.exit()}
+
+
 }
 
 
-  setInterval(intervalFunc, 500);
+  setInterval(intervalFunc, 1000);
 
