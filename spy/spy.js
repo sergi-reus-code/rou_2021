@@ -4,6 +4,7 @@ const { getwindow, sleep, tomafoto , tomafoto2} = require ("./utils/spy_utils");
 
 const { createWorker } = require('tesseract.js');
 
+const prompt = require('prompt-sync')({sigint: true});
 
 
 
@@ -44,7 +45,7 @@ getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
 
 
-
+/*
 async function detectar() {
 
   const worker = createWorker();
@@ -64,7 +65,7 @@ async function detectar() {
 }
 
 
-
+*/
 
 
 
@@ -73,24 +74,40 @@ async function detectar() {
 
   function main_loop(){
   
-    var color = robot.getPixelColor(533, 359); 
+    /*var color = robot.getPixelColor(533, 359); 
   
     if (color == "060606" || color == "070707" || color == "660000" || color == "650000" || color == "007328" || color == "479045") {
-      sleep(1000)
-      tomafoto2(507,300,50,50);
-      sleep(5000)
-      detectar();
+      //sleep(1000)
+      //tomafoto2(507,300,50,50);
+      //sleep(5000)
+      //detectar();
   
-    }
+    }*/
 
 
 
-    //var mouse = robot.getMousePos();
-    //var color = robot.getPixelColor(mouse.x, mouse.y);
-    //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
+
+
+    var mouse = robot.getMousePos();
+    var color = robot.getPixelColor(mouse.x, mouse.y);
+    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
     //tomafoto();
   
+
+    var spin = prompt('Introduce Spin: ');
+
+    robot.moveMouse(390,546);
+    sleep(1000)
+    robot.mouseClick();
+    sleep(1000)
+    robot.moveMouse(505,683);
+    sleep(1000)
+    robot.mouseClick();
+
+
+
+
   }
   
 
-  setInterval(main_loop, 500);
+  setInterval(main_loop, 1000);

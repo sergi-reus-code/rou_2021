@@ -1,6 +1,16 @@
 var clc = require("cli-color");
 
-console.log(clc.red("Text in red"));
+const coordinates = require('./coordinates');
+console.log(`0: ${coordinates.push_0()}`);
+
+
+
+
+//console.clear();
+
+
+console.log(clc.red("Hora - dia"));
+console.log(clc.red(`Saldo :           ${500}             ` ) + clc.blue("Hora - dia"));
 
 var msg = clc.xterm(202).bgXterm(236);
 
@@ -35,3 +45,12 @@ process.stdout.write(
 
 
 */
+
+
+var error = clc.red.bold.bgCyan;
+var warn = clc.yellow;
+var notice = clc.blue;
+
+console.log(error("Error!") + warn("Warning"));
+console.log(warn("Warning"));
+console.log(notice("Notice"));
