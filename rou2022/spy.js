@@ -20,12 +20,12 @@ function main_loop(){
     /**
      *  Automatic Input
      */
-    var spin = randomInt(0,36);
+    //var spin = randomInt(0,36);
 
     /**
      *  Manual Input
      */
-    //var spin = prompt('Introduce Spin: ');
+    var spin = prompt('Introduce Spin: ');
 
     /**
      *  Programa
