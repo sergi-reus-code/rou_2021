@@ -25,13 +25,13 @@ function main_loop(){
     /**
      *  Manual Input
      */
-    //var spin = prompt('Introduce Spin: ');
+    var spin = prompt('Introduce Spin: ');
 
     /**
      *  Programa
      */
 
-    spin = Number(spin);
+    //spin = Number(spin);
 
     combi_totales++;
 
@@ -42,10 +42,23 @@ function main_loop(){
 
     let apuesta = get_best_bet();
 
-    current_bet = Number(get_chk(apuesta)); 
+    current_bet = Number(get_chk(apuesta));
+    
 
-    //console.log(current_bet);
+    console.log(apuesta + " - " + Number(get_chk(apuesta)));
 
+
+
+    if (apuesta[spin]==1) {
+
+        console.log("win");
+
+    }else{
+
+        console.log("loose");
+    }
+
+    /*
 
     if ((current_bet == last_bet) ) {
             //console.log("rep");
@@ -59,8 +72,8 @@ function main_loop(){
         last_bet = Number(current_bet);
         rep = 0;
     }
-        
-    console.log(combi_totales + " - " + reparray.toString());
+      */  
+    //console.log(combi_totales + " - " + reparray.toString());
 
     /*
     if (apuesta != false ) {
