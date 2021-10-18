@@ -42,6 +42,8 @@ function main_loop(){
 
     let apuesta = get_best_bet();
 
+    // poner por pantalla
+
     current_bet = Number(get_chk(apuesta));
     
 
