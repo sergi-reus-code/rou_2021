@@ -5,6 +5,8 @@ const {randomInt} = require ("./utils/spy_utils");
 const {update_combi_pool, get_best_bet, get_chk} = require ("./utils/combi_master");
 
 var combi_totales = 0;
+var last_apuesta = [];
+
 
 var last_bet = 0;
 var current_bet = 0;
@@ -20,64 +22,43 @@ function main_loop(){
     /**
      *  Automatic Input
      */
-    //var spin = randomInt(0,36);
+    var spin = randomInt(0,36);
 
     /**
      *  Manual Input
      */
-    var spin = prompt('Introduce Spin: ');
+    //var spin = prompt('Introduce Spin: ');
+
+
+
 
     /**
      *  Programa
      */
 
-    //spin = Number(spin);
+    
+    spin = Number(spin);
 
-    combi_totales++;
+    // Check if win para poner por pantalla i money management las apuestas van solas.....
+    if ("last_apuesta is ok") {
+            "you win"
+    }
 
 
 
+    //pasar combi_totales a utils
 
     update_combi_pool([combi_totales, spin]);
 
-    let apuesta = get_best_bet();
+    last_apuesta = current_apuesta;
+    let current_apuesta = get_best_bet();
 
     // poner por pantalla
-
-    current_bet = Number(get_chk(apuesta));
-    
 
     console.log(apuesta + " - " + Number(get_chk(apuesta)));
 
 
 
-    if (apuesta[spin]==1) {
-
-        console.log("win");
-
-    }else{
-
-        console.log("loose");
-    }
-
-    /*
-
-    if ((current_bet == last_bet) ) {
-            //console.log("rep");
-            rep = rep + 1;
-            last_bet = Number(current_bet);
-            reparray[rep] = reparray[rep] + 1
-
-
-    } else {
-        //console.log("norep");
-        last_bet = Number(current_bet);
-        rep = 0;
-    }
-      */  
-    //console.log(combi_totales + " - " + reparray.toString());
-
-    /*
     if (apuesta != false ) {
 
     let bet_si_no = prompt('Quieres apostar: Introduce . + Intro ---->  ');
@@ -85,12 +66,7 @@ function main_loop(){
         return;
     }
 
-
-*/
-
-
-
 }
   
 
-setInterval(main_loop, 50);
+setInterval(main_loop, 2000);
