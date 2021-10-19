@@ -29,9 +29,13 @@ if (process.argv[2] == "888") {
 
 function test_loop(){
 
-    if (fs.existsSync('c:\\combi\\test.txt')) { fs.unlink('c:\\combi\\test.txt', function (err) { if (err) throw err; }); } 
 
-   for (let index = 0; index < 10000; index++) {
+    
+
+
+   if (fs.existsSync('c:\\combi\\test.txt')) { fs.unlink('c:\\combi\\test.txt', function (err) { if (err) throw err; }); } 
+
+   for (let index = 0; index < 200; index++) {
         
         
     
@@ -42,8 +46,6 @@ function test_loop(){
     combi_totales++;
     
     update_combi_pool([combi_totales, spin]);
-
-    let last_chk = Number(get_chk(last_apuesta));
 
     let current_apuesta = get_best_bet();
     last_apuesta = [...current_apuesta];
