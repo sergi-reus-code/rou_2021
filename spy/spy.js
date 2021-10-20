@@ -4,6 +4,7 @@ const { getwindow, sleep, tomafoto , tomafoto2} = require ("./utils/spy_utils");
 
 const { createWorker } = require('tesseract.js');
 
+const prompt = require('prompt-sync')({sigint: true});
 
 
 
@@ -55,11 +56,10 @@ async function detectar() {
     tessedit_char_whitelist: '0123456789',
   });
   const { data: { text } } = await worker.recognize('./last.png');
-  data_to_return = text;
+  let data_to_return = text;
   console.log(text);
   await worker.terminate();
-
-  //return data_to_return;
+  return data_to_return;
 
 }
 
@@ -78,10 +78,12 @@ async function detectar() {
     if (color == "060606" || color == "070707" || color == "660000" || color == "650000" || color == "007328" || color == "479045") {
       sleep(1000)
       tomafoto2(507,300,50,50);
-      sleep(5000)
-      detectar();
-  
+      sleep(2000)
+      let spin = detectar();
+      console.log(spin);
     }
+
+
 
 
 
@@ -90,7 +92,21 @@ async function detectar() {
     //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
     //tomafoto();
   
+
+    //var spin = prompt('Introduce Spin: ');
+
+    //robot.moveMouse(390,546);
+    //sleep(1000)
+    //robot.mouseClick();
+    //sleep(1000)
+    //robot.moveMouse(505,683);
+    //sleep(1000)
+    //robot.mouseClick();
+
+
+
+
   }
   
 
-  setInterval(main_loop, 500);
+  setInterval(main_loop, 1000);
