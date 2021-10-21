@@ -1,5 +1,5 @@
 var robot = require("robotjs");
-const { windowManager } = require ("node-window-manager");
+//const { windowManager } = require ("node-window-manager");
 
 
 /*
