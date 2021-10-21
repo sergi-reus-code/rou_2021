@@ -1,8 +1,8 @@
 var robot = require("robotjs");
 const { windowManager } = require ("node-window-manager");
-var fs = require('fs');
 
 
+/*
 function getwindow(title) {
 
   let windows = windowManager.getWindows();
@@ -23,7 +23,7 @@ function getwindow(title) {
 
   return null;
   
-}
+}*/
 
 
 //getwindow('ruleta en vivo y casino live! ✅ 888 casino - mozilla firefox').bringToTop();
@@ -45,4 +45,4 @@ function main_loop(){
 }
  
 
-setInterval(main_loop, 1000);
+setInterval(main_loop, 500);
