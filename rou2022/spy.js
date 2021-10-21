@@ -30,14 +30,11 @@ if (process.argv[2] == "888") {
 function test_loop(){
 
 
-<<<<<<< HEAD
     
 
 
    if (fs.existsSync('c:\\combi\\test.txt')) { fs.unlink('c:\\combi\\test.txt', function (err) { if (err) throw err; }); } 
 
-=======
->>>>>>> 41a13fb826b4a1c345f574970618869695815c3f
    for (let index = 0; index < 200; index++) {
         
         
