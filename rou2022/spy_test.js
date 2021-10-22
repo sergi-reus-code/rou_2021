@@ -20,7 +20,7 @@ let rep_array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 function test_loop(){
 
     
-    for (let session = 0; session < 1; session++) {
+    for (let session = 0; session < 30; session++) {
         
         
     
@@ -28,7 +28,7 @@ function test_loop(){
 
    if (fs.existsSync(`c:\\combi\\${session}.txt`)) { fs.unlink(`c:\\combi\\${session}.txt`, function (err) { if (err) throw err; }); } 
 
-   for (let index = 0; index < 200000; index++) {
+   for (let index = 0; index < 1000; index++) {
         
         
     
@@ -48,35 +48,18 @@ function test_loop(){
     let current_chk = Number(get_chk(current_apuesta));
 
     //let data = (current_apuesta + " - " + current_chk+"\r");
-    let data = (current_chk+"\r");
+    let data = (combi_totales + " , " + current_apuesta[39] + " , " +current_chk+"\r");
     //console.log(current_apuesta + " - " + current_chk);
 
-    fs.appendFileSync(`c:\\combi\\${session}.txt`,data); 
+    //fs.appendFileSync(`c:\\combi\\${session}.txt`,data); 
 
-    if(current_apuesta[39]==18){
+    if(current_apuesta[38] > 18){
        
-        //if(current_apuesta[38]>30){
-        //data = "+ de 30"
-        //fs.appendFileSync('c:\\combi\\test.txt',data)
-        //}
-        //console.log(Number(current_chk));
-        //console.log(Number(last_chk));
-        
-        /*
-        
-        if(current_chk == last_chk){
-            rep++
-            if(rep>9){
-                rep_array[rep] = rep_array[rep] + 1;
-                console.log(combi_totales + " - " + rep_array.toString());
-                process.exit()}
 
-        }else {
+        fs.appendFileSync(`c:\\combi\\${session}.txt`,data);
 
-            rep_array[rep] = rep_array[rep] + 1;
-            rep = 0;
+       
 
-        }*/
     }
   
         //console.log(combi_totales + " - " + rep_array.toString());
