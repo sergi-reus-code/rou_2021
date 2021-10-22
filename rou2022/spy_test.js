@@ -48,7 +48,7 @@ function test_loop(){
     let current_chk = Number(get_chk(current_apuesta));
 
     //let data = (current_apuesta + " - " + current_chk+"\r");
-    let data = (combi_totales + " , " + current_apuesta[39] + " , " +current_chk+"\r");
+    let data = (combi_totales + " , " + current_apuesta[39] + " , " + current_chk+"\r");
     //console.log(current_apuesta + " - " + current_chk);
 
     //fs.appendFileSync(`c:\\combi\\${session}.txt`,data); 
