@@ -16,20 +16,16 @@ let last_apuesta = [];
 function test_loop(){
 
     
-<<<<<<< HEAD
+
    for (let session = 0; session < 20; session++) {
-=======
-    for (let session = 0; session < 30; session++) {
-        
->>>>>>> 20f8137aa60611fabdcb616bfc920c73f4e0c6c2
+
+
         
    if (fs.existsSync(`c:\\combi\\${session}.txt`)) { fs.unlink(`c:\\combi\\${session}.txt`, function (err) { if (err) throw err; }); } 
 
-<<<<<<< HEAD
+
    for (let index = 0; index < 200; index++) {
-=======
-   for (let index = 0; index < 1000; index++) {
->>>>>>> 20f8137aa60611fabdcb616bfc920c73f4e0c6c2
+
         
         
     
@@ -56,7 +52,7 @@ function test_loop(){
 
     if(current_apuesta[38] > 18){
        
-<<<<<<< HEAD
+
         if(current_apuesta[38]>30){
         //data = "+ de 30"
         fs.appendFileSync(`c:\\combi\\${session}.txt`,data)
@@ -72,8 +68,7 @@ function test_loop(){
                 rep_array[rep] = rep_array[rep] + 1;
                 console.log(combi_totales + " - " + rep_array.toString());
                 process.exit()}
-=======
->>>>>>> 20f8137aa60611fabdcb616bfc920c73f4e0c6c2
+
 
         fs.appendFileSync(`c:\\combi\\${session}.txt`,data);
 
