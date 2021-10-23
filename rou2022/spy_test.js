@@ -10,25 +10,17 @@ const { sleep, randomInt } = require('./utils/spy_utils');
 
 var combi_totales = 0;
 let last_apuesta = [];
-let rep = 0;
-let rep_array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-
-
 
 
 
 function test_loop(){
 
     
-    for (let session = 0; session < 1; session++) {
+   for (let session = 0; session < 20; session++) {
         
-        
-    
-
-
    if (fs.existsSync(`c:\\combi\\${session}.txt`)) { fs.unlink(`c:\\combi\\${session}.txt`, function (err) { if (err) throw err; }); } 
 
-   for (let index = 0; index < 200000; index++) {
+   for (let index = 0; index < 200; index++) {
         
         
     
@@ -51,14 +43,14 @@ function test_loop(){
     let data = (current_chk+"\r");
     //console.log(current_apuesta + " - " + current_chk);
 
-    fs.appendFileSync(`c:\\combi\\${session}.txt`,data); 
+    //fs.appendFileSync(`c:\\combi\\${session}.txt`,data); 
 
     if(current_apuesta[39]==18){
        
-        //if(current_apuesta[38]>30){
+        if(current_apuesta[38]>30){
         //data = "+ de 30"
-        //fs.appendFileSync('c:\\combi\\test.txt',data)
-        //}
+        fs.appendFileSync(`c:\\combi\\${session}.txt`,data)
+        }
         //console.log(Number(current_chk));
         //console.log(Number(last_chk));
         
