@@ -15,14 +15,14 @@ function test_loop(){
 
     
 
-   for (let session = 0; session < 20; session++) {
+   
 
 
         
-   if (fs.existsSync(`c:\\combi\\${session}.txt`)) { fs.unlink(`c:\\combi\\${session}.txt`, function (err) { if (err) throw err; }); } 
+   if (fs.existsSync(`c:\\combi\\1año.txt`)) { fs.unlink(`c:\\combi\\1año.txt`, function (err) { if (err) throw err; }); } 
 
 
-   for (let index = 0; index < 200; index++) {
+   for (let index = 0; index < 700000; index++) {
 
         
         
@@ -38,20 +38,15 @@ function test_loop(){
     let current_apuesta = get_best_bet();
     last_apuesta = [...current_apuesta];
 
-
-
     let current_chk = Number(get_chk(current_apuesta));
     let data = (combi_totales + " , " + current_apuesta[39] + " , " + current_chk+"\r");
 
     if(current_apuesta[38] > 18){
-       
 
         if(current_apuesta[38]>30){
         
-        fs.appendFileSync(`c:\\combi\\${session}.txt`,data)
+        fs.appendFileSync(`c:\\combi\\1año.txt`,data)
         }
- 
-       
 
     }
   
@@ -61,7 +56,7 @@ function test_loop(){
 
 }
 
-}
+
 
 
 test_loop();
