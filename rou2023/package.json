@@ -1,0 +1,17 @@
+{
+  "name": "rou2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-color": "^2.0.1",
+    "node-window-manager": "^2.2.4",
+    "prompt-sync": "^4.2.0",
+    "robotjs": "^0.6.0"
+  }
+}
