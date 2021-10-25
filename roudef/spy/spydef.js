@@ -3,6 +3,7 @@ var io = require('socket.io-client');
 var socket = io.connect('http://localhost:8080', {reconnect: true});
 
 var prompt = require('prompt-sync')({sigint: true});
+const readline = require('readline')
 
 
 
@@ -42,16 +43,17 @@ socket.on("disconnect", (reason) => {
 
 function testm_loop(){
 
-
     var value = 0;
     var spin = prompt('enter spin: ', value);
 
     console.log(spin);
     socket.emit('from_spy_to_master_spin', spin);
 
-
-
 }
+
+
+
+
 
 
 
@@ -67,7 +69,21 @@ function testm_loop(){
 if (process.argv[2] == "testm") {
     
     console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
-    testm_loop;
+    
+    const r1 = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+      });
+       
+    
+    setInterval(() => {
+        r1.question('Enter A number : ', (num) => {
+            
+            socket.emit('from_spy_to_master_spin',num);})
+        
+    }, 1000);
+    
+
 
 } else if (process.argv[2] == "testa"){
     
