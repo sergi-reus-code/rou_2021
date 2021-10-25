@@ -1,58 +1,60 @@
+//client.js
+var io = require('socket.io-client');
+var socket = io.connect('http://localhost:8080', {reconnect: true});
 
+var prompt = require('prompt-sync')({sigint: true});
+
+
+
+// Add a connect listener
+socket.on('connect', function (socket) {
+    console.log('Connected!');
+});
+socket.emit('CH01', 'me', 'test msg');
+
+
+socket.emit('from_spy_to_master_spin', 25);
 
 
 
 /*
 
+ioClient.on("connect", () => {  
+    console.log(socket.id); 
 
+});
+ioClient.on("disconnect", () => {  
+    console.log(socket.id); 
+});
 
-function main_loop(){
-  
-    
-    gui.renderGUI(last_apuesta);
-
-    var spin = prompt('Introduce Spin: ');
-    
-    spin = Number(spin);
-    combi_totales++;
-    
-    update_combi_pool([combi_totales, spin]);
-
-    let current_apuesta = get_best_bet();
-    last_apuesta = [...current_apuesta];
-
-    if(current_apuesta[39]==18){
-
-        gui.renderBOTTOM(current_apuesta);
-
-
-    let pp = prompt('Quieres apostar: Introduce . + Intro ---->  ');
-
-    if (pp === "."){
-        
-        console.log("apuesto");    
-        
-                    
-            wm.apostar_numero(current_apuesta);
-            
-        
-
-    }
-
-    
+ioClient.on("seq-num", (msg) => console.info(msg));
+*/
+/*
+socket.on("disconnect", (reason) => {  
+    if (reason === "io server disconnect") {    
+        // the disconnection was initiated by the server, you need to reconnect manually    
+        socket.connect();  
+    }  // else the socket will automatically try to reconnect
+});
+*/
 
 
 
+function testm_loop(){
 
-    console.log(current_apuesta + " - " + Number(get_chk(current_apuesta)));
 
-    }
+    var value = 0;
+    var spin = prompt('enter spin: ', value);
 
+    console.log(spin);
+    socket.emit('from_spy_to_master_spin', spin);
 
 
 
 }
-    */
+
+
+
 
 
 
@@ -65,7 +67,7 @@ function main_loop(){
 if (process.argv[2] == "testm") {
     
     console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
-    //setInterval(test_loop, 5);
+    testm_loop;
 
 } else if (process.argv[2] == "testa"){
     
@@ -76,7 +78,6 @@ if (process.argv[2] == "testm") {
 
     console.log("Iniciando en modo.... MODO NORMAL (Todo automatico)");
     //setInterval(main_loop, 1000);
-
 }
   
 
