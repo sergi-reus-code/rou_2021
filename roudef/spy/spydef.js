@@ -4,6 +4,7 @@ var socket = io.connect('http://localhost:8080', {reconnect: true});
 
 var prompt = require('prompt-sync')({sigint: true});
 const readline = require('readline')
+const fs = require('fs');
 
 
 
@@ -41,15 +42,6 @@ socket.on("disconnect", (reason) => {
 
 
 
-function testm_loop(){
-
-    var value = 0;
-    var spin = prompt('enter spin: ', value);
-
-    console.log(spin);
-    socket.emit('from_spy_to_master_spin', spin);
-
-}
 
 
 
@@ -88,7 +80,43 @@ if (process.argv[2] == "testm") {
 } else if (process.argv[2] == "testa"){
     
     console.log("Iniciando en modo.... TEST AUTOMATICO (Entrada de datos automatica desde WEB)");
-    //setInterval(test_loop, 5);
+    
+    const readInterface = readline.createInterface({
+        input: fs.createReadStream('/path/to/file'),
+        output: process.stdout,
+        console: false
+    });
+       
+    
+  
+
+
+
+
+
+    setInterval(() => {
+
+        readInterface.on('line', function(line) {
+            console.log(line);
+            socket.emit('from_spy_to_master_spin',line)
+        });
+
+
+
+        
+        
+    }, 1000);
+
+
+
+
+
+
+
+
+
+
+
 
 } else {
 
