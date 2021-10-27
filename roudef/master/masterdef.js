@@ -81,24 +81,16 @@ io.on("connection", (socket) => {
 
 */
 
-
-
- 
-
-
 socket.on("from_spy_to_master_spin", (msg) => { 
     
     var bet = main_loop(msg);
 
-
-
-});
+  });
   
 
 socket.on("disconnect", () => {
 
-console.log("adeu..... " + socket.id);
-
+  console.log("adeu..... " + socket.id);
 
 });
 
@@ -114,10 +106,6 @@ function main_loop(spin){
    data =JSON.parse(JSON.stringify(spin));
    console.log(data);
   //1ro poner spins dentro de un archivo
-
-  //
-
-
 
 }
 

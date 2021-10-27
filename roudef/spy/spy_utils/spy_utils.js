@@ -2,24 +2,13 @@ var spin_num = 0;
 
 
 
-
-
-/*
-    "employees":[
-      {"firstName":"John", "lastName":"Doe"},
-      {"firstName":"Anna", "lastName":"Smith"},
-      {"firstName":"Peter", "lastName":"Jones"}
-    ]
- 
-*/
-
 function sleep(ms) {
     Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
   }
 
-  function randomInt(min, max) { // min and max included 
+function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
-  }
+}
   
 function format_spin(spin){
 
@@ -27,10 +16,6 @@ function format_spin(spin){
   spin_num++;
 
   var f = new Date();
- 
-
-
-
 
   var text_dump_JSON = `{`+
                       `"session_id":1, `+
@@ -41,17 +26,13 @@ function format_spin(spin){
                       `"spin":${Number(spin)}`+
                       `}`
 
-    //console.log(JSON.parse(text_dump_JSON));
-
-    return JSON.parse(text_dump_JSON);
+  return JSON.parse(text_dump_JSON);
 }
 
 
 
 
-
-
- exports.format_spin = format_spin,
-  exports.sleep = sleep,
-  exports.randomInt = randomInt
+exports.format_spin = format_spin,
+exports.sleep = sleep,
+exports.randomInt = randomInt
  

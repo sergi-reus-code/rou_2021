@@ -6,19 +6,20 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 const readline = require('readline')
 const fs = require('fs');
 const utils = require('./spy_utils/spy_utils');
+const { SocketAddress } = require('net');
 
 
 
 
 
 // Add a connect listener
-ioClient.on('connect', function (socket) {
+ioClient.on('connect', () => {
     console.log('Connected!');
 });
 
 
-ioClient.on('disconected', function (socket) {
-    console.log('DisssssConnected!');
+ioClient.on("disconnect", (socket) => {
+    console.log('DisssssConnected!' + socket.id);
 });
 
 
@@ -26,7 +27,7 @@ ioClient.on('disconected', function (socket) {
 ioClient.emit('CH01', 'me', 'test msg');
 
 
-ioClient.emit('from_spy_to_master_spin', 25);
+
 
 
 
