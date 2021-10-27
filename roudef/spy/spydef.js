@@ -5,7 +5,7 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 //var prompt = require('prompt-sync')({sigint: true});
 const readline = require('readline')
 const fs = require('fs');
-
+const {fs, randomInt} = require('./spy_utils/spy_utils');
 
 
 // Add a connect listener
@@ -77,7 +77,7 @@ if (process.argv[2] == "testm") {
     
 
 
-} else if (process.argv[2] == "testa"){
+} else if (process.argv[2] == "testaf"){
     
     console.log("Iniciando en modo.... TEST AUTOMATICO (Entrada de datos automatica desde WEB)");
     
@@ -96,6 +96,17 @@ if (process.argv[2] == "testm") {
             socket.emit('from_spy_to_master_spin',line)
         });
         
+    }, 1000);
+
+
+} else if (process.argv[2] == "testar"){
+    
+    console.log("Iniciando en modo.... TEST AUTOMATICO (Entrada de datos automatica RANDOM)");
+  
+  
+  
+    setInterval(() => {
+        socket.emit('from_spy_to_master_spin',randomInt(0,36));
     }, 1000);
 
 
