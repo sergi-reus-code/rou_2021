@@ -89,33 +89,14 @@ if (process.argv[2] == "testm") {
        
     
   
-
-
-
-
-
     setInterval(() => {
 
         readInterface.on('line', function(line) {
             console.log(line);
             socket.emit('from_spy_to_master_spin',line)
         });
-
-
-
-        
         
     }, 1000);
-
-
-
-
-
-
-
-
-
-
 
 
 } else {

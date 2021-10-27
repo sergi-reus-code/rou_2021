@@ -89,13 +89,6 @@ socket.on("from_spy_to_master_spin", (msg) => {
 });
   
 
-socket.on("from_slave_to_master_bet", (msg) => { 
-    
-
-    
-});
-
-
 socket.on("disconnect", () => {
 
 console.log("adeu..... " + socket.id);
