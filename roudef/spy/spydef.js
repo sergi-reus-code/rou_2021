@@ -5,17 +5,28 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 //var prompt = require('prompt-sync')({sigint: true});
 const readline = require('readline')
 const fs = require('fs');
-const {fs, randomInt} = require('./spy_utils/spy_utils');
+const utils = require('./spy_utils/spy_utils');
+
+
+
 
 
 // Add a connect listener
-socket.on('connect', function (socket) {
+ioClient.on('connect', function (socket) {
     console.log('Connected!');
 });
-socket.emit('CH01', 'me', 'test msg');
 
 
-socket.emit('from_spy_to_master_spin', 25);
+ioClient.on('disconected', function (socket) {
+    console.log('DisssssConnected!');
+});
+
+
+
+ioClient.emit('CH01', 'me', 'test msg');
+
+
+ioClient.emit('from_spy_to_master_spin', 25);
 
 
 
@@ -93,7 +104,7 @@ if (process.argv[2] == "testm") {
 
         readInterface.on('line', function(line) {
             console.log(line);
-            socket.emit('from_spy_to_master_spin',line)
+            ioClient.emit('from_spy_to_master_spin',line)
         });
         
     }, 1000);
@@ -106,7 +117,12 @@ if (process.argv[2] == "testm") {
   
   
     setInterval(() => {
-        socket.emit('from_spy_to_master_spin',randomInt(0,36));
+
+        var spin = utils.randomInt(0,36);
+
+        var msg = utils.format_spin(spin);
+
+        ioClient.emit('from_spy_to_master_spin',msg);
     }, 1000);
 
 

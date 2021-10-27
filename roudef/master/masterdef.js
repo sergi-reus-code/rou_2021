@@ -1,4 +1,10 @@
 var express = require("express");
+const combi_master = require ("./master_utils/combi_master");
+
+
+
+
+
 
 var app = express();
 var server = require("http").Server(app);
@@ -81,7 +87,7 @@ io.on("connection", (socket) => {
 
 
 socket.on("from_spy_to_master_spin", (msg) => { 
-    console.log("wfrwgfsw" + msg);
+    
     var bet = main_loop(msg);
 
 
@@ -105,9 +111,11 @@ console.log("adeu..... " + socket.id);
 
 function main_loop(spin){
   
-    
-   
-    console.log("sin" + spin);
+   data =JSON.parse(JSON.stringify(spin));
+   console.log(data);
+  //1ro poner spins dentro de un archivo
+
+  //
 
 
 
