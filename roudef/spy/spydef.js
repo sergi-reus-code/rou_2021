@@ -124,7 +124,7 @@ if (process.argv[2] == "testm") {
         var msg = utils.format_spin(spin);
 
         ioClient.emit('from_spy_to_master_spin',msg);
-    }, 1000);
+    }, 250);
 
 
 } else {

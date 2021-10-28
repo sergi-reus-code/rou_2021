@@ -104,8 +104,21 @@ socket.on("disconnect", () => {
 function main_loop(spin){
   
    data =JSON.parse(JSON.stringify(spin));
-   console.log(data);
+   //console.log(data);
   //1ro poner spins dentro de un archivo
+  combi_master.update_combi_pool([data.spin_id, data.spin]);
+
+  let current_apuesta = combi_master.get_best_bet();
+  
+  let current_chk = Number(combi_master.get_chk(current_apuesta));
+
+ 
+  if (current_apuesta[38]>29 ){
+  console.log(current_apuesta + " - " + current_chk);
+  }
+
+
+
 
 }
 
