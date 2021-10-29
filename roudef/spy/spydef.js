@@ -26,7 +26,9 @@ ioClient.on("disconnect", (socket) => {
 
 ioClient.emit('CH01', 'me', 'test msg');
 
-
+ioClient.on('from_master_to_spy_bet', () => {
+    console.log('eooooooo!');
+});
 
 
 
@@ -124,7 +126,8 @@ if (process.argv[2] == "testm") {
         var msg = utils.format_spin(spin);
 
         ioClient.emit('from_spy_to_master_spin',msg);
-    }, 250);
+        
+    }, 1000);
 
 
 } else {

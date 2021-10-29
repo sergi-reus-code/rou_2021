@@ -1,8 +1,9 @@
 var express = require("express");
 const combi_master = require ("./master_utils/combi_master");
+var fs = require('fs'); 
 
 
-
+if (fs.existsSync('c:\\combi\\ttt.txt')) { fs.unlink('c:\\combi\\ttt.txt', function (err) { if (err) throw err; }); }
 
 
 
@@ -83,9 +84,11 @@ io.on("connection", (socket) => {
 
 socket.on("from_spy_to_master_spin", (msg) => { 
     
-    var bet = main_loop(msg);
+    var object_to_return = main_loop(msg);
 
-  });
+    io.emit('from_master_to_spy_bet', object_to_return);
+
+});
   
 
 socket.on("disconnect", () => {
@@ -103,9 +106,15 @@ socket.on("disconnect", () => {
 
 function main_loop(spin){
   
-   data =JSON.parse(JSON.stringify(spin));
-   //console.log(data);
-  //1ro poner spins dentro de un archivo
+
+
+
+
+
+
+  
+  data =JSON.parse(JSON.stringify(spin));
+  
   combi_master.update_combi_pool([data.spin_id, data.spin]);
 
   let current_apuesta = combi_master.get_best_bet();
@@ -113,11 +122,17 @@ function main_loop(spin){
   let current_chk = Number(combi_master.get_chk(current_apuesta));
 
  
-  if (current_apuesta[38]>29 ){
-  console.log(current_apuesta + " - " + current_chk);
-  }
+  if (current_apuesta[38]>17 ){  //>29
+    
+    var date = current_apuesta + " - " + current_chk +"\r";
+    
+    console.log(date);
+    
+    fs.appendFileSync('c:\\combi\\ttt_18.txt',date); 
 
+}
 
+return "hola"
 
 
 }

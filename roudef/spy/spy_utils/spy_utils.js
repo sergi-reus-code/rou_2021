@@ -23,8 +23,14 @@ function format_spin(spin){
                       `"session_room":"888-Casiopea",`+
                       `"spin_id":${spin_num},`+
                       `"spin_time":${Date.now()},`+
-                      `"spin":${Number(spin)}`+
-                      `}`
+                      `"spin":${Number(spin)},`+
+                      `"bet_id":"a",`+
+                      `"bet_array":"b",`+
+                      `"bet_rep":"c",`+
+                      `"bet_chk":"d",`+
+                      `"bet_result":"e",`+
+                      `"bet_bet_type":"f",`+
+                      `"bet_bet_quantity":"g"}`
 
   return JSON.parse(text_dump_JSON);
 }
