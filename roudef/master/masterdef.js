@@ -1,5 +1,7 @@
 var express = require("express");
-const combi_master = require ("./master_utils/combi_master");
+
+const master_utils = require ("./master_utils/master_utils");
+
 var fs = require('fs'); 
 
 
@@ -68,27 +70,19 @@ io.on("connection", (socket) => {
 
     console.log("connected "  + socket.id);
 
-  /*  
-  data = JSON.stringify(socket.handshake.query)
 
-  
-  if(data.includes("spy")){
-    añadir_spy(socket.id);
-  } else 
-  if (data.includes("slave")){
-    var limits = añadir_slave(socket.id);
-    io.to(socket.id).emit('from_master_to_slave_config', limits );
-  }
-
-*/
-
-socket.on("from_spy_to_master_spin", (msg) => { 
+    socket.on("from_spy_to_master_spin", (msg) => { 
     
-    var object_to_return = main_loop(msg);
+    var object_to_return = master_utils.main_loop(msg);
 
     io.emit('from_master_to_spy_bet', object_to_return);
 
-});
+
+
+
+
+
+  });
   
 
 socket.on("disconnect", () => {
@@ -104,38 +98,6 @@ socket.on("disconnect", () => {
 
 
 
-function main_loop(spin){
-  
-
-
-
-
-
-
-  
-  data =JSON.parse(JSON.stringify(spin));
-  
-  combi_master.update_combi_pool([data.spin_id, data.spin]);
-
-  let current_apuesta = combi_master.get_best_bet();
-  
-  let current_chk = Number(combi_master.get_chk(current_apuesta));
-
- 
-  if (current_apuesta[38]>17 ){  //>29
-    
-    var date = current_apuesta + " - " + current_chk +"\r";
-    
-    console.log(date);
-    
-    fs.appendFileSync('c:\\combi\\ttt_18.txt',date); 
-
-}
-
-return "hola"
-
-
-}
 
 
 

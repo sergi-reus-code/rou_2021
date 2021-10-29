@@ -26,8 +26,8 @@ ioClient.on("disconnect", (socket) => {
 
 ioClient.emit('CH01', 'me', 'test msg');
 
-ioClient.on('from_master_to_spy_bet', () => {
-    console.log('eooooooo!');
+ioClient.on('from_master_to_spy_bet', (msg) => {
+    console.log(msg);
 });
 
 

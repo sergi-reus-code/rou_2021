@@ -12,7 +12,6 @@ function randomInt(min, max) { // min and max included
   
 function format_spin(spin){
 
-  var yourdate =  new Date().toISOString().slice(0, 10);
   spin_num++;
 
   var f = new Date();
@@ -24,13 +23,13 @@ function format_spin(spin){
                       `"spin_id":${spin_num},`+
                       `"spin_time":${Date.now()},`+
                       `"spin":${Number(spin)},`+
-                      `"bet_id":"a",`+
-                      `"bet_array":"b",`+
-                      `"bet_rep":"c",`+
-                      `"bet_chk":"d",`+
-                      `"bet_result":"e",`+
-                      `"bet_bet_type":"f",`+
-                      `"bet_bet_quantity":"g"}`
+                      `"bet_id":"",`+
+                      `"bet_array":"",`+
+                      `"bet_rep":"",`+
+                      `"bet_chk":"",`+
+                      `"bet_result":"",`+
+                      `"bet_bet_type":"",`+
+                      `"bet_bet_quantity":""}`
 
   return JSON.parse(text_dump_JSON);
 }
