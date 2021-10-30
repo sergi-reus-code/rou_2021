@@ -134,7 +134,7 @@ if (process.argv[2] == "testm") {
 
         console.log("sending ->   " + JSON.stringify(msg_out));
         
-    }, 500);
+    }, 1000);
 
 
 } else {

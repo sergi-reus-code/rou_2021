@@ -64,26 +64,28 @@ function get_bet_current_array(current_array) {
 function main_loop(spin){
 
     //Actualizar combi
-    data =JSON.parse(JSON.stringify(spin));
+    data = JSON.parse(JSON.stringify(spin));
     combi_master.update_combi_pool([data.spin_id, data.spin]);
     money_master.update_money([data.spin_id, data.spin]);
+    
     let current_array = combi_master.get_best_bet();
+    var current_chk = combi_master.get_chk(current_array) 
     var bet = JSON.parse(text_dump_JSON);
 
     if (current_array[38]>25){  //>29
-      
+      money_master.update_money(data.spin_id, data.spin, current_chk);
       bet.bet_id = current_array[37];
       bet.bet_array = get_bet_current_array(current_array);
       bet.money_bet_rep = money_master.get_bet_rep();
       bet.money_bet_type = money_master.get_bet_type();
       bet.money_bet_quantity = money_master.get_bet_quantity();
-      money_master.store_last_bet(bet)
-      return bet
+      money_master.store_last_bet(bet);
+      return bet;
   
   } else {
 
-      money_master.store_last_bet(bet)
-      return bet
+      money_master.store_last_bet(bet);
+      return bet;
 
   }
 
