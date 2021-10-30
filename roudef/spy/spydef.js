@@ -6,7 +6,7 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 const readline = require('readline')
 const fs = require('fs');
 const utils = require('./spy_utils/spy_utils');
-const { SocketAddress } = require('net');
+
 
 
 
@@ -24,10 +24,15 @@ ioClient.on("disconnect", (socket) => {
 
 
 
-ioClient.emit('CH01', 'me', 'test msg');
+//ioClient.emit('CH01', 'me', 'test msg');
 
 ioClient.on('from_master_to_spy_bet', (msg) => {
-    console.log(msg);
+
+
+    console.log("receiving -> " + JSON.stringify(msg));
+    console.log("");
+    console.log("");
+
 });
 
 
@@ -117,17 +122,19 @@ if (process.argv[2] == "testm") {
     
     console.log("Iniciando en modo.... TEST AUTOMATICO (Entrada de datos automatica RANDOM)");
   
-  
+    
   
     setInterval(() => {
 
         var spin = utils.randomInt(0,36);
 
-        var msg = utils.format_spin(spin);
+        var msg_out = utils.format_spin(spin);
 
-        ioClient.emit('from_spy_to_master_spin',msg);
+        ioClient.emit('from_spy_to_master_spin',msg_out);
+
+        console.log("sending ->   " + JSON.stringify(msg_out));
         
-    }, 1000);
+    }, 500);
 
 
 } else {

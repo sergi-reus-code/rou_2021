@@ -1,4 +1,5 @@
 let combi_pool = [];
+let stored_last_bet = {}; 
 
 function update_combi_pool(data){
 
@@ -55,28 +56,22 @@ function update_combi_pool(data){
     
    
 
-  while(combi_pool[0][39] == 17){
+  while(combi_pool[0][39] == 17){  //antes era 17
     //degollo
     combi_pool.shift();
   }
-
-  //console.log(combi_pool[0].toString());
 
 }
 
 
 
-
-function check_apuesta(bet) {
-   
-    
-    //console.log(bet.toString());
-  
-  
-  }
   
 function get_best_bet() {
   
+     if (combi_pool.length == 0) {return "";
+        
+      }
+
       if (combi_pool[0][39]<18){
 
         return ""; 
@@ -88,9 +83,13 @@ function get_best_bet() {
       }
 
 }
+
+
   
 function get_chk(bet) {
   
+  if(bet==undefined){return 0}
+
   var res = 0;
   res = (bet[0]*0)+(bet[1]*1)+(bet[2]*2)+(bet[3]*3)+(bet[4]*4)+(bet[5]*5)+(bet[6]*6)+(bet[7]*7)+(bet[8]*8)+(bet[9]*9)
        +(bet[10]*10)+(bet[11]*11)+(bet[12]*12)+(bet[13]*13)+(bet[14]*14)+(bet[15]*15)+(bet[16]*16)+(bet[17]*17)+(bet[18]*18)+(bet[19]*19)+
@@ -100,13 +99,30 @@ function get_chk(bet) {
 
 }
 
+function win_loose_check_bet(spin, apuesta){
+
+//console.log(spin,apuesta);
 
 
+return "win"
+
+}
+
+
+function store_last_bet(msg_to_store) {
+  
+  stored_last_bet = msg_to_store;
+
+  //console.log("dsfas" + JSON.stringify(stored_last_bet));
+
+
+}
 
 
 
 
 exports.update_combi_pool = update_combi_pool
-exports.check_apuesta = check_apuesta,
 exports.get_best_bet = get_best_bet,
-exports.get_chk = get_chk
+exports.get_chk = get_chk,
+exports.win_loose_check_bet = win_loose_check_bet,
+exports.store_last_bet=store_last_bet

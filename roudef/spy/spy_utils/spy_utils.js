@@ -17,21 +17,30 @@ function format_spin(spin){
   var f = new Date();
 
   var text_dump_JSON = `{`+
-                      `"session_id":1, `+
-                      `"session_date":"${f.getDate() + "-"+ f.getMonth()+ "-" +f.getFullYear()}",`+
-                      `"session_room":"888-Casiopea",`+
+                      
+                      // SPIN secction
+                      
                       `"spin_id":${spin_num},`+
+                      `"spin_date":"${f.getDate() + "-"+ f.getMonth()+ "-" +f.getFullYear()}",`+
                       `"spin_time":${Date.now()},`+
-                      `"spin":${Number(spin)},`+
-                      `"bet_id":"",`+
-                      `"bet_array":"",`+
-                      `"bet_rep":"",`+
-                      `"bet_chk":"",`+
-                      `"bet_result":"",`+
-                      `"bet_bet_type":"",`+
-                      `"bet_bet_quantity":""}`
+                      `"spin":${Number(spin)}`+
+                      
+                      // BET secction
+                      
+                      //`"bet_id":"",`+
+                      //`"bet_array":"",`+
+                      
+                      // MONEY secction
+                      
+                      //`"money_bet_rep":"",`+   //(first,second)
+                      //`"money_bet_type":"",`+      //(nothing, simple,x2)
+                      //`"money_bet_quantity":""`+   //$$$$ on a single number
+
+
+                    `}`;
 
   return JSON.parse(text_dump_JSON);
+
 }
 
 

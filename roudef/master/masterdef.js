@@ -1,6 +1,6 @@
 var express = require("express");
 
-const master_utils = require ("./master_utils/master_utils");
+const master_utils = require ("./master_utils/main_loop");
 
 var fs = require('fs'); 
 
@@ -71,28 +71,20 @@ io.on("connection", (socket) => {
     console.log("connected "  + socket.id);
 
 
-    socket.on("from_spy_to_master_spin", (msg) => { 
+    socket.on("from_spy_to_master_spin", (msg_in) => { 
     
-    var object_to_return = master_utils.main_loop(msg);
+        var msg_out = master_utils.main_loop(msg_in);
 
-    io.emit('from_master_to_spy_bet', object_to_return);
+        io.emit('from_master_to_spy_bet', msg_out);
 
-
-
-
-
-
-  });
+    });
   
 
-socket.on("disconnect", () => {
+    socket.on("disconnect", () => {
 
-  console.log("adeu..... " + socket.id);
+      console.log("adeu..... " + socket.id);
 
-});
-
-
-
+    });
 
 });
 
