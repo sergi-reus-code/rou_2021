@@ -65,6 +65,12 @@ function main_loop(spin){
 
     //Actualizar combi
     data = JSON.parse(JSON.stringify(spin));
+
+
+
+
+
+    
     combi_master.update_combi_pool([data.spin_id, data.spin]);
     money_master.update_money([data.spin_id, data.spin]);
     
