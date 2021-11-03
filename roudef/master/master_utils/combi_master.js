@@ -99,30 +99,10 @@ function get_chk(bet) {
 
 }
 
-function win_loose_check_bet(spin, apuesta){
-
-//console.log(spin,apuesta);
-
-
-return "win"
-
-}
-
-
-function store_last_bet(msg_to_store) {
-  
-  stored_last_bet = msg_to_store;
-
-  //console.log("dsfas" + JSON.stringify(stored_last_bet));
-
-
-}
 
 
 
 
 exports.update_combi_pool = update_combi_pool
 exports.get_best_bet = get_best_bet,
-exports.get_chk = get_chk,
-exports.win_loose_check_bet = win_loose_check_bet,
-exports.store_last_bet=store_last_bet
+exports.get_chk = get_chk
