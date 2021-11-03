@@ -90,7 +90,9 @@ function update_money(spin_id, spin, chk) {
 
 }
 
-
+function get_bet_bet(spin_id, spin, bet_combi,chk) {
+    
+}
 
 
 
@@ -104,3 +106,4 @@ exports.update_money=update_money,
 exports.get_bet_rep=get_bet_rep,
 exports.get_bet_type=get_bet_type;
 exports.get_bet_quantity=get_bet_quantity;
+exports.get_bet_bet=get_bet_bet;

@@ -66,17 +66,25 @@ function main_loop(spin){
     //Actualizar combi
     data = JSON.parse(JSON.stringify(spin));
 
-
-
-
-
-    
     combi_master.update_combi_pool([data.spin_id, data.spin]);
-    money_master.update_money([data.spin_id, data.spin]);
-    
-    let current_array = combi_master.get_best_bet();
+    let current_array = combi_master.get_best_combi();
     var current_chk = combi_master.get_chk(current_array) 
-    var bet = JSON.parse(text_dump_JSON);
+
+    var bet = money_master.get_bet_bet(data.spin_id, data.spin,current_array,current_chk)
+
+
+
+
+
+    //money_master.update_money([data.spin_id, data.spin]);
+    
+
+    //var bet = JSON.parse(text_dump_JSON);
+
+
+
+    //todo esto dentro de moneymaster
+/*
 
     if (current_array[38]>25){  //>29
       money_master.update_money(data.spin_id, data.spin, current_chk);
@@ -95,7 +103,7 @@ function main_loop(spin){
 
   }
 
-    
+    */
 }
 
 

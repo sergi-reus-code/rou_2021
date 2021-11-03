@@ -66,7 +66,7 @@ function update_combi_pool(data){
 
 
   
-function get_best_bet() {
+function get_best_combi() {
   
      if (combi_pool.length == 0) {return "";
         
@@ -104,5 +104,5 @@ function get_chk(bet) {
 
 
 exports.update_combi_pool = update_combi_pool
-exports.get_best_bet = get_best_bet,
+exports.get_best_combi = get_best_combi,
 exports.get_chk = get_chk
