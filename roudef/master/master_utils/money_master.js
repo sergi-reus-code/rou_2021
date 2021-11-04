@@ -1,8 +1,101 @@
+var empty_bet = `{`+
+                `"bet_id":0,`+
+                `"bet_date":0,`+
+                `"bet_time":0,`+
+                `"bet_spin":0,`+
+                `"bet_array":[0,0,0,0],`+
+                `"bet_chk":0,`+
+                `"bet_rep":0,`+
+                `"bet_type":0,`+
+                `"bet_quantity":0`+
+                `}`;
+
+
 var last_bet = {};
 var money_bet_rep = ""; //primera o segunda
 var money_bet_type = ""; //simple o x2
 var money_bet_quantity = 0; //cantitad a apostar
 var money_bet_martingala = 0
+
+
+
+
+
+/*
+
+if (bet_combi[38]>18){  //>29
+    money_master.update_money(data.spin_id, data.spin, current_chk);
+    bet.bet_id = current_array[37];
+    bet.bet_array = get_bet_current_array(current_array);
+    bet.money_bet_rep = money_master.get_bet_rep();
+    bet.money_bet_type = money_master.get_bet_type();
+    bet.money_bet_quantity = money_master.get_bet_quantity();
+    money_master.store_last_bet(bet);
+    return bet;
+
+} else {
+
+    money_master.store_last_bet(bet);
+    return bet;
+
+}
+
+*/
+
+
+
+
+
+//Main loop para devolver la apuesta
+function check_for_bet(spin_id, spin, bet_combi,chk) {
+    
+console.log(bet_combi.toString());
+
+/*
+
+    if (bet_combi[38]>18){  //>29
+        money_master.update_money(data.spin_id, data.spin, current_chk);
+        bet.bet_id = current_array[37];
+        bet.bet_array = get_bet_current_array(current_array);
+        bet.money_bet_rep = money_master.get_bet_rep();
+        bet.money_bet_type = money_master.get_bet_type();
+        bet.money_bet_quantity = money_master.get_bet_quantity();
+        money_master.store_last_bet(bet);
+        return bet;
+    
+    } else {
+  
+        money_master.store_last_bet(bet);
+        return bet;
+  
+    }
+
+
+
+*/
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function store_last_bet(param) {
     last_bet = param;
@@ -90,9 +183,7 @@ function update_money(spin_id, spin, chk) {
 
 }
 
-function get_bet_bet(spin_id, spin, bet_combi,chk) {
-    
-}
+
 
 
 
@@ -106,4 +197,4 @@ exports.update_money=update_money,
 exports.get_bet_rep=get_bet_rep,
 exports.get_bet_type=get_bet_type;
 exports.get_bet_quantity=get_bet_quantity;
-exports.get_bet_bet=get_bet_bet;
+exports.check_for_bet=check_for_bet;

@@ -70,9 +70,9 @@ function main_loop(spin){
     let current_array = combi_master.get_best_combi();
     var current_chk = combi_master.get_chk(current_array) 
 
-    var bet = money_master.get_bet_bet(data.spin_id, data.spin,current_array,current_chk)
+    var bet = money_master.check_for_bet(data.spin_id, data.spin,current_array,current_chk)
 
-
+    return bet;
 
 
 
@@ -86,22 +86,8 @@ function main_loop(spin){
     //todo esto dentro de moneymaster
 /*
 
-    if (current_array[38]>25){  //>29
-      money_master.update_money(data.spin_id, data.spin, current_chk);
-      bet.bet_id = current_array[37];
-      bet.bet_array = get_bet_current_array(current_array);
-      bet.money_bet_rep = money_master.get_bet_rep();
-      bet.money_bet_type = money_master.get_bet_type();
-      bet.money_bet_quantity = money_master.get_bet_quantity();
-      money_master.store_last_bet(bet);
-      return bet;
-  
-  } else {
 
-      money_master.store_last_bet(bet);
-      return bet;
-
-  }
+1
 
     */
 }

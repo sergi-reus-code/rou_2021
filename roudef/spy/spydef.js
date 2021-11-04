@@ -89,8 +89,16 @@ if (process.argv[2] == "testm") {
     
     setInterval(() => {
         r1.question('Enter A number : ', (num) => {
+
+
+            var msg_out = utils.format_spin(num);
+
+            ioClient.emit('from_spy_to_master_spin',msg_out);
+    
+            console.log("sending ->   " + JSON.stringify(msg_out));
+
             
-            ioClient.emit('from_spy_to_master_spin',num);})
+            })
         
     }, 1000);
     
