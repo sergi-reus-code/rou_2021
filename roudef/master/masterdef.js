@@ -1,14 +1,7 @@
+const combi_master = require ("./master_utils/combi_master");
+const main_loop = require ("./master_utils/main_loop");
+
 var express = require("express");
-
-const master_utils = require ("./master_utils/main_loop");
-
-var fs = require('fs'); 
-
-
-if (fs.existsSync('c:\\combi\\ttt.txt')) { fs.unlink('c:\\combi\\ttt.txt', function (err) { if (err) throw err; }); }
-
-
-
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
@@ -31,41 +24,6 @@ server.listen(8080, function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// event fired every time a new client connects:
 io.on("connection", (socket) => {
 
     console.log("connected "  + socket.id);
@@ -73,9 +31,14 @@ io.on("connection", (socket) => {
 
     socket.on("from_spy_to_master_spin", (msg_in) => { 
     
-        var msg_out = master_utils.main_loop(msg_in);
+        data = JSON.parse(JSON.stringify(msg_in));
 
-        io.emit('from_master_to_spy_bet', msg_out);
+        combi_master.update_combi_pool([data.spin_id, data.spin]);
+        let current_array = combi_master.get_best_combi();
+        var current_chk = combi_master.get_chk(current_array) 
+        var bet = main_loop.main_loop(data.spin_id, data.spin,current_array,current_chk)
+    
+        io.emit('from_master_to_spy_bet', bet);
 
     });
   

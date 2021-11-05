@@ -29,7 +29,7 @@ ioClient.on("disconnect", (socket) => {
 ioClient.on('from_master_to_spy_bet', (msg) => {
 
 
-    console.log("receiving -> " + JSON.stringify(msg));
+    console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
     console.log("");
     console.log("");
 
