@@ -9,7 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jimp": "^0.16.1",
+    "node-window-manager": "^2.2.4",
     "prompt-sync": "^4.2.0",
-    "socket.io-client": "^4.3.2"
+    "robotjs": "^0.6.0",
+    "socket.io-client": "^4.3.2",
+    "tesseract.js": "^2.1.5"
   }
 }
