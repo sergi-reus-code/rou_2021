@@ -96,18 +96,6 @@ function sleep(ms) {
     //image.invert(); 
 
 
-for (let index = 0; index < prev_coord.length; index++) {
-  const element = prev_coord[index];
-  console.log(element);
-  image.crop( element[0], element[1], element[2], element[3] ); 
-  image.write(`${index}.png`)        // crop to the given region
-
-
-
-
-}
-
-
 
 
 
@@ -140,13 +128,27 @@ for (let index = 0; index < prev_coord.length; index++) {
     captureImage_prev({ x, y, w, h }).write('prev.png')
 
 
+    sleep(2000);
 
 
 
 
 
-    
-  }
+
+
+      
+
+for (let index = 0; index < prev_coord.length; index++) {
+  const element = prev_coord[index];
+    Jimp.read('prev.png', (err, img) => {
+      if (err) throw err;
+      img.crop( element[0], element[1], element[2], element[3] ); 
+      img.write(`${index}.png`)        // crop to the given region
+    });
+
+}
+
+}
 
 
  

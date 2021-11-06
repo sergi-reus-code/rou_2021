@@ -34,7 +34,7 @@ function main_loop(){
   
   var color = robot.getPixelColor(533, 359); 
   
-  if (color == "060606" || color == "070707" || color == "660000" || color == "650000" || color == "007328" || color == "479045") {
+  if (color == "060606" || color == "070707" || color == "660000" || color == "650000" || color == "007328" || color == "408544"|| color == "048835") {
     sleep(1000)
     tomafoto(507,300,50,40);
     sleep(2000)
