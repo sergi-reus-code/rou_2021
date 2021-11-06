@@ -1,4 +1,3 @@
-//client.js
 var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 
