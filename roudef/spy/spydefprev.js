@@ -6,7 +6,7 @@ const { createWorker } = require('tesseract.js');
 
 
 
-async function detectar() {
+async function detectarprev() {
 
   const worker = createWorker();
   await worker.load();
@@ -15,8 +15,16 @@ async function detectar() {
   await worker.setParameters({
     tessedit_char_whitelist: '0123456789',
   });
-  const { data: { text } } = await worker.recognize('./last.png');
-  console.log("spin nº: " + Number(text));
+
+
+
+  for (let index = 0; index < 80; index++) {
+    const { data: { text } } = await worker.recognize(`./${index}.png`);
+    console.log("spin nº: " + Number(text));
+    
+  }
+
+
   await worker.terminate();
   
 
@@ -53,14 +61,17 @@ function main_loop(){
 /**
 * Previous work
 */
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+//getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+//getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
+//getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
 robot.moveMouse(29, 293);
 
-tomafoto_prev(83,156,226,181);
+//tomafoto_prev(83,156,226,181);
+
+detectarprev();
+
 
 
 /**
