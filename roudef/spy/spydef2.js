@@ -3,10 +3,14 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 var robot = require("robotjs");
 const { getwindow, sleep, tomafoto} = require ("./spy_utils/spy_utils_image");
 const { createWorker } = require('tesseract.js');
+var fs = require('fs'); 
+var start = Date.now();
 
 
 
-async function detectar() {
+
+
+async function detectar(milis) {
 
   const worker = createWorker();
   await worker.load();
@@ -16,7 +20,13 @@ async function detectar() {
     tessedit_char_whitelist: '0123456789',
   });
   const { data: { text } } = await worker.recognize('./last.png');
-  console.log("spin nº: " + Number(text));
+    
+  console.log("spin nº: " + Number(text) + " - " + Number(milis));
+
+  fs.renameSync('last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
+
+  //send_spin_to_master()
+
   await worker.terminate();
   
 
@@ -38,13 +48,14 @@ function main_loop(){
     sleep(1000)
     tomafoto(507,300,50,40);
     sleep(2000)
-    detectar();
+
+    detectar(Date.now());
     
   }
 
-  var mouse = robot.getMousePos();
-  var color = robot.getPixelColor(mouse.x, mouse.y);
-  console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
+  //var mouse = robot.getMousePos();
+  //var color = robot.getPixelColor(mouse.x, mouse.y);
+  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
 
 }
   

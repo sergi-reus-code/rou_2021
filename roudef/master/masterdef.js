@@ -1,5 +1,6 @@
 const combi_master = require ("./master_utils/combi_master");
 const main_loop = require ("./master_utils/main_loop");
+const money_master = require ("./master_utils/money_master");
 
 var express = require("express");
 var app = express();
@@ -28,16 +29,32 @@ io.on("connection", (socket) => {
 
     console.log("connected "  + socket.id);
 
-
     socket.on("from_spy_to_master_spin", (msg_in) => { 
     
         data = JSON.parse(JSON.stringify(msg_in));
 
+        let prev_array = combi_master.get_best_combi();
+        var prev_chk = combi_master.get_chk(prev_array);
+        
+        money_master.update_martingala()
+
+
+
+
+
         combi_master.update_combi_pool([data.spin_id, data.spin]);
         let current_array = combi_master.get_best_combi();
         var current_chk = combi_master.get_chk(current_array) 
+
+
+
+
+
         var bet = main_loop.main_loop(data.spin_id, data.spin,current_array,current_chk)
     
+        
+
+
         io.emit('from_master_to_spy_bet', bet);
 
     });

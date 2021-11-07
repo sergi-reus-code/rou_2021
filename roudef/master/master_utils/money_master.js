@@ -1,11 +1,11 @@
-var martinga = [1,2,4,8,16,32,64,128];
+var martinga = [0.2,0.4,1,2,5,10,25,50,150,300];
 
 
 
 
 
 //Main loop para devolver la apuesta
-function check_for_bet(spin_id, spin, bet_combi,chk) {
+function update_martingala(spin_id, spin, bet_combi,chk) {
     
 
 
@@ -18,6 +18,7 @@ function check_for_bet(spin_id, spin, bet_combi,chk) {
 
 
 
+exports.update_martingala = update_martingala
 
 
 
@@ -36,9 +37,3 @@ function check_for_bet(spin_id, spin, bet_combi,chk) {
 
 
 
-
-
-
-
-
-exports.check_for_bet=check_for_bet;

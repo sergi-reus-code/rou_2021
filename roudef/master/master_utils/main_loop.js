@@ -1,4 +1,3 @@
-
 const money_master = require ("./money_master");
 
 
@@ -26,8 +25,12 @@ var hay_last_bet = false;
 
 function main_loop(spin_id, spin, bet_combi,chk){
 
-  console.log(bet_combi.toString() + " - " + chk + " - " + hay_last_bet);
-
+  var data = bet_combi.toString() + " - " + chk + " - " + hay_last_bet
+  
+  console.log(data);
+  
+  
+  
 
 
   if (hay_last_bet) {
@@ -42,20 +45,16 @@ function main_loop(spin_id, spin, bet_combi,chk){
 
 
 
-  if (bet_combi[38]>29){  //>29
+  if (bet_combi[38]>29 && bet_combi[38]<35){  //>29
       
-      //var bet = fill_bet;
-
       var bet = empty_bet;
-
-      //clean_empty_bet();
-
-      //store_last_bet(bet);
 
       hay_last_bet = true;
 
-      console.log(JSON.stringify(JSON.parse(bet)));
+      var date = (JSON.stringify(JSON.parse(bet)))+  "\r"
 
+      console.log(date);
+      
       return bet;
   
   } else {

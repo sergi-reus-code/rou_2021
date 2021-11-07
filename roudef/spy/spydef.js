@@ -28,9 +28,9 @@ ioClient.on("disconnect", (socket) => {
 ioClient.on('from_master_to_spy_bet', (msg) => {
 
 
-    console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
-    console.log("");
-    console.log("");
+   // console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
+   // console.log("");
+   // console.log("");
 
 });
 
@@ -141,7 +141,7 @@ if (process.argv[2] == "testm") {
 
         console.log("sending ->   " + JSON.stringify(msg_out));
         
-    }, 1000);
+    }, 100);
 
 
 } else {
