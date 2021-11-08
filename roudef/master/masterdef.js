@@ -1,12 +1,19 @@
+
 const combi_master = require ("./master_utils/combi_master");
-const main_loop = require ("./master_utils/main_loop");
-const money_master = require ("./master_utils/money_master");
+const bet_master = require ("./master_utils/bet_master");
+var bet = `{`+
+                `"bet_id":0,`+
+                `"bet_date":"0",`+
+                `"bet_time":0,`+
+                `"bet_array":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],`+
+                `"bet_quantity":0`+
+                `}`;
 
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-
+const fs = require('fs');
 
 app.use(express.json());
 
@@ -33,27 +40,20 @@ io.on("connection", (socket) => {
     
         data = JSON.parse(JSON.stringify(msg_in));
 
-        let prev_array = combi_master.get_best_combi();
-        var prev_chk = combi_master.get_chk(prev_array);
-        
-        money_master.update_martingala()
+        var prev_chk = combi_master.get_chk(combi_master.get_best_combi());
 
-
-
-
+        bet_master.update_marti(bet, data.spin);
 
         combi_master.update_combi_pool([data.spin_id, data.spin]);
+
         let current_array = combi_master.get_best_combi();
-        var current_chk = combi_master.get_chk(current_array) 
+        var current_chk = combi_master.get_chk(current_array);
+
+        var txt = current_array + " - " + current_chk 
+        fs.appendFileSync("results.txt",txt+"\r");
 
 
-
-
-
-        var bet = main_loop.main_loop(data.spin_id, data.spin,current_array,current_chk)
-    
-        
-
+        bet = bet_master.main_loop(prev_chk,current_chk,current_array);
 
         io.emit('from_master_to_spy_bet', bet);
 
