@@ -49,11 +49,22 @@ io.on("connection", (socket) => {
         let current_array = combi_master.get_best_combi();
         var current_chk = combi_master.get_chk(current_array);
 
-        var txt = current_array + " - " + current_chk 
-        fs.appendFileSync("results.txt",txt+"\r");
+        var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
+        
+        if (prev_chk == current_chk) {
+          fs.appendFileSync("results13.txt",txt+"\r");
+        } else {
+
+          fs.appendFileSync("results13.txt","\r" + txt + "\r");
+
+        }
+        
+        
+        
 
 
-        bet = bet_master.main_loop(prev_chk,current_chk,current_array);
+        //bet = bet_master.main_loop(prev_chk,current_chk,current_array);
+        bet = bet_master.main_loop2(prev_chk,current_chk,current_array);
 
         io.emit('from_master_to_spy_bet', bet);
 

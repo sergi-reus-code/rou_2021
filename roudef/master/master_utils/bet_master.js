@@ -88,7 +88,25 @@ function main_loop(prev_chk, current_chk, current_array){
 }
 
 
+function main_loop2(prev_chk, current_chk, current_array){
+
+  
+
+
+
+
+
+  return empty_bet
+
+
+}
+
+
+
+
+
 
 
 exports.main_loop = main_loop,
+exports.main_loop2 = main_loop2,
 exports.update_marti = update_marti
