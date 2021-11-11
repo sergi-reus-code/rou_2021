@@ -14,12 +14,6 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
-var rep=0;
-var repe= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
-
-const fs = require('fs');
-
 app.use(express.json());
 
 app.get('/', function(req, res) {
@@ -56,21 +50,6 @@ io.on("connection", (socket) => {
 
         var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
         
-        if (prev_chk == current_chk) {
-          //fs.appendFileSync("results14.txt",txt+"\r");
-          rep++;
-        } else {
-
-          //fs.appendFileSync("results14.txt","\r" + txt + "\r");
-          repe[rep] = repe[rep]+1
-          rep=0
-
-        }
-        
-        console.log(repe.toString());
-        
-
-
         //bet = bet_master.main_loop(prev_chk,current_chk,current_array);
         bet = bet_master.main_loop2(prev_chk,current_chk,current_array);
 
