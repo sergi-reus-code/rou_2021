@@ -3,7 +3,9 @@ const marti_master = require ("./marti_master");
 var fs = require('fs'); 
 var rep=0
 repe=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-
+last1_chk=0;
+last2_chk=0;
+last3_chk=0;
 
 var empty_bet = `{`+
                 `"bet_id":0,`+
@@ -98,17 +100,18 @@ function main_loop2(prev_chk, current_chk, current_array){
   var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
 
   if (prev_chk == current_chk) {
-    fs.appendFileSync("32.txt",txt+"\r");
+    fs.appendFileSync("54.txt",txt+"\r");
     rep++;
   } else {
 
-    fs.appendFileSync("32.txt","\r" + txt + "\r");
+    fs.appendFileSync("54.txt","\r" + txt + "\r");
     repe[rep] = repe[rep]+1
     rep=0
 
   }
   
   console.log(repe.toString());
+
 
 
 
