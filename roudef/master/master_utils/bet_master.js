@@ -97,6 +97,29 @@ function main_loop(prev_chk, current_chk, current_array){
 
 function main_loop2(prev_chk, current_chk, current_array){
 
+
+  if (current_array[37]>17){  //>29
+
+
+    if(prev_chk != current_chk){
+
+            return fill_bet(current_array);            
+
+    }else{
+
+             return empty_bet
+  
+
+  }
+
+}
+
+return empty_bet
+
+
+
+/*
+
   var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
 
   if (prev_chk == current_chk) {
@@ -117,7 +140,7 @@ function main_loop2(prev_chk, current_chk, current_array){
 
 
   return empty_bet
-
+*/
 
 }
 

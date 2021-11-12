@@ -20,7 +20,7 @@ function update_marti(bet,spin) {
         return
     } else {
         //Hay bet
-        if (data.bet_array[spin]==1){
+        if (data.bet_array[spin]==1){    //win
 
             win = Number(wins[marti_iter]);
             total_win = Number(total_win + win);
@@ -32,14 +32,12 @@ function update_marti(bet,spin) {
 
             var txt2 = JSON.stringify(data);
             console.log(txt2);
-            fs.appendFileSync("results.txt",txt2+"\r");
+            //fs.appendFileSync("results.txt",txt2+"\r");
             
             var txt = `I win with spin -> ${spin}    -> bet_win : ${win}€    -> total_win : ${total_win}€`+"\r"
-            fs.appendFileSync("results.txt",txt+"\r");
+            //fs.appendFileSync("results.txt",txt+"\r");
             win = 0;
-            
-
-
+ 
             console.log();
             console.log(txt);
             console.log();
@@ -53,7 +51,7 @@ function update_marti(bet,spin) {
             looses++;
             var txt2 = JSON.stringify(data);
             console.log(txt2);
-            fs.appendFileSync("results.txt",txt2+"\r");
+            //fs.appendFileSync("results.txt",txt2+"\r");
 
             //console.log("loose");
             return
