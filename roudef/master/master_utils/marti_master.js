@@ -55,8 +55,7 @@ function update_marti(bet,spin) {
             process.exit()}
 
 
-            marti_iter = 0;
-            looses = 0;
+      
 
 
 
@@ -74,8 +73,10 @@ function update_marti(bet,spin) {
             console.log(repe.toString());
             console.log();
 
-            
-
+            if (data.bet_id>15){process.exit()}
+    
+            marti_iter = 0;
+            looses = 0;
 
             return
         } else {

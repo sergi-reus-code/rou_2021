@@ -29,6 +29,7 @@ server.listen(8080, function () {
 });
 
 
+console.clear();
 
 
 io.on("connection", (socket) => {
