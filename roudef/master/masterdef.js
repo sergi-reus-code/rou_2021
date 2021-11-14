@@ -54,7 +54,7 @@ io.on("connection", (socket) => {
         //bet = bet_master.main_loop(prev_chk,current_chk,current_array);
         bet = bet_master.main_loop2(prev_chk,current_chk,current_array);
 
-        io.emit('from_master_to_spy_bet', bet);
+        io.emit('from_master_to_exec_bet', bet);
 
     });
   

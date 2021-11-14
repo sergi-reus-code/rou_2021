@@ -4,6 +4,50 @@ var robot = require("robotjs");
 const { getwindow, sleep} = require ("./exec_utils/exec_utils");
 
 
+// Add a connect listener
+ioClient.on('connect', () => {
+  console.log('Connected!');
+});
+
+
+ioClient.on("disconnect", (socket) => {
+  console.log('DisssssConnected!' + socket.id);
+});
+
+
+
+//ioClient.emit('CH01', 'me', 'test msg');
+
+ioClient.on('from_master_to_exec_bet', (msg) => {
+
+
+  console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
+  console.log("");
+  console.log("");
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function main_loop(){
   
@@ -18,13 +62,19 @@ function main_loop(){
 /**
 * Previous work
 */
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
-getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
-getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
+try {
 
+  getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
+  getwindow('Casino en vivo - Mozilla Firefox').getBounds();
+  getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
+  getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
+} catch (err) {
+
+  console.log("No esta abierta la ventana");
+
+}
 
 
 
