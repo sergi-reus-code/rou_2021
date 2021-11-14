@@ -49,7 +49,7 @@ io.on("connection", (socket) => {
         var current_chk = combi_master.get_chk(current_array);
 
         var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
-        
+        console.log(txt);
         //bet = bet_master.main_loop(prev_chk,current_chk,current_array);
         bet = bet_master.main_loop2(prev_chk,current_chk,current_array);
 

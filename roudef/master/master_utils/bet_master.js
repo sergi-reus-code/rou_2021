@@ -39,7 +39,8 @@ function fill_bet(current_array) {
     bet_temp.bet_quantity = marti_master.get_marti();
 
 
-
+   
+  
     
     var bet_to_send = JSON.stringify(bet_temp)
 
@@ -97,8 +98,9 @@ function main_loop(prev_chk, current_chk, current_array){
 
 function main_loop2(prev_chk, current_chk, current_array){
 
+  
 
-  if (current_array[37]>17){  //>29
+  if (current_array[39]==18){  //>29
 
 
     if(prev_chk != current_chk){

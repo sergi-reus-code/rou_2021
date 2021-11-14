@@ -34,7 +34,12 @@ ioClient.on('from_master_to_spy_bet', (msg) => {
 
 });
 
+ioClient.on('from_master_to_spy_stop', (msg) => {
 
+
+    process.exit();
+ 
+ });
 
 
 /*
@@ -141,7 +146,7 @@ if (process.argv[2] == "testm") {
 
         console.log("sending ->   " + JSON.stringify(msg_out));
         
-    }, 25);
+    }, 250);
 
 
 } else {
@@ -150,4 +155,5 @@ if (process.argv[2] == "testm") {
     //setInterval(main_loop, 1000);
 }
   
+
 
