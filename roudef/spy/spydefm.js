@@ -84,5 +84,5 @@ console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
             
             })
         
-    }, 2000.);
+    }, 2000);
     
