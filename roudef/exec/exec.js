@@ -37,35 +37,11 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
   }
 });
 
-const r1 = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
-
-
-function main_loop(){
-  
-  //var mouse = robot.getMousePos();
-  //var color = robot.getPixelColor(mouse.x, mouse.y);
-  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
-
-
-  r1.question('Apostar : ', (YN) => {
-
-    if (YN=="") {
-      console.log(YN + "apuesto");
-    }
-    
-    })
 
 
 
 
 
-
-}
   
 
 
@@ -88,20 +64,28 @@ try {
 
 
 
+const r1 = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-
-
-/**
-* Main loop
-*/
+function main_loop(){
   
+  //var mouse = robot.getMousePos();
+  //var color = robot.getPixelColor(mouse.x, mouse.y);
+  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
 
+  r1.question('Apostar : ', (YN) => {
+
+    if (YN=="") {
+      console.log(YN + "apuesto");
+      
+    }
+    
+    })
+
+}
 
 
 
 setInterval(main_loop, 1000);
-/*
-setInterval(() => {
-
-}, 1000);
-*/
