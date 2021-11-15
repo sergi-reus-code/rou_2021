@@ -34,26 +34,6 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
     windoww.bringToTop();
    
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
   }
 });
 
