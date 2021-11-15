@@ -2,6 +2,10 @@ var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 var robot = require("robotjs");
 const { getwindow, sleep} = require ("./exec_utils/exec_utils");
+const readline = require('readline')
+const coord = require('./exec_utils/coord_pokerstars')
+const { windowManager } = require ("node-window-manager");
+
 
 
 // Add a connect listener
@@ -20,40 +24,66 @@ ioClient.on("disconnect", (socket) => {
 
 ioClient.on('from_master_to_exec_bet', (msg) => {
 
+  bet = JSON.parse(msg);
+  if (bet.bet_id!=0) {
+    
+    console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
+    console.log(bet.bet_id);
+    console.log("");
+    const windoww = windowManager.getActiveWindow();
+    windoww.bringToTop();
+   
 
-  console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
-  console.log("");
-  console.log("");
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const r1 = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 
 
 
 function main_loop(){
   
-  var mouse = robot.getMousePos();
-  var color = robot.getPixelColor(mouse.x, mouse.y);
-  console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
+  //var mouse = robot.getMousePos();
+  //var color = robot.getPixelColor(mouse.x, mouse.y);
+  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
+
+
+  r1.question('Apostar : ', (YN) => {
+
+    if (YN=="") {
+      console.log(YN + "apuesto");
+    }
+    
+    })
+
+
+
+
+
 
 }
   
@@ -85,4 +115,13 @@ try {
 * Main loop
 */
   
+
+
+
+
 setInterval(main_loop, 1000);
+/*
+setInterval(() => {
+
+}, 1000);
+*/
