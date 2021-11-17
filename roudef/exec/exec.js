@@ -3,7 +3,6 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 var robot = require("robotjs");
 const { getwindow, sleep} = require ("./exec_utils/exec_utils");
 const readline = require('readline')
-
 const coord = require('./exec_utils/coord_pokerstars_100')
 const { windowManager } = require ("node-window-manager");
 
@@ -75,6 +74,7 @@ function main_loop(){
   
   var mouse = robot.getMousePos();
   var color = robot.getPixelColor(mouse.x, mouse.y);
+ // var color = robot.getPixelColor(738, 492);
   console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
 /*
   r1.question('Apostar : ', (YN) => {
@@ -90,4 +90,4 @@ function main_loop(){
 
 
 
-setInterval(main_loop, 1000);
+setInterval(main_loop, 100);

@@ -116,20 +116,20 @@ function main_loop2(prev_chk, current_chk, current_array){
 
 }
 
-return empty_bet
 
 
 
-/*
+
+
 
   var txt = current_array[37] + "," + current_array[38] + "," + current_array[39] + "," +current_array[40] + "," + current_chk 
 
   if (prev_chk == current_chk) {
-    fs.appendFileSync("54.txt",txt+"\r");
+    //fs.appendFileSync("54.txt",txt+"\r");
     rep++;
   } else {
 
-    fs.appendFileSync("54.txt","\r" + txt + "\r");
+    //fs.appendFileSync("54.txt","\r" + txt + "\r");
     repe[rep] = repe[rep]+1
     rep=0
 
@@ -142,7 +142,6 @@ return empty_bet
 
 
   return empty_bet
-*/
 
 }
 

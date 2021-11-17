@@ -62,279 +62,286 @@ var m100 = [964,690];
 var bdes = [504,690];
 var brea = [555,690];
 
-var timer = 200;
+var timer = 50;
+var timerc = 100;
 
-function doclick(click) {
+
+function doclick(times) {
+
+    for (let index = 0; index < times; index++) {
+        robot.mouseClick();
+        sleep(timer);
+        
+    }
+
+    
+
+
+}
+
+
+
+
+function doclicks(click,times) {
 
     switch (click) {
         case 1: 
             robot.moveMouse(n1[0],n1[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 2: 
             robot.moveMouse(n2[0],n2[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 3: 
             robot.moveMouse(n3[0],n3[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 4: 
             robot.moveMouse(n4[0],n4[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 5: 
             robot.moveMouse(n5[0],n5[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 6: 
             robot.moveMouse(n6[0],n6[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 7: 
             robot.moveMouse(n7[0],n7[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 8: 
             robot.moveMouse(n8[0],n8[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 9: 
             robot.moveMouse(n9[0],n9[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 10: 
             robot.moveMouse(n10[0],n10[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 11: 
             robot.moveMouse(n11[0],n11[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 12: 
             robot.moveMouse(n12[0],n12[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 13: 
             robot.moveMouse(n13[0],n13[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 14: 
             robot.moveMouse(n14[0],n14[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 15: 
             robot.moveMouse(n15[0],n15[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 16: 
             robot.moveMouse(n16[0],n16[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 17: 
             robot.moveMouse(n17[0],n17[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 18: 
             robot.moveMouse(n18[0],n18[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 19: 
             robot.moveMouse(n19[0],n19[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 20: 
             robot.moveMouse(n20[0],n20[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 21: 
             robot.moveMouse(n21[0],n21[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 22: 
             robot.moveMouse(n22[0],n22[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 23: 
             robot.moveMouse(n23[0],n23[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 24: 
             robot.moveMouse(n24[0],n24[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 25: 
             robot.moveMouse(n25[0],n25[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 26: 
             robot.moveMouse(n26[0],n26[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 27: 
             robot.moveMouse(n27[0],n27[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 28: 
             robot.moveMouse(n28[0],n28[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 29: 
             robot.moveMouse(n29[0],n29[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 30: 
             robot.moveMouse(n30[0],n30[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 31: 
             robot.moveMouse(n31[0],n31[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 32: 
             robot.moveMouse(n32[0],n32[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;
         case 33: 
             robot.moveMouse(n33[0],n33[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;    
         case 34: 
             robot.moveMouse(n34[0],n34[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;    
         case 35: 
             robot.moveMouse(n35[0],n35[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;    
         case 36: 
             robot.moveMouse(n36[0],n36[1]);           
-            //robot.mouseClick();
+            doclick(times);
             sleep(timer);
             break;    
 
         default:
             break;
     }
-
-
-
-    
-
-    
-
-    
 }
+
+
+
+
+function clickmoney(coin) {
+    
+    robot.moveMouse(coin[0],coin[1]);           
+    robot.mouseClick();
+    sleep(timer);
+
+}
+
+function clicknumbers(array,times) {
+
+    for (let index = 0; index < 37; index++) {
+        //console.log(array[index]);
+        if (array[index]==1) {
+               
+                doclicks(index,times);
+                
+        }
+          
+    }
+}
+
 
 
 function dobet(bet) {
     
-    var coin = bet.bet_quantity
+    var coin = Number(bet.bet_quantity)
+    var array = bet.bet_array
 
     console.log("coin" + coin);
 
-    
-
-
-
-
-
-
-    var array = bet.bet_array
-
-
-
-
-    for (let index = 0; index < 37; index++) {
-        console.log(array[index]);
-        if (array[index]==1) {
-            doclick(index);
-        }
-        
-        
-        
-
-        
+    switch (coin) {
+        case 0.2:
+            clickmoney(m02)
+            sleep(100)
+            clicknumbers(array,1)
+            break;
+        case 0.4:
+            clickmoney(m02)
+            sleep(100)
+            clicknumbers(array,2)
+            break;   
+        case 1:
+            clickmoney(m1)
+            sleep(100)
+            clicknumbers(array,1)
+            break;   
+        case 2:
+            clickmoney(m1)
+            sleep(100)
+            clicknumbers(array,2)
+            break;  
+        case 5:
+            clickmoney(m5)
+            sleep(100)
+            clicknumbers(array,1)
+            break; 
+        case 10:
+            clickmoney(m5)
+            sleep(100)
+            clicknumbers(array,2)
+            break;   
+        default:
+            break;
     }
 
 
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 exports.n0 = n0,   
