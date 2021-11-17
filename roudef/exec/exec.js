@@ -3,7 +3,7 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 var robot = require("robotjs");
 const { getwindow, sleep} = require ("./exec_utils/exec_utils");
 const readline = require('readline')
-const coord = require('./exec_utils/coord_pokerstars')
+const coord = require('./exec_utils/coord_pokerstars_100')
 const { windowManager } = require ("node-window-manager");
 
 
@@ -53,7 +53,8 @@ try {
 
   getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
   getwindow('Casino en vivo - Mozilla Firefox').getBounds();
-  getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
+  //getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 1024, height: 760 });
+  getwindow('Casino en vivo - Mozilla Firefox').setBounds({ x: 0, y: 0, width: 682, height: 506 });
   getwindow('Casino en vivo - Mozilla Firefox').bringToTop();
 
 } catch (err) {
@@ -71,10 +72,11 @@ const r1 = readline.createInterface({
 
 function main_loop(){
   
-  //var mouse = robot.getMousePos();
-  //var color = robot.getPixelColor(mouse.x, mouse.y);
-  //console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
-
+  var mouse = robot.getMousePos();
+  var color = robot.getPixelColor(mouse.x, mouse.y);
+ // var color = robot.getPixelColor(738, 492);
+  console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
+/*
   r1.question('Apostar : ', (YN) => {
 
     if (YN=="") {
@@ -83,9 +85,9 @@ function main_loop(){
     }
     
     })
-
+*/
 }
 
 
 
-setInterval(main_loop, 1000);
+setInterval(main_loop, 100);
