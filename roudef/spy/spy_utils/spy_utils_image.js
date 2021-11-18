@@ -1,5 +1,6 @@
 var robot = require("robotjs");
 var Jimp = require('jimp');
+var fs = require('fs'); 
 
 const { windowManager } = require ("node-window-manager");
 
@@ -32,11 +33,15 @@ function sleep(ms) {
   function getwindow(title) {
 
     let windows = windowManager.getWindows();
-  
+
     for (let index = 0; index < windows.length; index++) {
-      
+
+      console.log(windows[index].getTitle().toLowerCase());
+
+
       if(windows[index].getTitle().toLowerCase() == title.toLowerCase()){
-        return windows[index];
+        console.log(index);
+        return windows[38];
       }
     
     }
