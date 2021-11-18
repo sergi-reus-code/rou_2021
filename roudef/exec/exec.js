@@ -73,7 +73,7 @@ const r1 = readline.createInterface({
 function main_loop(){
   
   var mouse = robot.getMousePos();
-  var color = robot.getPixelColor(mouse.x, mouse.y);
+  var color = robot.getPixelColor(Number(mouse.x), Number(mouse.y));
  // var color = robot.getPixelColor(738, 492);
   console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y + " color :" + color );
 /*
@@ -86,6 +86,7 @@ function main_loop(){
     
     })
 */
+
 }
 
 
