@@ -37,11 +37,11 @@ function sleep(ms) {
     for (let index = 0; index < windows.length; index++) {
 
       console.log(windows[index].getTitle().toLowerCase());
-
+      console.log(index);
 
       if(windows[index].getTitle().toLowerCase() == title.toLowerCase()){
         console.log(index);
-        return windows[38];
+        return windows[27];
       }
     
     }
@@ -49,6 +49,43 @@ function sleep(ms) {
     return null;
     
   }
+
+
+  function getwindow_888(title) {
+
+    let windows = windowManager.getWindows();
+
+    for (let index = 0; index < windows.length; index++) {
+
+      const finestra = windows[index].getTitle().toLowerCase().toString();
+
+      if(finestra.includes(888)){
+
+        console.log(windows[index].getTitle().toLowerCase());
+        console.log(index);
+        return windows[index];
+      }
+
+
+      
+
+      if(windows[index].getTitle().toLowerCase() == title.toLowerCase()){
+        
+        return windows[index];
+      }
+    
+    }
+  
+    return null;
+    
+  }
+
+
+
+
+
+
+
 
 
   function captureImage({ x, y, w, h }) {
@@ -160,6 +197,7 @@ for (let index = 0; index < prev_coord.length; index++) {
   exports.sleep = sleep,
   exports.randomInt = randomInt,
   exports.getwindow = getwindow,
+  exports.getwindow_888 = getwindow_888,
   exports.tomafoto = tomafoto,
   exports.tomafoto_prev = tomafoto_prev,
 
