@@ -1,61 +1,61 @@
 var robot = require("robotjs");
 const { sleep } = require("./exec_utils");
 
-var n0 =  [712,650];
+var n0 =  [83,655];
 
-var n3 =  [826,621];
-var n2 =  [774,685];
-var n1 =  [723,766];
+var n3 =  [141,616];
+var n2 =  [141,655];
+var n1 =  [141,701];
 
-var n6 =  [892,652];
-var n5 =  [837,721];
-var n4 =  [781,799];
+var n6 =  [197,616];
+var n5 =  [197,655];
+var n4 =  [197,701];
 
-var n9 =  [955,679];
-var n8 =  [897,750];
-var n7 =  [838,832];
+var n9 =  [257,616];
+var n8 =  [257,655];
+var n7 =  [257,701];
 
-var n12 =  [1009,715];
-var n11 =  [956,782];
-var n10 =  [909,869];
+var n12 =  [317,616];
+var n11 =  [317,655];
+var n10 =  [317,701];
 
-var n15 =  [1079,744];
-var n14 =  [1024,819];
-var n13 =  [973,893];
+var n15 =  [376,616];
+var n14 =  [376,655];
+var n13 =  [376,701];
 
-var n18 =  [1139,774];
-var n17 =  [1098,852];
-var n16 =  [1039,930];
+var n18 =  [437,616];
+var n17 =  [437,655];
+var n16 =  [437,701];
 
-var n21 =  [1210,812];
-var n20 =  [1161,884];
-var n19 =  [1103,968];
+var n21 =  [494,616];
+var n20 =  [494,655];
+var n19 =  [494,701];
 
-var n24 =  [1277,843];
-var n23 =  [1299,921];
-var n22 =  [1177,1003];
+var n24 =  [551,616];
+var n23 =  [551,655];
+var n22 =  [551,701];
 
-var n27 =  [1349,878];
-var n26 =  [1300,955];
-var n25 =  [1244,1037];
+var n27 =  [610,616];
+var n26 =  [610,655];
+var n25 =  [610,701];
 
-var n30 =  [1424,912];
-var n29 =  [1368,992];
-var n28 =  [1316,1074];
+var n30 =  [668,616];
+var n29 =  [668,655];
+var n28 =  [668,701];
 
-var n33 =  [1490,947];
-var n32 =  [1442,1034];
-var n31 =  [1392,1113];
+var n33 =  [729,616];
+var n32 =  [729,655];
+var n31 =  [729,701];
 
-var n36 =  [1565,989];
-var n35 =  [1517,1065];
-var n34 =  [1468,1158];
+var n36 =  [785,616];
+var n35 =  [785,655];
+var n34 =  [785,701];
 
 
-var m01 =  [812,1330];
-var m1 =   [875,1330];
-var m2 =   [941,1330];
-var m5 =   [1010,1330];
+var m01 =  [566,852];
+var m1 =   [609,852];
+var m2 =   [653,852];
+var m5 =   [697,852];
 
 var bdes = [504,690];
 var brea = [555,690];
@@ -67,7 +67,7 @@ var timerc = 100;
 function doclick(times) {
 
     for (let index = 0; index < times; index++) {
-        //robot.mouseClick();
+        robot.mouseClick();
         sleep(timer);
         
     }
@@ -338,22 +338,5 @@ function dobet(bet) {
 
 
 }
-
-
-exports.n0 = n0,   
-exports.n1 = n1,   exports.n2 = n2,   exports.n3 = n3,   exports.n4 = n4,   exports.n5 = n5,   exports.n6 = n6,   exports.n7 = n7,   exports.n8 = n8,   exports.n9 = n9,   exports.n10 = n10,
-exports.n11 = n11, exports.n12 = n12, exports.n13 = n13, exports.n14 = n14, exports.n15 = n15, exports.n16 = n16, exports.n17 = n17, exports.n18 = n18, exports.n19 = n19, exports.n20 = n20,
-exports.n21 = n21, exports.n22 = n22, exports.n23 = n23, exports.n24 = n24, exports.n25 = n25, exports.n26 = n26, exports.n27 = n27, exports.n28 = n28, exports.n29 = n29, exports.n30 = n30,
-exports.n31 = n31, exports.n32 = n32, exports.n33 = n33, exports.n34 = n34, exports.n35 = n35, exports.n36 = n36,
-
-exports.m02  = m02,
-exports.m05  = m05,
-exports.m1   = m1,
-exports.m5   = m5,
-exports.m25  = m25,
-exports.m100 = m100,
-
-exports.bdes=bdes,
-exports.brea=brea,
 
 exports.dobet=dobet

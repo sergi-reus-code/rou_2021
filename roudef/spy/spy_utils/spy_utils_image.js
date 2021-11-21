@@ -66,9 +66,6 @@ function sleep(ms) {
         return windows[index];
       }
 
-
-      
-
       if(windows[index].getTitle().toLowerCase() == title.toLowerCase()){
         
         return windows[index];

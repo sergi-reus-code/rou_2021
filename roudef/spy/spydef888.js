@@ -64,7 +64,7 @@ async function detectar(milis) {
   });
   const { data: { text } } = await worker.recognize('./last.png');
     
-  console.log("spin nº: " + Number(text) + " - " + Number(milis));
+  //console.log("spin nº: " + Number(text) + " - " + Number(milis));
 
   fs.renameSync('last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
 
@@ -86,7 +86,15 @@ var msg_out = utils.format_spin(spin);
 
 ioClient.emit('from_spy_to_master_spin',msg_out);
 
-console.log("sending ->   " + JSON.stringify(msg_out));
+print_console(msg_out);
+
+}
+
+
+function print_console(msg_out){
+
+
+  console.log("sending ->   " + JSON.stringify(msg_out));
 
 }
 
@@ -96,24 +104,28 @@ console.log("sending ->   " + JSON.stringify(msg_out));
 
 
 
-
-
-
 function main_loop(){
   
-  var color = robot.getPixelColor(934, 1297); 
-  var color2 = robot.getPixelColor(934, 1297); 
+//Detectamos el color cuando No Win y cuando Win
+//VERY IMPORTANT!!!! MEDIDAS INIT({ x: -0, y: -0, width: 900, height: 630 })
+
+  var colorNW = robot.getPixelColor(1045, 640);  
+  var colorW = robot.getPixelColor(978, 526); 
   
-  if (color == "000000" || color == "ff0000") {
+  //NEGRO = 000000
+  //ROJO = ff0000
+  //VERDE = ff0000
+  
+  if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a030" ) { 
     //sleep(250)
-    tomafoto(940,1297,70,60);
+    tomafoto(978,583,70,60);
     sleep(3000)
     detectar(Date.now());
   }
   
-  if (color == "000000" || color == "ff0000") {
+  if (colorW == "000000" || colorW == "ff0000" || colorW == "00a030") {
     //sleep(250)
-    tomafoto(940,1297,70,60);
+    tomafoto(978,526,70,60);
     sleep(3000)
     detectar(Date.now());
   }
