@@ -66,7 +66,7 @@ async function detectar(milis) {
     
   //console.log("spin nº: " + Number(text) + " - " + Number(milis));
 
-  fs.renameSync('last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
+  //fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
 
   send_spin_to_master(Number(text))
 

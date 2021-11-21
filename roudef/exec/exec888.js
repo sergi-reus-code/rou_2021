@@ -32,7 +32,13 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
     console.log("");
     coord.dobet(bet);
 
-  }
+  } else {console.log("No Hay Bet");}
+
+
+
+
+
+
 });
 
 
