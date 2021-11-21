@@ -7,7 +7,7 @@
 //var martingala = [1,2,5,10,20]; //Martingala pura y dura
 //var wins = [18,18,36,36,36]; //Martingala pura y dura
 var martingala = [0.1,0.2,0.5,1,2,5]; //Martingala pura y dura
-var wins = [1.8,1.5,3.6,3.6,3.6,21.6]; //Martingala pura y dura
+var wins = [1.8,1.8,3.6,3.6,3.6,21.6]; //Martingala pura y dura
 
 //var martingala = [ 15 , 30 , 65 , 130 , 275 , 550]; //Martingala pura y dura
 //var wins = [ 270 , 270 , 360 , 360 , 630 , 630 ]; //Martingala pura y dura

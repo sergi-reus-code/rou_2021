@@ -60,6 +60,9 @@ var m5 =   [697,852];
 var bdes = [504,690];
 var brea = [555,690];
 
+var red = [100,100]
+var red = [100,100]
+
 var timer = 50;
 var timerc = 100;
 
@@ -339,4 +342,21 @@ function dobet(bet) {
 
 }
 
-exports.dobet=dobet
+
+
+function do_timer_bet() {
+    
+    clickmoney(m01)
+    sleep(100)
+    
+    console.log("pecador!!!! haz apuesta!!!!!!!!!!!!!");
+    
+    //clicknumbers(array,1)
+
+ 
+
+}
+
+
+exports.dobet=dobet,
+exports.do_timer_bet =do_timer_bet

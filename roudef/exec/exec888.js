@@ -5,7 +5,7 @@ const { getwindow, sleep} = require ("./exec_utils/exec_utils");
 
 const coord = require('./exec_utils/coord_888_150')
 
-
+var spins_no_bet = 0;
 
 
 
@@ -32,7 +32,17 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
     console.log("");
     coord.dobet(bet);
 
-  } else {console.log("No Hay Bet");}
+  } else {
+    spins_no_bet++
+    console.log("Spins sin bet -> " + spins_no_bet);
+
+    if (spins_no_bet>15) {
+      spins_no_bet = 0;      
+      coord.do_timer_bet(bet);
+    }
+
+
+  }
 
 
 

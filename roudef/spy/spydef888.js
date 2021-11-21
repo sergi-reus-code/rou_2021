@@ -1,7 +1,7 @@
 var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 var robot = require("robotjs");
-const { getwindow, sleep, tomafoto, tomafoto_prev} = require ("./spy_utils/spy_utils_image");
+const utils_image = require ("./spy_utils/spy_utils_image");
 const { createWorker } = require('tesseract.js');
 var fs = require('fs'); 
 const utils = require('./spy_utils/spy_utils');
@@ -98,12 +98,6 @@ function print_console(msg_out){
 
 }
 
-
-
-
-
-
-
 function main_loop(){
   
 //Detectamos el color cuando No Win y cuando Win
@@ -118,15 +112,15 @@ function main_loop(){
   
   if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a030" ) { 
     //sleep(250)
-    tomafoto(978,583,70,60);
-    sleep(3000)
+    utils_image.tomafoto(978,583,70,60);
+    utils_image.sleep(3000)
     detectar(Date.now());
   }
   
   if (colorW == "000000" || colorW == "ff0000" || colorW == "00a030") {
     //sleep(250)
-    tomafoto(978,526,70,60);
-    sleep(3000)
+    utils_image.tomafoto(978,526,70,60);
+    utils_image.sleep(3000)
     detectar(Date.now());
   }
 

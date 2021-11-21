@@ -1,7 +1,7 @@
 var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 
-const readline = require('readline')
+
 const utils = require('./spy_utils/spy_utils');
 
 
@@ -40,14 +40,10 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
  });
 
 
+ console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
 
 
-const r1 = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-   
-
+/*
 console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
     
 
@@ -71,3 +67,39 @@ console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
         
     }, 2000);
     
+*/
+
+function loop(params) {
+    var prompt = require('prompt-sync')();
+
+var num = prompt('How many more times? ');
+
+
+
+if(num<37){
+
+    var msg_out = utils.format_spin(num);
+
+    ioClient.emit('from_spy_to_master_spin',msg_out);
+
+    console.log("sending ->   " + JSON.stringify(msg_out));
+    } else {
+        console.log("MAL!!!!!!");
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+//setImmediate(() => {loop()})
+setInterval(() => {loop()},500)
