@@ -2,7 +2,7 @@ var child_process = require('child_process');
 var open = require("open");
 var robot = require("robotjs");
 const { clearInterval } = require('timers');
-const { getwindow, getwindow_888, getwindow_spy, getwindow_masterdef, getwindow_exec,sleep, tomafoto} = require ("./spy_utils/spy_utils_image");
+const { getwindow, getwindow_888, getwindow_spy, getwindow_masterdef, getwindow_exec,sleep, tomafoto} = require ("./init_utils/init_utils.js");
 var firefoxdone =0;
 var spydone =0;
 var masterdefdone =0;
@@ -62,41 +62,34 @@ function resize_exec(time){
 
 
 async function open_spy(time) {
-    child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydef888.js parm1 parm2");
-
-
+    
+    if (process.argv[2] == "pgcda") {
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydef888.js parm1 parm2");
+    } else {
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydef888.js parm1 parm2");
+    }
 }
 
-async function open_exec(time) {
-    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\exec\\exec888.js parm1 parm2");
 
+async function open_exec(time) {
+    
+    if (process.argv[2] == "pgcda") {
+        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\exec\\exec888.js parm1 parm2");
+    } else {
+        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\exec\\exec888.js parm1 parm2");
+    }
 
 }
 
 function open_masterdef(time) {
     
-    child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\master\\masterdef.js parm1 parm2");
+    if (process.argv[2] == "pgcda") {
+        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\master\\masterdef.js parm1 parm2");
+    } else {
+        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\master\\masterdef.js parm1 parm2");
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 open_firefox();
 open_masterdef();
