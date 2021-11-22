@@ -221,7 +221,14 @@ function sleep(ms) {
 
 
 
-
+  function tomafoto2(x1,y1,w1,h1){
+    const x = x1;
+    const y = y1;
+    const w = w1;
+    const h = h1;
+    captureImage({ x, y, w, h }).write(`${Date.now()}.png`)
+    
+  }
 
 
   function tomafoto(x1,y1,w1,h1){
@@ -274,6 +281,7 @@ for (let index = 0; index < prev_coord.length; index++) {
   exports.getwindow_exec = getwindow_exec,
   
   exports.tomafoto = tomafoto,
+  exports.tomafoto2 = tomafoto2,
   exports.tomafoto_prev = tomafoto_prev,
 
   exports.captureImage = captureImage

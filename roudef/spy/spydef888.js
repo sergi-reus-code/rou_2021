@@ -64,7 +64,7 @@ async function detectar(milis) {
   });
   const { data: { text } } = await worker.recognize('./last.png');
     
-  //console.log("spin nº: " + Number(text) + " - " + Number(milis));
+  console.log("spin nº: " + Number(text) + " - " + Number(milis));
 
   //fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
 
