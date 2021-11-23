@@ -105,16 +105,15 @@ function main_loop2(prev_chk, current_chk, current_array){
 
     if(prev_chk != current_chk){
 
-            return fill_bet(current_array);            
+        return fill_bet(current_array);            
 
-    }else{
+    } else {
 
-             return empty_bet
-  
+        return empty_bet
+
+    }
 
   }
-
-}
 
 
 

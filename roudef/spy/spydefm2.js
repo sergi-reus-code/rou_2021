@@ -1,6 +1,9 @@
 var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
+<<<<<<< HEAD
 var prompt = require('prompt-sync')();
+=======
+>>>>>>> adb45ca602c01d4dd8c685d6ce29f9388225347e
 
 const utils = require('./spy_utils/spy_utils');
 
