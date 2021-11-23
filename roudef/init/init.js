@@ -30,7 +30,7 @@ function resize_spy(time){
     var window2 = getwindow_spy('spy');
     window2.bringToTop();
     window2.getBounds();
-    window2.setBounds({ x: 900, y: 0, width: 601, height: 600 });  //888 4K 150%
+    window2.setBounds({ x: 895, y: 0, width: 601, height: 600 });  //888 4K 150%
     window2.bringToTop();
     spydone++;
 
@@ -41,7 +41,7 @@ function resize_masterdef(time){
     var window3 = getwindow_masterdef('masterdef');
     window3.bringToTop();
     window3.getBounds();
-    window3.setBounds({ x: 900, y: 600, width: 601, height: 600 });  //888 4K 150%
+    window3.setBounds({ x: 895, y: 600, width: 601, height: 600 });  //888 4K 150%
     window3.bringToTop();
     masterdefdone++;
 

@@ -1,12 +1,8 @@
 var io = require('socket.io-client');
 var ioClient = io.connect('http://localhost:8080', {reconnect: true});
-
+var prompt = require('prompt-sync')();
 
 const utils = require('./spy_utils/spy_utils');
-
-
-
-
 
 
 // Add a connect listener
@@ -16,21 +12,13 @@ ioClient.on('connect', () => {
 
 
 ioClient.on("disconnect", (socket) => {
-    console.log('DisssssConnected!' + socket.id);
+    console.log('Desconectado desde master!!!!!!!  ->  ' + socket.id);
 });
 
 
 
 //ioClient.emit('CH01', 'me', 'test msg');
 
-ioClient.on('from_master_to_spy_bet', (msg) => {
-
-
-   // console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
-   // console.log("");
-   // console.log("");
-
-});
 
 ioClient.on('from_master_to_spy_stop', (msg) => {
 
@@ -40,66 +28,31 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
  });
 
 
- console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
 
 
-/*
-console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
+function loop() {
     
 
+    var num = prompt('Spin? ');
     
-    setInterval(() => {
-        r1.question('Enter A number : ', (num) => {
+    if(num<37){
 
+        var msg_out = utils.format_spin(num);
 
-            if(num<37){
+        ioClient.emit('from_spy_to_master_spin',msg_out);
 
-            var msg_out = utils.format_spin(num);
-
-            ioClient.emit('from_spy_to_master_spin',msg_out);
+        console.log("sending ->   " + JSON.stringify(msg_out));
     
-            console.log("sending ->   " + JSON.stringify(msg_out));
-            } else {
-                console.log("MAL!!!!!!");
-            }
-            
-            })
-        
-    }, 2000);
-    
-*/
-
-function loop(params) {
-    var prompt = require('prompt-sync')();
-
-var num = prompt('How many more times? ');
-
-
-
-if(num<37){
-
-    var msg_out = utils.format_spin(num);
-
-    ioClient.emit('from_spy_to_master_spin',msg_out);
-
-    console.log("sending ->   " + JSON.stringify(msg_out));
     } else {
+            
         console.log("MAL!!!!!!");
+        
     }
 
-
-
-
-
-
-
-
+    var sf = prompt('SF? ');
 
 
 }
 
 
-
-
-//setImmediate(() => {loop()})
 setInterval(() => {loop()},500)
