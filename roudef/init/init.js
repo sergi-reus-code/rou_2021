@@ -19,8 +19,8 @@ function resize_firefox(time){
     var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
     window.bringToTop();
     window.getBounds();
-    //window.setBounds({ x: -0, y: -0, width: 900, height: 630 });  //888 4K 150% !!!!NO CAMBIAR NYUNCA!!!!!!!!!
-    window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  //PUIGCERDA 888 2K 100% ---> 4K x 1.5
+    window.setBounds({ x: -0, y: -0, width: 900, height: 630 });  //888 4K 150% !!!!NO CAMBIAR NYUNCA!!!!!!!!!
+    //window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  //PUIGCERDA 888 2K 100% ---> 4K x 1.5
     window.bringToTop();
     firefoxdone++;
 
