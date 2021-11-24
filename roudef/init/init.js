@@ -8,86 +8,124 @@ var spydone =0;
 var masterdefdone =0;
 var execdone =0;
 
-async function open_firefox(time) {
+async function open_firefox() {
     
     await open('https://www.888casino.es/', {app: {name: "firefox", arguments: []}});//'--kiosk'
 
 }
 
-function resize_firefox(time){
+function resize_firefox(){
 
     var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
     window.bringToTop();
     window.getBounds();
-    window.setBounds({ x: -0, y: -0, width: 900, height: 630 });  //888 4K 150% !!!!NO CAMBIAR NYUNCA!!!!!!!!!
-    //window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  //PUIGCERDA 888 2K 100% ---> 4K x 1.5
+
+    if (process.argv[2] == "pgcda") {
+       
+        window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  //PUIGCERDA 888 2K 100% ---> 4K x 1.5
+ 
+    } else {
+ 
+        window.setBounds({ x: -0, y: -0, width: 900, height: 630 });  //888 4K 150% !!!!NO CAMBIAR NYUNCA!!!!!!!!!
+
+    }
     window.bringToTop();
     firefoxdone++;
 
 }
 
-function resize_spy(time){
+function resize_spy(){
 
     var window2 = getwindow_spy('spy');
     window2.bringToTop();
     window2.getBounds();
-    window2.setBounds({ x: 895, y: 0, width: 601, height: 600 });  //888 4K 150%
+    if (process.argv[2] == "pgcda") {
+       
+        window2.setBounds({ x: 1337, y: 0, width: 590, height: 300 });  //888 4K 150%
+ 
+    } else {
+ 
+        window2.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+
+    }
     window2.bringToTop();
     spydone++;
 
 }
 
-function resize_masterdef(time){
+function resize_masterdef(){
 
     var window3 = getwindow_masterdef('masterdef');
     window3.bringToTop();
     window3.getBounds();
-    window3.setBounds({ x: 895, y: 600, width: 601, height: 600 });  //888 4K 150%
+    if (process.argv[2] == "pgcda") {
+       
+        window3.setBounds({ x: 1337, y: 292, width: 590, height: 421 });  //888 4K 150%
+ 
+    } else {
+ 
+        window3.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+
+    }
     window3.bringToTop();
     masterdefdone++;
 
 }
 
 
-function resize_exec(time){
+function resize_exec(){
 
     var window4 = getwindow_exec('exec');
     window4.bringToTop();
     window4.getBounds();
-    window4.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+
+    if (process.argv[2] == "pgcda") {
+       
+        window4.setBounds({ x: 1337, y: 705, width: 590, height: 340 });  //888 4K 150%
+ 
+    } else {
+ 
+        window4.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+
+    }
+
     window4.bringToTop();
     execdone++;
 
+
+
+
+
 }
 
 
 
-async function open_spy(time) {
+async function open_spy() {
     
     if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydef888.js parm1 parm2");
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydefm2.js pgcda parm2");
     } else {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydef888.js parm1 parm2");
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydef888.js riu parm2");
     }
 }
 
 
-async function open_exec(time) {
+async function open_exec() {
     
     if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\exec\\exec888.js parm1 parm2");
+        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\exec\\exec888.js pgcda parm2");
     } else {
-        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\exec\\exec888.js parm1 parm2");
+        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\exec\\exec888.js riu parm2");
     }
 
 }
 
-function open_masterdef(time) {
+function open_masterdef() {
     
     if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\master\\masterdef.js parm1 parm2");
+        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\master\\masterdef.js pgcda parm2");
     } else {
-        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\master\\masterdef.js parm1 parm2");
+        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\master\\masterdef.js riu parm2");
     }
 
 }

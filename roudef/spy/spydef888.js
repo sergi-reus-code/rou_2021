@@ -129,5 +129,18 @@ function main_loop(){
 
 }
 
+if (process.argv[2] == "pgcda") {
+  console.log("estoy en puigcerdà");
+} else {
+  console.log("estoy en riu");
+}
+
+if (process.argv[3] == "evolution") {
+  console.log("estoy en puigcerdà con Evolution en 888 -> Autoruleta en vivo");
+} else {
+  console.log("estoy en riu");
+}
+
+
 
 setInterval(main_loop, 500);

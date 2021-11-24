@@ -19,9 +19,7 @@ ioClient.on("disconnect", (socket) => {
   console.log('DisssssConnected!' + socket.id);
 });
 
-
-
-//ioClient.emit('CH01', 'me', 'test msg');
+//ioClient.emit('from_exec_to_master_ack', 'ACK');
 
 ioClient.on('from_master_to_exec_bet', (msg) => {
 
@@ -43,11 +41,6 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
 
 
   }
-
-
-
-
-
 
 });
 

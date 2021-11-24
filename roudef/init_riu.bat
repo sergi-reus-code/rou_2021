@@ -1,1 +1,1 @@
-node.exe C:\Users\Sergi_Desktop\Desktop\5_rou_2021\roudef\init\init.js
+node.exe C:\Users\Sergi_Desktop\Desktop\5_rou_2021\roudef\init\init.js riu

@@ -3,7 +3,6 @@ var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 
 var prompt = require('prompt-sync')();
 
-
 const utils = require('./spy_utils/spy_utils');
 
 
@@ -51,10 +50,25 @@ function loop() {
         
     }
 
-    var sf = prompt('SF? ');
-
-
+    
 }
 
 
-setInterval(() => {loop()},500)
+setInterval(() => {loop()},1000)
+
+
+
+/*
+
+function submitclick()
+{
+  var text="hello";
+  if(socket.connected ==false) {
+    socket= io.connect({'forceNew': true});
+    socket.on('connect', function() {
+      console.log('Connected!');
+    });
+  }
+}
+
+*/

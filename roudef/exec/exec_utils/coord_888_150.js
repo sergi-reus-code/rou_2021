@@ -346,10 +346,10 @@ function dobet(bet) {
 
 function do_timer_bet() {
     
-    clickmoney(m01)
-    sleep(100)
+    //clickmoney(m01)
+    //sleep(100)
     
-    console.log("pecador!!!! haz apuesta!!!!!!!!!!!!!");
+    //console.log("pecador!!!! haz apuesta!!!!!!!!!!!!!");
     
     //clicknumbers(array,1)
 
