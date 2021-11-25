@@ -43,7 +43,7 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
 
         console.log("sending ->   " + JSON.stringify(msg_out));
         
-    }, 50);
+    }, 25);
 
 
 
