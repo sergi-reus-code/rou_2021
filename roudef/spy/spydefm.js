@@ -1,12 +1,18 @@
 var io = require('socket.io-client');
-var ioClient = io.connect('http://localhost:8080', {reconnect: true});
+//var ioClient = io.connect('http://localhost:8080', {reconnect: true});
 
-const readline = require('readline')
+ioClient = io.connect('http://localhost:8080' ,{
+  //transports: ['websocket'],
+  secure: true,
+  'force new connection' : false,
+  'reconnect' : true,
+});
+
+
+
+var prompt = require('prompt-sync')();
+
 const utils = require('./spy_utils/spy_utils');
-
-
-
-
 
 
 // Add a connect listener
@@ -15,22 +21,14 @@ ioClient.on('connect', () => {
 });
 
 
-ioClient.on("disconnect", (socket) => {
-    console.log('DisssssConnected!' + socket.id);
+ioClient.on("disconnect", (socket, reason) => {
+    console.log('Desconectado desde master!!!!!!!  ->  ' + socket.id  + " - " + reason);
 });
 
 
 
 //ioClient.emit('CH01', 'me', 'test msg');
 
-ioClient.on('from_master_to_spy_bet', (msg) => {
-
-
-   // console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
-   // console.log("");
-   // console.log("");
-
-});
 
 ioClient.on('from_master_to_spy_stop', (msg) => {
 
@@ -42,32 +40,53 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
 
 
 
-const r1 = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-   
-
-console.log("Iniciando en modo.... TEST MANUAL (Entrada de datos manual)");
+function loop() {
     
+  /*
+  if(ioClient.connected ==false) {
+console.log("toy desconectao");
 
+    ioClient= io.connect('http://localhost:8080', {reconnect: true});
+
+  }
+
+*/
+
+    var num = prompt('Spin? ');
     
-    setInterval(() => {
-        r1.question('Enter A number : ', (num) => {
+    if(num<37){
 
+        var msg_out = utils.format_spin(num);
 
-            if(num<37){
+        ioClient.emit('from_spy_to_master_spin',msg_out);
 
-            var msg_out = utils.format_spin(num);
-
-            ioClient.emit('from_spy_to_master_spin',msg_out);
+        console.log("sending ->   " + JSON.stringify(msg_out));
     
-            console.log("sending ->   " + JSON.stringify(msg_out));
-            } else {
-                console.log("MAL!!!!!!");
-            }
+    } else {
             
-            })
+        console.log("MAL!!!!!!");
         
-    }, 2000);
+    }
+
     
+}
+
+
+setInterval(() => {loop()},1000)
+
+
+
+/*
+
+function submitclick()
+{
+  var text="hello";
+  if(socket.connected ==false) {
+    socket= io.connect({'forceNew': true});
+    socket.on('connect', function() {
+      console.log('Connected!');
+    });
+  }
+}
+
+*/

@@ -1,1 +1,0 @@
-node.exe C:\Users\Sergi_Desktop\Desktop\5_rou_2021\roudef\exec\exec888.js
