@@ -12,7 +12,7 @@ var bet = `{`+
 var express = require("express");
 var app = express();
 var server = require("http").Server(app);
-var io = require("socket.io")(server);
+var io = require("socket.io")(server, {  pingTimeout: 100000, reconnect: true});
 
 app.use(express.json());
 
@@ -64,9 +64,9 @@ io.on("connection", (socket) => {
     });
   
 
-    socket.on("disconnect", () => {
+    socket.on("disconnect", (reason) => {
 
-      console.log("adeu..... " + socket.id);
+      console.log("adeu..... " + socket.id + " - " + reason);
 
     });
 

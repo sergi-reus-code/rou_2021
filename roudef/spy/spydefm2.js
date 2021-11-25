@@ -1,5 +1,14 @@
 var io = require('socket.io-client');
-var ioClient = io.connect('http://localhost:8080', {reconnect: true});
+//var ioClient = io.connect('http://localhost:8080', {reconnect: true});
+
+ioClient = io.connect('http://localhost:8080' ,{
+  //transports: ['websocket'],
+  secure: true,
+  'force new connection' : false,
+  'reconnect' : true,
+});
+
+
 
 var prompt = require('prompt-sync')();
 
@@ -12,8 +21,8 @@ ioClient.on('connect', () => {
 });
 
 
-ioClient.on("disconnect", (socket) => {
-    console.log('Desconectado desde master!!!!!!!  ->  ' + socket.id);
+ioClient.on("disconnect", (socket, reason) => {
+    console.log('Desconectado desde master!!!!!!!  ->  ' + socket.id  + " - " + reason);
 });
 
 
@@ -33,6 +42,15 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
 
 function loop() {
     
+  /*
+  if(ioClient.connected ==false) {
+console.log("toy desconectao");
+
+    ioClient= io.connect('http://localhost:8080', {reconnect: true});
+
+  }
+
+*/
 
     var num = prompt('Spin? ');
     

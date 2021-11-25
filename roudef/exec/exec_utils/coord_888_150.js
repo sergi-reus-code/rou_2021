@@ -275,7 +275,8 @@ function doclicks(click,times) {
 
 function clickmoney(coin) {
     
-    robot.moveMouse(coin[0],coin[1]);           
+    robot.moveMouse(coin[0],coin[1]); 
+    sleep(15);          
     robot.mouseClick();
     sleep(timer);
 

@@ -40,12 +40,12 @@ function resize_spy(){
     window2.bringToTop();
     window2.getBounds();
     if (process.argv[2] == "pgcda") {
-       
+       //Puigcerdà
         window2.setBounds({ x: 1337, y: 0, width: 590, height: 300 });  //888 4K 150%
  
     } else {
- 
-        window2.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+        //Riu
+        window2.setBounds({ x: 900, y: 0, width: 800, height: 400 });  //888 4K 150%
 
     }
     window2.bringToTop();
@@ -59,12 +59,12 @@ function resize_masterdef(){
     window3.bringToTop();
     window3.getBounds();
     if (process.argv[2] == "pgcda") {
-       
+        //Puigcerdà
         window3.setBounds({ x: 1337, y: 292, width: 590, height: 421 });  //888 4K 150%
  
     } else {
- 
-        window3.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+        //Riu
+        window3.setBounds({ x: 900, y: 400, width: 800, height: 530 });  //888 4K 150%
 
     }
     window3.bringToTop();
@@ -80,21 +80,17 @@ function resize_exec(){
     window4.getBounds();
 
     if (process.argv[2] == "pgcda") {
-       
+       //Puigcerdà
         window4.setBounds({ x: 1337, y: 705, width: 590, height: 340 });  //888 4K 150%
  
     } else {
- 
-        window4.setBounds({ x: 0, y: 600, width: 601, height: 600 });  //888 4K 150%
+        //Riu
+        window4.setBounds({ x: 0, y: 630, width: 900, height: 300 });  //888 4K 150%
 
     }
 
     window4.bringToTop();
     execdone++;
-
-
-
-
 
 }
 
@@ -105,7 +101,7 @@ async function open_spy() {
     if (process.argv[2] == "pgcda") {
         child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydefm2.js pgcda parm2");
     } else {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydef888.js riu parm2");
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydefm2.js riu parm2");
     }
 }
 
