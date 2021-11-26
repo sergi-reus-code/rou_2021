@@ -63,7 +63,13 @@ async function detectar(milis) {
     tessedit_char_whitelist: '0123456789',
   });
   const { data: { text } } = await worker.recognize('./last.png');
-    
+  
+  if (text==1) {  console.log("esun uno!!!!!!!!!");
+      //text = utils_check_11()
+      utils_check_11()
+  }
+
+
   console.log("spin nº: " + Number(text) + " - " + Number(milis));
 
   fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
@@ -80,7 +86,6 @@ async function detectar(milis) {
 
 function send_spin_to_master(spin) {
   
-
 
 var msg_out = utils.format_spin(spin);
 
@@ -108,7 +113,7 @@ function main_loop(){
   
   //NEGRO = 000000
   //ROJO = ff0000
-  //VERDE = ff0000
+  //VERDE = 00a031
   
   if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) { 
     //sleep(250)

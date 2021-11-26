@@ -1,5 +1,6 @@
 var robot = require("robotjs");
 var Jimp = require('jimp');
+var Jimp11 = require('jimp');
 var fs = require('fs'); 
 
 const { windowManager } = require ("node-window-manager");
@@ -271,6 +272,36 @@ for (let index = 0; index < prev_coord.length; index++) {
 }
 
 
+function check_11() {
+
+
+  Jimp.read('last.png', (err, lenna) => {
+    if (err) throw err;
+    var color = lenna.getPixelColor(1, 1);
+    console.log((color));
+    /*
+    
+    if (color == "000000") {  //es 11
+      return "11"
+    } else {
+      return "1"
+
+    }
+    
+    */
+
+  });
+
+
+
+
+
+}
+
+
+
+
+
  
   exports.sleep = sleep,
   exports.randomInt = randomInt,
@@ -283,6 +314,9 @@ for (let index = 0; index < prev_coord.length; index++) {
   exports.tomafoto = tomafoto,
   exports.tomafoto2 = tomafoto2,
   exports.tomafoto_prev = tomafoto_prev,
+
+  exports.check_11 = check_11,
+
 
   exports.captureImage = captureImage
 
