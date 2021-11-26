@@ -66,7 +66,7 @@ async function detectar(milis) {
     
   console.log("spin nº: " + Number(text) + " - " + Number(milis));
 
-  //fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
+  fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
 
   send_spin_to_master(Number(text))
 
@@ -110,14 +110,14 @@ function main_loop(){
   //ROJO = ff0000
   //VERDE = ff0000
   
-  if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a030" ) { 
+  if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) { 
     //sleep(250)
     utils_image.tomafoto(978,583,70,60);
     utils_image.sleep(3000)
     detectar(Date.now());
   }
   
-  if (colorW == "000000" || colorW == "ff0000" || colorW == "00a030") {
+  if (colorW == "000000" || colorW == "ff0000" || colorW == "00a031") {
     //sleep(250)
     utils_image.tomafoto(978,526,70,60);
     utils_image.sleep(3000)
