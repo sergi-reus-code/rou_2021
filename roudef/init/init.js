@@ -99,9 +99,9 @@ function resize_exec(){
 async function open_spy() {
     
     if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydefm2.js pgcda parm2");
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydefm.js pgcda parm2");
     } else {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydefm2.js riu parm2");
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydefm.js riu parm2");
     }
 }
 
