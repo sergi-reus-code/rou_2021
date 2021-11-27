@@ -7,50 +7,19 @@ var fs = require('fs');
 const utils = require('./spy_utils/spy_utils');
 
 
-// Add a connect listener
 ioClient.on('connect', () => {
   console.log('Connected!');
 });
-
 
 ioClient.on("disconnect", (socket) => {
   console.log('DisssssConnected!' + socket.id);
 });
 
-
-
-//ioClient.emit('CH01', 'me', 'test msg');
-
-
 ioClient.on('from_master_to_spy_stop', (msg) => {
-
-
-process.exit();
+  
+  process.exit();
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 async function detectar(milis) {
@@ -69,14 +38,14 @@ async function detectar(milis) {
       utils_check_11()
   }
 
-
   console.log("spin nº: " + Number(text) + " - " + Number(milis));
+  
+  send_spin_to_master(Number(text))
 
   fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
 
-  send_spin_to_master(Number(text))
-
   await worker.terminate();
+
 }
 
 
@@ -108,23 +77,30 @@ function main_loop(){
 //Detectamos el color cuando No Win y cuando Win
 //VERY IMPORTANT!!!! MEDIDAS INIT({ x: -0, y: -0, width: 900, height: 630 })
 
-  var colorNW = robot.getPixelColor(1045, 640);  
-  var colorW = robot.getPixelColor(978, 526); 
-  
+//100%  
+var colorNW = robot.getPixelColor(700, 430);  //Abajo derecha
+var colorW = robot.getPixelColor(650, 350);   //Arriba izquierda
+
   //NEGRO = 000000
   //ROJO = ff0000
   //VERDE = 00a031
   
   if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) { 
     //sleep(250)
-    utils_image.tomafoto(978,583,70,60);
+    //150%
+    //utils_image.tomafoto(978,583,70,60);
+    //100%
+    utils_image.tomafoto(650,388,45,38);
     utils_image.sleep(3000)
     detectar(Date.now());
   }
   
   if (colorW == "000000" || colorW == "ff0000" || colorW == "00a031") {
     //sleep(250)
-    utils_image.tomafoto(978,526,70,60);
+    //150%
+    //utils_image.tomafoto(978,526,70,60);
+    //100%
+    utils_image.tomafoto(650,349,45,38);
     utils_image.sleep(3000)
     detectar(Date.now());
   }
@@ -132,18 +108,6 @@ function main_loop(){
 
 
 
-}
-
-if (process.argv[2] == "pgcda") {
-  console.log("estoy en puigcerdà");
-} else {
-  console.log("estoy en riu");
-}
-
-if (process.argv[3] == "evolution") {
-  console.log("estoy en puigcerdà con Evolution en 888 -> Autoruleta en vivo");
-} else {
-  console.log("estoy en riu");
 }
 
 
