@@ -259,27 +259,7 @@ for (let index = 0; index < prev_coord.length; index++) {
 }
 
 
-function check_11() {
 
-
-  Jimp.read('last.png', (err, lenna) => {
-    if (err) throw err;
-    var color = lenna.getPixelColor(1, 1);
-    console.log((color));
-    
-    
-    if (color == 4294967295) {  //es 11
-      console.log("es un 11");
-      return Number("11")
-    } else {
-      console.log("es un 1");
-      return Number("1")
-
-    }
-  
-  });
-
-}
 
 
 
@@ -298,7 +278,7 @@ function check_11() {
   exports.tomafoto2 = tomafoto2,
   exports.tomafoto_prev = tomafoto_prev,
 
-  exports.check_11 = check_11,
+ 
 
 
   exports.captureImage = captureImage

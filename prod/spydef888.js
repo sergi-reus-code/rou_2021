@@ -5,6 +5,7 @@ const utils_image = require ("./spy_utils/spy_utils_image");
 const { createWorker } = require('tesseract.js');
 var fs = require('fs'); 
 const utils = require('./spy_utils/spy_utils');
+var Jimp = require('jimp');
 
 
 ioClient.on('connect', () => {
@@ -34,17 +35,40 @@ async function detectar(milis) {
   const { data: { text } } = await worker.recognize('./last.png');
   
   await worker.terminate();
+  
+  var texto = text;
 
-  var texto = 0;
-  texto = text
-  if (text==1) {  
-    texto = utils_image.check_11()
+ console.log("antes-> " + texto);
+
+  if (text == 1) {
+    
+    await Jimp.read('last.png', (err, lenna) => {
+      if (err) throw err;
+      var color = lenna.getPixelColor(1, 1);
+      console.log((color));
+      
+      
+      if (color == 4294967295) {  //es 11
+        console.log("es un 11");
+        texto = 11
+        
+      } else {
+        console.log("es un 1");
+        texto = 1
+  
+      }
+    
+    });
   }
+
+  console.log("despues-> " + texto);
+
 
   send_spin_to_master(Number(texto))
 
   fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(texto)}.png`);
 
+  
 
 }
 
@@ -55,14 +79,11 @@ async function detectar(milis) {
 
 function send_spin_to_master(spin) {
   
-  console.log(spin);
+  var msg_out = utils.format_spin(spin);
 
+  ioClient.emit('from_spy_to_master_spin',msg_out);
 
-var msg_out = utils.format_spin(spin);
-
-ioClient.emit('from_spy_to_master_spin',msg_out);
-
-print_console(msg_out);
+  print_console(msg_out);
 
 }
 
