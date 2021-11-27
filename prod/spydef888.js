@@ -33,18 +33,18 @@ async function detectar(milis) {
   });
   const { data: { text } } = await worker.recognize('./last.png');
   
-  if (text==1) {  console.log("esun uno!!!!!!!!!");
-      //text = utils_check_11()
-      utils_check_11()
+  await worker.terminate();
+
+  var texto = 0;
+  texto = text
+  if (text==1) {  
+    texto = utils_image.check_11()
   }
 
-  console.log("spin nº: " + Number(text) + " - " + Number(milis));
-  
-  send_spin_to_master(Number(text))
+  send_spin_to_master(Number(texto))
 
-  fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(text)}.png`);
+  fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(texto)}.png`);
 
-  await worker.terminate();
 
 }
 
@@ -55,6 +55,8 @@ async function detectar(milis) {
 
 function send_spin_to_master(spin) {
   
+  console.log(spin);
+
 
 var msg_out = utils.format_spin(spin);
 

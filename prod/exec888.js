@@ -23,6 +23,8 @@ ioClient.on("disconnect", (socket) => {
 
 ioClient.on('from_master_to_exec_bet', (msg) => {
 
+  ioClient.emit('from_exec_to_master_ack', "ACK");
+  
   bet = JSON.parse(msg);
   if (bet.bet_id!=0) {
     

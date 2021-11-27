@@ -266,22 +266,18 @@ function check_11() {
     if (err) throw err;
     var color = lenna.getPixelColor(1, 1);
     console.log((color));
-    /*
     
-    if (color == "000000") {  //es 11
-      return "11"
+    
+    if (color == 4294967295) {  //es 11
+      console.log("es un 11");
+      return Number("11")
     } else {
-      return "1"
+      console.log("es un 1");
+      return Number("1")
 
     }
-    
-    */
-
+  
   });
-
-
-
-
 
 }
 
