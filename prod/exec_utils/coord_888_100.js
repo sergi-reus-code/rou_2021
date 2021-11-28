@@ -366,9 +366,9 @@ function do_timer_bet(bet) {
 
         
             clickmoney(m01)
-            sleep(100)
+            sleep(50)
             clickmoney(mred) // apretar rojo
-            sleep(100)
+            sleep(50)
             clickmoney(mblack) // apretar negre
 
   

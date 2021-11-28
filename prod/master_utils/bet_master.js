@@ -48,11 +48,11 @@ function fill_bet(current_array) {
 
 function main_loop(prev_chk, current_chk, current_array){
 
-  beep(10, 200)
+  
 
   if (current_array[39]==18){  //>29
 
-
+    beep(10, 200)
 
     if(prev_chk != current_chk){
 

@@ -6,7 +6,6 @@ const { createWorker } = require('tesseract.js');
 var fs = require('fs'); 
 const utils = require('./spy_utils/spy_utils');
 var Jimp = require('jimp');
-var error4 = 0;
 
 ioClient.on('connect', () => {
   console.log('Connected!');
@@ -82,11 +81,11 @@ function main_loop(){
   
   var colorNW = robot.getPixelColor(667, 396);  //Abajo derecha
   var colorW = robot.getPixelColor(623, 320);   //Arriba izquierda
-  var colorC = robot.getPixelColor(867, 307);
+  
 
   //NEGRO = 000000 , ROJO = ff0000 , VERDE = 00a031
   
-  if ((colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) && colorC=="000000") { 
+  if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) { 
 
     utils_image.tomafoto(625,355,45,38);
     utils_image.sleep(4000)
@@ -95,7 +94,7 @@ function main_loop(){
 
   }
   
-  if ((colorW == "000000" || colorW == "ff0000" || colorW == "00a031" ) && colorC=="000000") {
+  if (colorW == "000000" || colorW == "ff0000" || colorW == "00a031" ) {
 
     utils_image.tomafoto(625,320,45,38);
     utils_image.sleep(4000)

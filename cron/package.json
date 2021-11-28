@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-cron": "^3.0.0"
+    "beeper": "^3.0.0",
+    "node-cron": "^3.0.0",
+    "robotjs": "^0.6.0"
   }
 }

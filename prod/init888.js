@@ -114,6 +114,31 @@ async function poner_bien(){
     sleep(500)
     await robot.mouseClick();
 
+
+    var moveto_setup = [1195,171]
+    await robot.moveMouse(moveto_setup[0],moveto_setup[1]); 
+    sleep(250)
+    await robot.mouseClick();
+    sleep(250)
+    var moveto_video = [1053,238]
+    await robot.moveMouse(moveto_video[0],moveto_video[1]); 
+    sleep(250)
+    await robot.mouseClick();
+    sleep(250)
+    var moveto_baja = [1207,359]
+    await robot.moveMouse(moveto_baja[0],moveto_baja[1]); 
+    sleep(250)
+    await robot.mouseClick();
+    sleep(250)
+    var moveto_cerrar = [1273,211]
+    await robot.moveMouse(moveto_cerrar[0],moveto_cerrar[1]); 
+    sleep(250)
+    await robot.mouseClick();
+    sleep(250)
+
+
+
+
     
     process.exit()
 

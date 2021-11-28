@@ -27,7 +27,7 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
   
   bet = JSON.parse(msg);
   if (bet.bet_id!=0) {
-    
+    spins_no_bet = 0;
     console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
     console.log("");
     coord.dobet(bet);
@@ -37,7 +37,8 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
     console.log("Spins sin bet -> " + spins_no_bet);
 
     if (spins_no_bet>15) {
-      spins_no_bet = 0;      
+      spins_no_bet = 0;
+      sleep(50)      
       coord.do_timer_bet(bet);
     }
 
