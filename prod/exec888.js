@@ -38,7 +38,7 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
 
     if (spins_no_bet>15) {
       spins_no_bet = 0;      
-      //coord.do_timer_bet(bet);
+      coord.do_timer_bet(bet);
     }
 
 

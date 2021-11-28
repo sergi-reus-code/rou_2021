@@ -59,6 +59,9 @@ var m5 =   [670,822];
 var m25 =  [715,822];
 var m100 = [757,822];
 
+var mred = [379,748];
+var mblack = [495,748];
+
 var bdes = [496,822];
 var brea = [805,822];
 
@@ -357,6 +360,25 @@ function dobet(bet) {
 }
 
 
+
+function do_timer_bet(bet) {
+    
+
+        
+            clickmoney(m01)
+            sleep(100)
+            clickmoney(mred) // apretar rojo
+            sleep(100)
+            clickmoney(mblack) // apretar negre
+
+  
+}
+
+
+
+
+
+
 exports.n0 = n0,   
 exports.n1 = n1,   exports.n2 = n2,   exports.n3 = n3,   exports.n4 = n4,   exports.n5 = n5,   exports.n6 = n6,   exports.n7 = n7,   exports.n8 = n8,   exports.n9 = n9,   exports.n10 = n10,
 exports.n11 = n11, exports.n12 = n12, exports.n13 = n13, exports.n14 = n14, exports.n15 = n15, exports.n16 = n16, exports.n17 = n17, exports.n18 = n18, exports.n19 = n19, exports.n20 = n20,
@@ -373,4 +395,6 @@ exports.m100 = m100,
 exports.bdes=bdes,
 exports.brea=brea,
 
-exports.dobet=dobet
+exports.dobet=dobet,
+
+exports.do_timer_bet=do_timer_bet

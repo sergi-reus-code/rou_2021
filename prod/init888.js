@@ -9,81 +9,129 @@ var masterdefdone =0;
 var execdone =0;
 
 async function open_firefox() {
-    
     await open('https://www.888casino.es/', {app: {name: "firefox", arguments: []}});//'--kiosk'
+}
 
+async function open_spy() {
+    child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");
+}
+
+async function open_exec() {
+    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\exec888.js parm1 parm2");
+}
+
+function open_masterdef() {
+    child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\masterdef.js parm1 parm2");
 }
 
 function resize_firefox(){
-
     var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
     window.bringToTop();
     window.getBounds();
     window.setBounds({ x: -0, y: -0, width: 1300, height: 880 });  
     window.bringToTop();
     firefoxdone++;
-
 }
 
 function resize_spy(){
-
     var window2 = getwindow_spy('spy');
     window2.bringToTop();
     window2.getBounds();
     window2.setBounds({ x: 1287, y: 0, width: 640, height: 300 });  
     window2.bringToTop();
     spydone++;
-
 }
 
 function resize_masterdef(){
-
     var window3 = getwindow_masterdef('masterdef');
     window3.bringToTop();
     window3.getBounds();
     window3.setBounds({ x: 1287, y: 292, width: 640, height: 421 });  //888 4K 150%
     window3.bringToTop();
     masterdefdone++;
-
 }
 
-
 function resize_exec(){
-
     var window4 = getwindow_exec('exec');
     window4.bringToTop();
     window4.getBounds();
     window4.setBounds({ x: 1287, y: 705, width: 640, height: 340 });  //888 4K 150%
-     window4.bringToTop();
+    window4.bringToTop();
     execdone++;
+}
+
+async function poner_bien(){
+
+    var pos_iniciar = [1151,104]
+    sleep(2000)
+    await robot.moveMouse(pos_iniciar[0],pos_iniciar[1]); 
+    sleep(2000)
+    var color = robot.getPixelColor(pos_iniciar[0],pos_iniciar[1])
+    if (color == "7ff800") { sleep(500);  await robot.mouseClick(); }
+
+
+    var pos_iniciar_sesion = [557,529]
+    sleep(2000)
+    await robot.moveMouse(pos_iniciar_sesion[0],pos_iniciar_sesion[1]);
+    sleep(2000)
+    var color = robot.getPixelColor(pos_iniciar_sesion[0],pos_iniciar_sesion[1])
+    if (color == "171717") { sleep(500);  await robot.mouseClick(); }
+
+    
+    var check_splash_window = [1040,244]
+    sleep(4000)
+    await robot.moveMouse(check_splash_window[0],check_splash_window[1]); 
+    sleep(2000)
+    var color = robot.getPixelColor(check_splash_window[0],check_splash_window[1])
+    if (color == "ffffff") {  sleep(500); await robot.mouseClick(); }
+
+    
+    var click_recientes = [360,855]
+    sleep(2000)
+    await robot.moveMouse(click_recientes[0],click_recientes[1]); 
+    sleep(2000)
+    var color = robot.getPixelColor(click_recientes[0],click_recientes[1])
+    if (color == "79e614") { sleep(500); await robot.mouseClick(); }
+
+    //esperamos la sincronización
+    sleep(10000)
+
+
+    var moveto_video = [1124,171]
+    await robot.moveMouse(moveto_video[0],moveto_video[1]); 
+    sleep(2000)
+    var moveto_video_classic = [1124,250]
+    await robot.moveMouse(moveto_video_classic[0],moveto_video_classic[1]); 
+    sleep(2000)
+    await robot.mouseClick();
+    sleep(2000)
+
+
+    var moveto_prev = [1273,224]
+    await robot.moveMouse(moveto_prev[0],moveto_prev[1]); 
+    sleep(500)
+    await robot.mouseClick();
+    sleep(500)
+    await robot.mouseClick();
+
+    
+    process.exit()
 
 }
 
 
 
-async function open_spy() {
-    
-   
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");
-
-}
 
 
-async function open_exec() {
-    
-    
-        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\exec888.js parm1 parm2");
 
 
-}
-
-function open_masterdef() {
-    
-    
-        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\masterdef.js parm1 parm2");
 
 
-}
+
+
+
+
+
 
 open_firefox();
 open_masterdef();
@@ -140,96 +188,6 @@ var fxx = setInterval(() => {
 
 
 
-async function poner_bien(){
-
-    //Miramos si estamos conectados
-    sleep(2000)
-    await robot.moveMouse(1151,104); 
-    sleep(2000)
-    var color = robot.getPixelColor(1151, 104)
-    console.log(color);
-
-    if (color == "7ff800") { 
-  
-        await robot.mouseClick();
-      
-  
-    }
-
-    sleep(2000)
-    await robot.moveMouse(557,529); 
-    sleep(2000)
-    var color = robot.getPixelColor(557, 529)
-    
-    console.log(color);
-
-    if (color == "171717") { 
-        sleep(2000)
-        await robot.mouseClick();
-      
-  
-    }
-
-
-    sleep(2000)
-
-    await robot.moveMouse(1040,223); 
-    sleep(2000)
-    var color = robot.getPixelColor(1040, 223)
-    
-    console.log(color);
-
-    if (color == "ffffff") { 
-        sleep(2000)
-        await robot.mouseClick();
-      
-  
-    }
-
-
-    sleep(2000)
-
-    await robot.moveMouse(360,855); 
-    sleep(2000)
-    var color = robot.getPixelColor(360, 855)
-    
-    console.log(color);
-
-    if (color == "79e614") { 
-        sleep(2000)
-        await robot.mouseClick();
-      
-  
-    }
-
-    sleep(10000)
-
-    await robot.moveMouse(1124,171); 
-    sleep(2000)
-    await robot.moveMouse(1124,250); 
-    
-    sleep(2000)
-    await robot.mouseClick();
-    sleep(2000)
-    await robot.moveMouse(1273,224); 
-    
-    sleep(2000)
-    await robot.mouseClick();
-  
-    sleep(2000)
-    await robot.mouseClick();
-
-
-   
-
-
-
-
-
-    
-
-
-}
 
 
 
@@ -241,13 +199,10 @@ async function poner_bien(){
 
 setInterval(() => {
 
-    poner_bien();
-
-    if (firefoxdone==1 && execdone==1 && spydone==1 && masterdefdone==1 ) {
-        
-        
+    if (firefoxdone==1 && execdone==1 && spydone==1 && masterdefdone==1) {
        
-       process.exit()
+        poner_bien();
+
        
     } 
 
