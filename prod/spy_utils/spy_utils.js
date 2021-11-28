@@ -10,7 +10,7 @@ function randomInt(min, max) { // min and max included
   
 function format_spin(spin){
 
-  if (spin_num==0 || spin_num==1) {
+  if (spin_num==0 || spin_num==1|| spin_num==2) {
     spin = 0;
   }
 
