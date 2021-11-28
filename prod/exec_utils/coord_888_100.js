@@ -1,68 +1,68 @@
 var robot = require("robotjs");
 const { sleep } = require("./exec_utils");
 
-var n0 =  [41,541];
+var n0 =  [57,628];
 
-var n3 =  [91,543];
-var n2 =  [91,575];
-var n1 =  [91,604];
+var n3 =  [116,585];
+var n2 =  [116,628];
+var n1 =  [116,672];
 
-var n6 =  [137,543];
-var n5 =  [137,575];
-var n4 =  [137,604];
+var n6 =  [171,585];
+var n5 =  [171,628];
+var n4 =  [171,672];
 
-var n9 =  [185,543];
-var n8 =  [185,575];
-var n7 =  [185,604];
+var n9 =  [231,585];
+var n8 =  [231,628];
+var n7 =  [231,672];
 
-var n12 =  [226,543];
-var n11 =  [226,575];
-var n10 =  [226,604];
+var n12 =  [290,585];
+var n11 =  [290,628];
+var n10 =  [290,672];
 
-var n15 =  [510,543];
-var n14 =  [510,575];
-var n13 =  [510,604];
+var n15 =  [348,585];
+var n14 =  [348,628];
+var n13 =  [348,672];
 
-var n18 =  [539,543];
-var n17 =  [539,575];
-var n16 =  [539,604];
+var n18 =  [407,585];
+var n17 =  [407,628];
+var n16 =  [407,672];
 
-var n21 =  [564,543];
-var n20 =  [564,575];
-var n19 =  [564,604];
+var n21 =  [465,585];
+var n20 =  [465,628];
+var n19 =  [465,672];
 
-var n24 =  [599,543];
-var n23 =  [599,575];
-var n22 =  [599,604];
+var n24 =  [524,585];
+var n23 =  [524,628];
+var n22 =  [524,672];
 
-var n27 =  [629,543];
-var n26 =  [629,575];
-var n25 =  [629,604];
+var n27 =  [586,585];
+var n26 =  [586,628];
+var n25 =  [586,672];
 
-var n30 =  [657,543];
-var n29 =  [657,575];
-var n28 =  [657,604];
+var n30 =  [640,585];
+var n29 =  [640,628];
+var n28 =  [640,672];
 
-var n33 =  [690,543];
-var n32 =  [690,575];
-var n31 =  [690,604];
+var n33 =  [702,585];
+var n32 =  [702,628];
+var n31 =  [702,672];
 
-var n36 =  [716,543];
-var n35 =  [716,575];
-var n34 =  [716,604];
+var n36 =  [760,585];
+var n35 =  [760,628];
+var n34 =  [760,672];
 
 
-var m02 =  [782,690];
-var m05 =  [824,690];
-var m1 =   [856,690];
-var m5 =   [892,690];
-var m25 =  [928,690];
-var m100 = [964,690];
+var m01 =  [537,822];
+var m05 =  [582,822];
+var m1 =   [626,822];
+var m5 =   [670,822];
+var m25 =  [715,822];
+var m100 = [757,822];
 
-var bdes = [504,690];
-var brea = [555,690];
+var bdes = [496,822];
+var brea = [805,822];
 
-var timer = 50;
+var timer = 25;
 var timerc = 100;
 
 
@@ -305,36 +305,41 @@ function dobet(bet) {
     console.log("coin" + coin);
 
     switch (coin) {
-        case 0.2:
-            clickmoney(m02)
-            sleep(100)
+        case 0.1:
+            clickmoney(m01)
+            sleep(25)
             clicknumbers(array,1)
             break;
-        case 0.4:
-            clickmoney(m02)
-            sleep(100)
+        case 0.2:
+            clickmoney(m01)
+            sleep(25)
             clicknumbers(array,2)
             break;   
+        case 0.5:
+            clickmoney(m01)
+            sleep(25)
+            clicknumbers(array,5)
+            break;  
         case 1:
             clickmoney(m1)
-            sleep(100)
-            clicknumbers(array,1)
-            break;   
-        case 2:
-            clickmoney(m1)
-            sleep(100)
-            clicknumbers(array,2)
-            break;  
-        case 5:
-            clickmoney(m5)
-            sleep(100)
+            sleep(25)
             clicknumbers(array,1)
             break; 
-        case 10:
-            clickmoney(m5)
-            sleep(100)
-            clicknumbers(array,2)
+        case 2:
+            clickmoney(m2)
+            sleep(25)
+            clicknumbers(array,1)
             break;   
+        case 5:
+            clickmoney(m5)
+            sleep(25)
+            clicknumbers(array,1)
+             break; 
+
+
+
+
+
         default:
             break;
     }
@@ -350,7 +355,7 @@ exports.n11 = n11, exports.n12 = n12, exports.n13 = n13, exports.n14 = n14, expo
 exports.n21 = n21, exports.n22 = n22, exports.n23 = n23, exports.n24 = n24, exports.n25 = n25, exports.n26 = n26, exports.n27 = n27, exports.n28 = n28, exports.n29 = n29, exports.n30 = n30,
 exports.n31 = n31, exports.n32 = n32, exports.n33 = n33, exports.n34 = n34, exports.n35 = n35, exports.n36 = n36,
 
-exports.m02  = m02,
+exports.m01  = m01,
 exports.m05  = m05,
 exports.m1   = m1,
 exports.m5   = m5,

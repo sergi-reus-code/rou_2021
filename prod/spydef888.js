@@ -29,50 +29,36 @@ async function detectar(milis) {
   await worker.load();
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
-  await worker.setParameters({tessedit_char_whitelist: '0123456789' });
+  await worker.setParameters({
+    tessedit_char_whitelist: '0123456789',
+  });
   const { data: { text } } = await worker.recognize('./last.png');
-  
 
-
-
-
+  var texto = Number(text)
 
   await worker.terminate();
   
-  var texto = 0;
-  var color=0;
-
-  if (text == 1) {
-    console.log("eeeeerrrrr" + text);
- 
-        // open a file called "lenna.png"
-        await Jimp.read('./last.png')
-        .then(image => {
-          color = image.getPixelColor(1, 1);
-          console.log(color);
-        })
-        .catch(err => {
+  if (texto == 1) {
+      
+    var color = 0;
+    
+    await Jimp.read('./last.png')
+      .then(image => {
+        color = image.getPixelColor(1, 1);
+        console.log(color);
+      })
+      .catch(err => {
           // Handle an exception.
-        });
- }
+      });
 
- if (color==4294967295) {
-    texto = 11;
- }
-
-
-  
-  console.log("eooo" + texto);
-  await worker.terminate();
-
-  console.log("despues-> " + texto);
-
+      if (color==4294967295) {
+          texto = 11;
+      }
+  }
 
   send_spin_to_master(Number(texto))
-
-  fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(texto)}.png`);
-
   
+  //fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(texto)}.png`);
 
 }
 
@@ -87,56 +73,37 @@ function send_spin_to_master(spin) {
 
   ioClient.emit('from_spy_to_master_spin',msg_out);
 
-  print_console(msg_out);
-
-}
-
-
-function print_console(msg_out){
-
-
   console.log("sending ->   " + JSON.stringify(msg_out));
 
 }
 
+
 function main_loop(){
   
-//Detectamos el color cuando No Win y cuando Win
-//VERY IMPORTANT!!!! MEDIDAS INIT({ x: -0, y: -0, width: 900, height: 630 })
+  var colorNW = robot.getPixelColor(667, 396);  //Abajo derecha
+  var colorW = robot.getPixelColor(623, 320);   //Arriba izquierda
 
-//100%  
-var colorNW = robot.getPixelColor(700, 430);  //Abajo derecha
-var colorW = robot.getPixelColor(650, 350);   //Arriba izquierda
-
-  //NEGRO = 000000
-  //ROJO = ff0000
-  //VERDE = 00a031
+  //NEGRO = 000000 , ROJO = ff0000 , VERDE = 00a031
   
   if (colorNW == "000000" || colorNW == "ff0000" || colorNW == "00a031" ) { 
-    //sleep(250)
-    //150%
-    //utils_image.tomafoto(978,583,70,60);
-    //100%
-    utils_image.tomafoto(650,388,45,38);
-    utils_image.sleep(3000)
+
+    utils_image.tomafoto(625,355,45,38);
+    utils_image.sleep(4000)
     detectar(Date.now());
+    
+
   }
   
   if (colorW == "000000" || colorW == "ff0000" || colorW == "00a031") {
-    //sleep(250)
-    //150%
-    //utils_image.tomafoto(978,526,70,60);
-    //100%
-    utils_image.tomafoto(650,349,45,38);
-    utils_image.sleep(3000)
+
+    utils_image.tomafoto(625,320,45,38);
+    utils_image.sleep(4000)
     detectar(Date.now());
+    
+
   }
 
-
-
-
 }
-
 
 
 setInterval(main_loop, 500);

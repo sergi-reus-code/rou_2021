@@ -19,7 +19,7 @@ function resize_firefox(){
     var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
     window.bringToTop();
     window.getBounds();
-    window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  
+    window.setBounds({ x: -0, y: -0, width: 1300, height: 880 });  
     window.bringToTop();
     firefoxdone++;
 
@@ -30,7 +30,7 @@ function resize_spy(){
     var window2 = getwindow_spy('spy');
     window2.bringToTop();
     window2.getBounds();
-    window2.setBounds({ x: 1337, y: 0, width: 590, height: 300 });  
+    window2.setBounds({ x: 1287, y: 0, width: 640, height: 300 });  
     window2.bringToTop();
     spydone++;
 
@@ -41,7 +41,7 @@ function resize_masterdef(){
     var window3 = getwindow_masterdef('masterdef');
     window3.bringToTop();
     window3.getBounds();
-    window3.setBounds({ x: 1337, y: 292, width: 590, height: 421 });  //888 4K 150%
+    window3.setBounds({ x: 1287, y: 292, width: 640, height: 421 });  //888 4K 150%
     window3.bringToTop();
     masterdefdone++;
 
@@ -53,7 +53,7 @@ function resize_exec(){
     var window4 = getwindow_exec('exec');
     window4.bringToTop();
     window4.getBounds();
-    window4.setBounds({ x: 1337, y: 705, width: 590, height: 340 });  //888 4K 150%
+    window4.setBounds({ x: 1287, y: 705, width: 640, height: 340 });  //888 4K 150%
      window4.bringToTop();
     execdone++;
 
