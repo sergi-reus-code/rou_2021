@@ -24,6 +24,7 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
 
 async function detectar(milis) {
 
+  
   const worker = createWorker();
   await worker.load();
   await worker.loadLanguage('eng');
