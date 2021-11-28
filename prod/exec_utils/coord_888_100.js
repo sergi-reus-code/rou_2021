@@ -53,8 +53,8 @@ var n34 =  [760,672];
 
 
 var m01 =  [537,822];
-var m05 =  [582,822];
-var m1 =   [626,822];
+var m1 =  [582,822];
+var m2 =   [626,822];
 var m5 =   [670,822];
 var m25 =  [715,822];
 var m100 = [757,822];
@@ -62,7 +62,7 @@ var m100 = [757,822];
 var bdes = [496,822];
 var brea = [805,822];
 
-var timer = 25;
+var timer = 35;
 var timerc = 100;
 
 
@@ -315,25 +315,33 @@ function dobet(bet) {
             sleep(25)
             clicknumbers(array,2)
             break;   
-        case 0.5:
+        case 0.4:
             clickmoney(m01)
             sleep(25)
-            clicknumbers(array,5)
+            clicknumbers(array,4)
             break;  
-        case 1:
+        case 0.8:
+            clickmoney(m01)
+            sleep(25)
+            clicknumbers(array,8)
+            break; 
+        case 1.6:
             clickmoney(m1)
             sleep(25)
             clicknumbers(array,1)
-            break; 
-        case 2:
-            clickmoney(m2)
             sleep(25)
-            clicknumbers(array,1)
+            clickmoney(m01)
+            sleep(25)
+            clicknumbers(array,6)
             break;   
-        case 5:
-            clickmoney(m5)
+        case 3.2:
+            clickmoney(m1)
             sleep(25)
-            clicknumbers(array,1)
+            clicknumbers(array,3)
+            sleep(25)
+            clickmoney(m01)
+            sleep(25)
+            clicknumbers(array,2)
              break; 
 
 
@@ -356,7 +364,7 @@ exports.n21 = n21, exports.n22 = n22, exports.n23 = n23, exports.n24 = n24, expo
 exports.n31 = n31, exports.n32 = n32, exports.n33 = n33, exports.n34 = n34, exports.n35 = n35, exports.n36 = n36,
 
 exports.m01  = m01,
-exports.m05  = m05,
+exports.m2  = m2,
 exports.m1   = m1,
 exports.m5   = m5,
 exports.m25  = m25,

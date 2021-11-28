@@ -92,6 +92,7 @@ open_exec();
 
 
 
+
 //Resize Spy
 var sxx = setInterval(() => {
 
@@ -139,10 +140,115 @@ var fxx = setInterval(() => {
 
 
 
+async function poner_bien(){
+
+    //Miramos si estamos conectados
+    sleep(2000)
+    await robot.moveMouse(1151,104); 
+    sleep(2000)
+    var color = robot.getPixelColor(1151, 104)
+    console.log(color);
+
+    if (color == "7ff800") { 
+  
+        await robot.mouseClick();
+      
+  
+    }
+
+    sleep(2000)
+    await robot.moveMouse(557,529); 
+    sleep(2000)
+    var color = robot.getPixelColor(557, 529)
+    
+    console.log(color);
+
+    if (color == "171717") { 
+        sleep(2000)
+        await robot.mouseClick();
+      
+  
+    }
+
+
+    sleep(2000)
+
+    await robot.moveMouse(1040,223); 
+    sleep(2000)
+    var color = robot.getPixelColor(1040, 223)
+    
+    console.log(color);
+
+    if (color == "ffffff") { 
+        sleep(2000)
+        await robot.mouseClick();
+      
+  
+    }
+
+
+    sleep(2000)
+
+    await robot.moveMouse(360,855); 
+    sleep(2000)
+    var color = robot.getPixelColor(360, 855)
+    
+    console.log(color);
+
+    if (color == "79e614") { 
+        sleep(2000)
+        await robot.mouseClick();
+      
+  
+    }
+
+    sleep(10000)
+
+    await robot.moveMouse(1124,171); 
+    sleep(2000)
+    await robot.moveMouse(1124,250); 
+    
+    sleep(2000)
+    await robot.mouseClick();
+    sleep(2000)
+    await robot.moveMouse(1273,224); 
+    
+    sleep(2000)
+    await robot.mouseClick();
+  
+    sleep(2000)
+    await robot.mouseClick();
+
+
+   
+
+
+
+
+
+    
+
+
+}
+
+
+
+
+
+
+
+
+
 setInterval(() => {
 
+    poner_bien();
+
     if (firefoxdone==1 && execdone==1 && spydone==1 && masterdefdone==1 ) {
-        process.exit()
+        
+        
+       
+       process.exit()
+       
     } 
 
 }, 1000);
@@ -153,41 +259,3 @@ setInterval(() => {
 
 
 
-
-/*
-
-const { windowManager } = require("./dist/index");
-
-console.log(windowManager.requestAccessibility()); // required on macOS
-
-const window = windowManager.getActiveWindow();
-console.log(window.getTitle());
-
-const bounds = window.getBounds();
-console.log(bounds);
-
-window.setBounds({ x: 0, y: 0 });
-window.maximize();
-
-setTimeout(() => {
-  window.setBounds(bounds);
-}, 1000);
-
-console.log("Windows list");
-windowManager.getWindows().forEach((window) => {
-  if (window.isVisible()) {
-    console.log(window.getTitle(), window.path);
-  }
-});
-
-windowManager.on("window-activated", (window) => {
-  console.log(window.path);
-});
-
-console.log("Monitors list");
-windowManager.getMonitors().forEach((monitor) => {
-  console.log(monitor.getWorkArea());
-});
-
-
-*/

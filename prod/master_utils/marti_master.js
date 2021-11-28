@@ -6,8 +6,8 @@
 
 //var martingala = [1,2,5,10,20]; //Martingala pura y dura
 //var wins = [18,18,36,36,36]; //Martingala pura y dura
-var martingala = [0.1,0.2,0.5,1,2,4]; //Martingala pura y dura
-var wins = [1.8,1.8,3.6,3.6,3.6,3.6]; //Martingala pura y dura
+var martingala = [0.1,0.2,0.4,0.8,1.6,3.2]; //Martingala pura y dura
+var wins = [1.8,1.8,1.8,1.8,1.8,1.8]; //Martingala pura y dura
 
 //var martingala = [ 15 , 30 , 65 , 130 , 275 , 550]; //Martingala pura y dura
 //var wins = [ 270 , 270 , 360 , 360 , 630 , 630 ]; //Martingala pura y dura
@@ -66,6 +66,8 @@ function update_marti(bet,spin) {
             
             var txt = `I win with spin -> ${spin}    -> bet_win : ${win}€    -> total_win : ${total_win}€`+"\r"
             //fs.appendFileSync("results.txt",txt+"\r");
+            process.exit()
+            
             win = 0;
  
             console.log();
