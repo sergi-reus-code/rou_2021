@@ -19,16 +19,7 @@ function resize_firefox(){
     var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
     window.bringToTop();
     window.getBounds();
-
-    if (process.argv[2] == "pgcda") {
-       
-        window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  //PUIGCERDA 888 2K 100% ---> 4K x 1.5
- 
-    } else {
- 
-        window.setBounds({ x: -0, y: -0, width: 900, height: 630 });  //888 4K 150% !!!!NO CAMBIAR NYUNCA!!!!!!!!!
-
-    }
+    window.setBounds({ x: -0, y: -0, width: 1350, height: 945 });  
     window.bringToTop();
     firefoxdone++;
 
@@ -39,15 +30,7 @@ function resize_spy(){
     var window2 = getwindow_spy('spy');
     window2.bringToTop();
     window2.getBounds();
-    if (process.argv[2] == "pgcda") {
-       //Puigcerdà
-        window2.setBounds({ x: 1337, y: 0, width: 590, height: 300 });  //888 4K 150%
- 
-    } else {
-        //Riu
-        window2.setBounds({ x: 900, y: 0, width: 800, height: 400 });  //888 4K 150%
-
-    }
+    window2.setBounds({ x: 1337, y: 0, width: 590, height: 300 });  
     window2.bringToTop();
     spydone++;
 
@@ -58,15 +41,7 @@ function resize_masterdef(){
     var window3 = getwindow_masterdef('masterdef');
     window3.bringToTop();
     window3.getBounds();
-    if (process.argv[2] == "pgcda") {
-        //Puigcerdà
-        window3.setBounds({ x: 1337, y: 292, width: 590, height: 421 });  //888 4K 150%
- 
-    } else {
-        //Riu
-        window3.setBounds({ x: 900, y: 400, width: 800, height: 530 });  //888 4K 150%
-
-    }
+    window3.setBounds({ x: 1337, y: 292, width: 590, height: 421 });  //888 4K 150%
     window3.bringToTop();
     masterdefdone++;
 
@@ -78,18 +53,8 @@ function resize_exec(){
     var window4 = getwindow_exec('exec');
     window4.bringToTop();
     window4.getBounds();
-
-    if (process.argv[2] == "pgcda") {
-       //Puigcerdà
-        window4.setBounds({ x: 1337, y: 705, width: 590, height: 340 });  //888 4K 150%
- 
-    } else {
-        //Riu
-        window4.setBounds({ x: 0, y: 630, width: 900, height: 300 });  //888 4K 150%
-
-    }
-
-    window4.bringToTop();
+    window4.setBounds({ x: 1337, y: 705, width: 590, height: 340 });  //888 4K 150%
+     window4.bringToTop();
     execdone++;
 
 }
@@ -98,31 +63,25 @@ function resize_exec(){
 
 async function open_spy() {
     
-    if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\spy\\spydefm.js pgcda parm2");
-    } else {
-        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\spy\\spydefm.js riu parm2");
-    }
+   
+        child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");
+
 }
 
 
 async function open_exec() {
     
-    if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\exec\\exec888.js pgcda parm2");
-    } else {
-        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\exec\\exec888.js riu parm2");
-    }
+    
+        child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\exec888.js parm1 parm2");
+
 
 }
 
 function open_masterdef() {
     
-    if (process.argv[2] == "pgcda") {
-        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\roudef\\master\\masterdef.js pgcda parm2");
-    } else {
-        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\roudef\\master\\masterdef.js riu parm2");
-    }
+    
+        child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\masterdef.js parm1 parm2");
+
 
 }
 
