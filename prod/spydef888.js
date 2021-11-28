@@ -29,37 +29,41 @@ async function detectar(milis) {
   await worker.load();
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
-  await worker.setParameters({
-    tessedit_char_whitelist: '0123456789',
-  });
+  await worker.setParameters({tessedit_char_whitelist: '0123456789' });
   const { data: { text } } = await worker.recognize('./last.png');
   
+
+
+
+
+
   await worker.terminate();
   
-  var texto = text;
-
- console.log("antes-> " + texto);
+  var texto = 0;
+  var color=0;
 
   if (text == 1) {
-    
-    await Jimp.read('last.png', (err, lenna) => {
-      if (err) throw err;
-      var color = lenna.getPixelColor(1, 1);
-      console.log((color));
-      
-      
-      if (color == 4294967295) {  //es 11
-        console.log("es un 11");
-        texto = 11
-        
-      } else {
-        console.log("es un 1");
-        texto = 1
+    console.log("eeeeerrrrr" + text);
+ 
+        // open a file called "lenna.png"
+        await Jimp.read('./last.png')
+        .then(image => {
+          color = image.getPixelColor(1, 1);
+          console.log(color);
+        })
+        .catch(err => {
+          // Handle an exception.
+        });
+ }
+
+ if (color==4294967295) {
+    texto = 11;
+ }
+
+
   
-      }
-    
-    });
-  }
+  console.log("eooo" + texto);
+  await worker.terminate();
 
   console.log("despues-> " + texto);
 
