@@ -1,13 +1,6 @@
 
 const combi_master = require ("./master_utils/combi_master");
 const bet_master = require ("./master_utils/bet_master");
-var bet = `{`+
-                `"bet_id":0,`+
-                `"bet_date":"0",`+
-                `"bet_time":0,`+
-                `"bet_array":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],`+
-                `"bet_quantity":0`+
-                `}`;
 
 var express = require("express");
 var app = express();
@@ -33,6 +26,8 @@ console.clear();
 
 console.log("Wellcome to masterdef.....");
 
+
+
 io.on("connection", (socket) => {
 
     console.log("connected "  + socket.id);
@@ -42,6 +37,8 @@ io.on("connection", (socket) => {
     
     
     socket.on("from_spy_to_master_spin", (msg_in) => { 
+
+        var bet = `{"bet_id":0,"bet_date":"0","bet_time":0,"bet_array":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"bet_quantity":0}`;
     
         data = JSON.parse(JSON.stringify(msg_in));
 

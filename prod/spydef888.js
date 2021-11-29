@@ -22,7 +22,7 @@ ioClient.on('from_master_to_spy_stop', (msg) => {
 });
 
 
-async function detectar(milis) {
+async function detectar() {
 
   
   const worker = createWorker();
@@ -90,7 +90,7 @@ function main_loop(){
 
     utils_image.tomafoto(625,355,45,38);
     utils_image.sleep(4000)
-    detectar(Date.now());
+    detectar();
     
 
   }
@@ -99,7 +99,7 @@ function main_loop(){
 
     utils_image.tomafoto(625,320,45,38);
     utils_image.sleep(4000)
-    detectar(Date.now());
+    detectar();
     
 
   }
