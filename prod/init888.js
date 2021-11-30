@@ -13,15 +13,24 @@ async function open_firefox() {
 }
 
 async function open_spy() {
-    child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");
+    //Pgcda
+    //child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");.
+    //Riu
+    child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\prod\\spydef888.js parm1 parm2");
 }
 
 async function open_exec() {
-    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\exec888.js parm1 parm2");
+    //Pgcda
+    //child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\exec888.js parm1 parm2");
+    //Riu
+    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\prod\\exec888.js parm1 parm2");
 }
 
 function open_masterdef() {
-    child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\masterdef.js parm1 parm2");
+    //Pgcda
+    //child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\masterdef.js parm1 parm2");
+    //Riu
+    child_process.exec("start \"masterdef\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\prod\\masterdef.js parm1 parm2");
 }
 
 function resize_firefox(){
@@ -78,7 +87,7 @@ async function poner_bien(){
     if (color == "171717") { sleep(500);  await robot.mouseClick(); }
 
     
-    var check_splash_window = [1040,244]
+    var check_splash_window = [1039,224]
     sleep(4000)
     await robot.moveMouse(check_splash_window[0],check_splash_window[1]); 
     sleep(2000)

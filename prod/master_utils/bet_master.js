@@ -1,8 +1,5 @@
 const marti_master = require ("./marti_master");
-var beep = require('beepbeep')
 
-var fs = require('fs'); 
-var rep=0
 repe=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 last1_chk=0;
 last2_chk=0;
@@ -52,9 +49,7 @@ function main_loop(prev_chk, current_chk, current_array){
 
   if (current_array[39]==18){  //>29
 
-    beep(10, 200)
-
-    if(prev_chk != current_chk){
+   if(prev_chk != current_chk){
 
         return fill_bet(current_array);            
 

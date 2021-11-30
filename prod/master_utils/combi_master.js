@@ -1,5 +1,4 @@
 let combi_pool = [];
-let stored_last_bet = {}; 
 
 function update_combi_pool(data){
 

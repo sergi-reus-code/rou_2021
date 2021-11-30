@@ -43,7 +43,7 @@ function update_marti(bet,spin) {
             
             
             
-            process.exit()
+            //process.exit()
             
             win = 0;
             marti_iter = 0;
