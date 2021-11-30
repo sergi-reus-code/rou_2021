@@ -6,6 +6,10 @@ const { createWorker } = require('tesseract.js');
 var fs = require('fs'); 
 const utils = require('./spy_utils/spy_utils');
 var Jimp = require('jimp');
+var prompt = require('prompt-sync')();
+
+var autman = true; 
+
 
 ioClient.on('connect', () => {
   console.log('Connected!');
@@ -79,6 +83,9 @@ function send_spin_to_master(spin) {
 
 
 function main_loop(){
+
+
+  if (autman == false) {
   
   var colorNW = robot.getPixelColor(667, 396);  //Abajo derecha
   var colorW = robot.getPixelColor(623, 320);   //Arriba izquierda
@@ -103,8 +110,67 @@ function main_loop(){
     
 
   }
-
+  }
 }
 
 
 setInterval(main_loop, 500);
+
+
+
+
+
+
+
+function manloop() {
+    
+
+
+  if (autman == true) {
+ 
+
+
+
+
+
+
+
+
+    var num = prompt('Spin? ');
+    
+    if(num<37){
+
+        var msg_out = utils.format_spin(num);
+
+        ioClient.emit('from_spy_to_master_spin',msg_out);
+
+        console.log("sending ->   " + JSON.stringify(msg_out));
+    
+    } else {
+            
+        console.log("MAL!!!!!!");
+        if (num=="e") {
+          autman = false;
+        }
+        
+    }
+
+
+  } else {
+    clearInterval(xxx)
+}
+
+
+
+
+
+
+    
+}
+
+
+var xxx = setInterval(() => {manloop()},1000)
+
+
+
+
