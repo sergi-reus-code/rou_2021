@@ -7,7 +7,7 @@ var fs = require('fs');
 const utils = require('./spy_utils/spy_utils');
 var Jimp = require('jimp');
 var prompt = require('prompt-sync')();
-
+const path = require('path');
 var autman = true; 
 
 
@@ -34,7 +34,11 @@ async function detectar() {
 
   
   try {
-    const worker = createWorker();
+    const worker = createWorker({
+     // langPath: path.join(__dirname,  'lang-data'),
+     // logger: m => console.log(m),
+
+    });
     await worker.load();
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
