@@ -33,7 +33,7 @@ ioClient.on('from_master_to_spy_exit', (msg) => {
 async function detectar() {
 
   
-  try {
+  
     const worker = createWorker({
      // langPath: path.join(__dirname,  'lang-data'),
      // logger: m => console.log(m),
@@ -45,9 +45,7 @@ async function detectar() {
     await worker.setParameters({
       tessedit_char_whitelist: '0123456789',
     });
-  } catch (error) {
-    console.log("1 " + error);
-  }
+
 
 try {
   const { data: { text } } = await worker.recognize('./last.png');
@@ -97,7 +95,7 @@ try {
 
   send_spin_to_master(Number(texto))
   
-  //fs.renameSync('./last.png', `./tiradas/${Number(milis)}_${Number(texto)}.png`);
+  
 
 }
 

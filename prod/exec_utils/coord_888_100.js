@@ -72,7 +72,7 @@ var timerc = 100;
 function doclick(times) {
 
     for (let index = 0; index < times; index++) {
-        //robot.mouseClick();
+        robot.mouseClick();
         sleep(timer);
         
     }

@@ -40,7 +40,7 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
   
 
   if (bet.bet_id!=0) {
-    //spins_no_bet = 0;
+    spins_no_bet = 0;
     console.log("receiving -> " + JSON.stringify(JSON.parse(msg)));
     console.log("");
     coord.dobet(bet);
