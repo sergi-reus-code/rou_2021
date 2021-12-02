@@ -33,46 +33,19 @@ ioClient.on('from_master_to_spy_exit', (msg) => {
 async function detectar() {
 
   
-  try {
-    const worker = createWorker();
-    await worker.load();
-    await worker.loadLanguage('eng');
-    await worker.initialize('eng');
-    await worker.setParameters({
-      tessedit_char_whitelist: '0123456789',
-    });
-  } catch (error) {
-    console.log("1 " + error);
-  }
-
-try {
+  const worker = createWorker();
+  await worker.load();
+  await worker.loadLanguage('eng');
+  await worker.initialize('eng');
+  await worker.setParameters({
+    tessedit_char_whitelist: '0123456789',
+  });
   const { data: { text } } = await worker.recognize('./last.png');
-  
+
   var texto = Number(text)
-} catch (error) {
-  console.log("2 " + error);
-}
 
-
-
-
-
-
-
-try {
   await worker.terminate();
-} catch (error) {
-  console.log("3 " + error);
-}
-
-
   
-  
-
-
-
-
-
   if (texto == 1) {
       
     var color = 0;
@@ -116,7 +89,7 @@ function send_spin_to_master(spin) {
 function main_loop(){
 
 
-  
+  if (autman == false) {
   
   var colorNW = robot.getPixelColor(667, 396);  //Abajo derecha
   var colorW = robot.getPixelColor(623, 320);   //Arriba izquierda
@@ -142,7 +115,7 @@ function main_loop(){
 
   }
   }
-
+}
 
 
 setInterval(main_loop, 500);
@@ -152,6 +125,55 @@ setInterval(main_loop, 500);
 
 
 
+
+function manloop() {
+    
+
+
+  if (autman == true) {
+ 
+
+
+
+
+
+
+
+
+    var num = prompt('Spin? ');
+    
+    if(num<37){
+
+        var msg_out = utils.format_spin(num);
+
+        ioClient.emit('from_spy_to_master_spin',msg_out);
+
+        console.log("sending ->   " + JSON.stringify(msg_out));
+    
+    } else {
+            
+        console.log("MAL!!!!!!");
+        if (num=="e") {
+          autman = false;
+        }
+        
+    }
+
+
+  } else {
+    clearInterval(xxx)
+}
+
+
+
+
+
+
+    
+}
+
+
+var xxx = setInterval(() => {manloop()},1000)
 
 
 

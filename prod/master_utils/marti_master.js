@@ -39,17 +39,14 @@ function update_marti(bet,spin) {
             var txt = `I win with spin -> ${spin}    -> bet_win : ${win}€    -> total_win : ${total_win}€`+"\r"
             
             //EJECUTAR CERRAR TODAS LAS VENTANAS
-            
-            
-            
-            
+                
             //process.exit()
             
             win = 0;
             marti_iter = 0;
             looses = 0;
 
-            return
+            return "exit"
 
         } else {
 
@@ -57,7 +54,7 @@ function update_marti(bet,spin) {
             looses++;
             
             var txt2 = JSON.stringify(data);
-            console.log(txt2);
+            console.log("eee" + txt2);
 
             return
         }

@@ -18,7 +18,7 @@ var empty_bet = `{`+
 
 function update_marti(bet,spin) {
        
-      marti_master.update_marti(bet,spin);
+      return marti_master.update_marti(bet,spin);
 
 }
               

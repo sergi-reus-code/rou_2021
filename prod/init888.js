@@ -100,7 +100,10 @@ async function poner_bien(){
     await robot.moveMouse(click_recientes[0],click_recientes[1]); 
     sleep(2000)
     var color = robot.getPixelColor(click_recientes[0],click_recientes[1])
-    if (color == "79e614") { sleep(500); await robot.mouseClick(); }
+  //  if (color == "79e614" || color == "79e715" ) { 
+        sleep(500);
+         await robot.mouseClick(); 
+   //     }
 
     //esperamos la sincronización
     sleep(10000)

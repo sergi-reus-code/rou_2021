@@ -8,9 +8,10 @@ function sleep(ms) {
 }
 
 function open_init() {
-
-    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\init888.js parm1 parm2");
-
+    //pgcda
+    //child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\init888.js parm1 parm2");
+    //riu
+    child_process.exec("start \"exec\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\prod\\init888.js parm1 parm2");
 }
 
 cron.schedule('*/1 * * * *' ,() => {
@@ -22,6 +23,7 @@ cron.schedule('*/1 * * * *' ,() => {
     if (color_spy != "ffffff"){
         //cerramos todo
         //firefox
+        /*
         robot.moveMouse(1258,23); 
         sleep(500)
         robot.mouseClick();
@@ -40,7 +42,7 @@ cron.schedule('*/1 * * * *' ,() => {
         sleep(500)
 
         console.log(Date.now().toString());
-
+*/
        open_init();
 
     }
