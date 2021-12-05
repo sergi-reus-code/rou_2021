@@ -49,7 +49,7 @@ ioClient.on('from_master_to_exec_bet', (msg) => {
     spins_no_bet++
     console.log("Spins sin bet -> " + spins_no_bet);
 
-    if (spins_no_bet>25) {
+    if (spins_no_bet>20) {
       spins_no_bet = 0;
       sleep(50)      
       coord.do_timer_bet(bet);

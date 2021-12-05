@@ -4,7 +4,7 @@ const bet_master = require ("./master_utils/bet_master");
 var bet = `{"bet_id":0,"bet_date":"0","bet_time":0,"bet_array":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"bet_quantity":0}`;
     
 var express = require("express");
-const { SSL_OP_EPHEMERAL_RSA } = require("constants");
+
 var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server, {  pingTimeout: 100000, reconnect: true});
