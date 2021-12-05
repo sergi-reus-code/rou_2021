@@ -347,6 +347,20 @@ function dobet(bet) {
             clicknumbers(array,2)
              break; 
 
+        case 6.4:
+            clickmoney(m2)
+            sleep(25)
+            clicknumbers(array,3)
+            sleep(25)
+            clickmoney(m01)
+            sleep(25)
+            clicknumbers(array,4)
+            break; 
+
+
+
+
+
 
 
 
