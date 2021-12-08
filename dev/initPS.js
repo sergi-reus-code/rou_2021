@@ -2,21 +2,34 @@ var child_process = require('child_process');
 var open = require("open");
 var robot = require("robotjs");
 const { clearInterval } = require('timers');
-const { getwindow, getwindow_888, getwindow_spy, getwindow_masterdef, getwindow_exec,sleep, tomafoto} = require ("./init_utils/init_utils.js");
+var path = require("path");
+const utils = require('./utils/utils')
+const { getwindow, getwindow_888, getwindow_PS,getwindow_spy, getwindow_masterdef, getwindow_exec} = require ("./utils/init_utils.js");
 var firefoxdone =0;
 var spydone =0;
 var masterdefdone =0;
 var execdone =0;
 
 async function open_firefox() {
-    await open('https://www.888casino.es/', {app: {name: "firefox", arguments: []}});//'--kiosk'
+    await open('https://www.pokerstarscasino.es/', {app: {name: "firefox", arguments: []}});//'--kiosk'
 }
 
+
+
+
+
+
+
+
+
+//child_process.exec(`start \"exec\" cmd.exe /c node ${__dirname}\\initPS.js ${process.argv[3]}`);
+
+
+
 async function open_spy() {
-    //Pgcda
-    //child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi\\Desktop\\rou_2021\\prod\\spydef888.js parm1 parm2");.
-    //Riu
-    child_process.exec("start \"spy\" cmd.exe /c node C:\\Users\\Sergi_Desktop\\Desktop\\5_rou_2021\\prod\\spydef888.js parm1 parm2");
+    const spyPath = path.join(__dirname, '/spydefPS.js');
+    console.log(spyPath);
+    child_process.exec(`start \"exec\" cmd.exe /c node ${spyPath} parm1 parm2`);
 }
 
 async function open_exec() {
@@ -34,12 +47,58 @@ function open_masterdef() {
 }
 
 function resize_firefox(){
-    var window = getwindow_888('Casino Online | Juegos de Casino en 888Casino');
+
+    var window = getwindow_PS('PokerStars');
     window.bringToTop();
     window.getBounds();
     window.setBounds({ x: -0, y: -0, width: 1300, height: 880 });  
     window.bringToTop();
+    
+    var pos_iniciar = [981,118]
+    utils.sleep(2000)
+    robot.moveMouse(pos_iniciar[0],pos_iniciar[1]); 
+    var color = robot.getPixelColor(pos_iniciar[0],pos_iniciar[1])
+    if (color == "333333") { utils.sleep(500);  robot.mouseClick(); }
+    
+    var pos_iniciar = [523,438]
+    utils.sleep(2000)
+    robot.moveMouse(pos_iniciar[0],pos_iniciar[1]); 
+    var color = robot.getPixelColor(pos_iniciar[0],pos_iniciar[1])
+    if (color == "05d6ae") { utils.sleep(500);  robot.mouseClick(); }   
+    
+    
+    var pos_iniciar = [512,418]
+    utils.sleep(2000)
+    robot.moveMouse(pos_iniciar[0],pos_iniciar[1]); 
+    var color = robot.getPixelColor(pos_iniciar[0],pos_iniciar[1])
+    if (color == "05d6ae") { utils.sleep(500);  robot.mouseClick(); }   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     firefoxdone++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 function resize_spy(){
@@ -171,12 +230,12 @@ async function poner_bien(){
 
 
 open_firefox();
-open_masterdef();
-open_spy();
-open_exec();
+//open_masterdef();
+//open_spy();
+//open_exec();
 
 
-
+/*
 
 //Resize Spy
 var sxx = setInterval(() => {
@@ -212,7 +271,10 @@ var exx = setInterval(() => {
 
 }, 3000);
 
-//Resize Exec
+*/
+
+
+//Resize firefox
 var fxx = setInterval(() => {
 
     if (firefoxdone<1) {

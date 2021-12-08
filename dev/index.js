@@ -4,9 +4,10 @@ const utils = require("./utils/utils");
 var path = require("path");
 
 
+
 function open_init() {
     
-    child_process.exec(`start \"exec\" cmd.exe /c node ${__dirname}\\init888.js ${process.argv[3]}`);
+    child_process.exec(`start \"exec\" cmd.exe /c node ${__dirname}\\initPS.js ${process.argv[3]}`);
  
 }
 
