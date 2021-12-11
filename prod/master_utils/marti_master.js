@@ -1,5 +1,5 @@
-var martingala = [0.1,0.2,0.4,0.8,1.6,3.2,6.4]; //Martingala pura y dura
-var wins = [1.8,1.8,1.8,1.8,1.8,1.8,1.8]; //Martingala pura y dura
+var martingala = [0.1,0.2,0.4,0.8,1.6,3.2]; //Martingala pura y dura
+var wins = [1.8,1.8,1.8,1.8,1.8,1.8]; //Martingala pura y dura
 
 var repe = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
