@@ -14,6 +14,7 @@ module.exports = class Spy {
     this.cordxx = 0;
     this.cordyy = 0;
     this.photoTaked = false;
+    this.gap = 0;
 
 
   }
@@ -31,6 +32,10 @@ module.exports = class Spy {
     var colorNW = robot.getPixelColor(667, 396);  //Abajo derecha
     var colorW = robot.getPixelColor(623, 320);   //Arriba izquierda
    
+    var date = Date.now();
+    console.log(date);
+
+
   
     //NEGRO = 000000 , ROJO = ff0000 , VERDE = 00a031
     
@@ -39,7 +44,6 @@ module.exports = class Spy {
       this.cordy = 355; 
       this.cordxx = 45;
       this.cordyy = 38;
-
 
       tomafoto(this.cordx,this.cordy,this.cordxx,this.cordyy);
       this.photoTaked = true;
