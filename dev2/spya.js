@@ -33,7 +33,7 @@ combi_array30_ordered = []
 
 function push_array30(spin){
   if (!combi_array30.includes(spin))  {
-    if (combi_array30.length==30) {
+    if (combi_array30.length==25) {
       combi_array30.pop();
     }
     combi_array30.unshift(spin)
@@ -50,7 +50,9 @@ function push_array30(spin){
   combi_array30_ordered = combi_array30.slice();
 
 combi_array30_ordered.sort(function(a, b){return a - b});
-var chk = calc_chk(combi_array30)
+
+var chk = calc_chk35(combi_array30)
+
 var txt1 = spin_num + " ; " +spin+ "; [" + combi_array30.toString()+"]."+combi_array30.length
 var txt2 = spin_num + " ; " +spin+ "; [" + combi_array30_ordered.toString()+"] ; "+combi_array30_ordered.length + " ; " + chk
 //var txt1 = combi_array30.toString() + "," + spin_num+"."+combi_array30.length
@@ -80,7 +82,7 @@ function check_win(spin){
 }
 
 
-function calc_chk(ca){
+function calc_chk30(ca){
 
 var chk = ca[0]+ca[1]+ca[2]+ca[3]+ca[4]+ca[5]+ca[6]+ca[7]+ca[8]+ca[9]+ca[10]+
 ca[11]+ca[12]+ca[13]+ca[14]+ca[15]+ca[16]+ca[17]+ca[18]+ca[19]+ca[20]+
@@ -90,7 +92,16 @@ ca[21]+ca[22]+ca[23]+ca[24]+ca[25]+ca[26]+ca[27]+ca[28]+ca[29]
 return chk
 
 }
+function calc_chk35(ca){
 
+  var chk = ca[0]+ca[1]+ca[2]+ca[3]+ca[4]+ca[5]+ca[6]+ca[7]+ca[8]+ca[9]+ca[10]+
+  ca[11]+ca[12]+ca[13]+ca[14]+ca[15]+ca[16]+ca[17]+ca[18]+ca[19]+ca[20]+
+  ca[21]+ca[22]+ca[23]+ca[24]//+ca[25]+ca[26]+ca[27]+ca[28]+ca[29]+
+  //ca[30]+ca[31]+ca[32]+ca[33]+ca[34]
+  
+  return chk
+  
+  }
 
 
 
