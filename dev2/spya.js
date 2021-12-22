@@ -1,39 +1,18 @@
 const fs = require('fs')
+spin_num = 0;
+combi_array30 = []
+combi_array30_ordered = []
+
 
 
 function randomInt(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-spin_num = 0;
-
-function format_spin(spin){
-
-    spin_num++;
-  
-    var f = new Date();
-  
-    var text_dump_JSON = `{`+
-                        `"spin_id":${spin_num},`+
-                        `"spin_date":"${f.getDate() + "-"+ f.getMonth()+ "-" +f.getFullYear()}",`+
-                        `"spin_time":${Date.now()},`+
-                        `"spin":${Number(spin)}`+
-                        `}`;
-  
-    return JSON.parse(text_dump_JSON);
-  
-  }
-
-
-combi_array30 = []
-combi_array30_ordered = []
-
-
-
 
 function push_array30(spin){
   if (!combi_array30.includes(spin))  {
-    if (combi_array30.length==25) {
+    if (combi_array30.length==30) {
       combi_array30.pop();
     }
     combi_array30.unshift(spin)
@@ -105,28 +84,29 @@ function calc_chk35(ca){
 
 
 
+
+
+
+
+
+
+
+
+
+
 if (fs.existsSync('test.txt')) { fs.unlink('test.txt', function (err) { if (err) throw err; }); }
-
-
-
 
 
 setInterval(() => {
 
         var spin = randomInt(0,36);
-        var msg_out = format_spin(spin);
-  
-        //console.log("sending ->   " + JSON.stringify(msg_out));
+        
 
 
 
+        check_win(spin);
 
-
-
-
-        check_win(msg_out);
-
-        push_array30(msg_out.spin)
+        push_array30(spin)
         
 
         
