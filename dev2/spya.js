@@ -2,6 +2,8 @@ const fs = require('fs')
 spin_num = 0;
 combi_array30 = []
 combi_array30_ordered = []
+tirada1 = false
+tirada2 = false
 
 
 
@@ -11,6 +13,7 @@ function randomInt(min, max) { // min and max included
 
 
 function push_array30(spin){
+
   if (!combi_array30.includes(spin))  {
     if (combi_array30.length==30) {
       combi_array30.pop();
@@ -30,20 +33,55 @@ function push_array30(spin){
 
 combi_array30_ordered.sort(function(a, b){return a - b});
 
-var chk = calc_chk35(combi_array30)
+var chk = calc_chk30(combi_array30)
 
 var txt1 = spin_num + " ; " +spin+ "; [" + combi_array30.toString()+"]."+combi_array30.length
 var txt2 = spin_num + " ; " +spin+ "; [" + combi_array30_ordered.toString()+"] ; "+combi_array30_ordered.length + " ; " + chk
 //var txt1 = combi_array30.toString() + "," + spin_num+"."+combi_array30.length
 
+//console.log(chk);
+
+if (chk > 0) {
+ 
 
 
-console.log(txt1);
-console.log(txt2);
-console.log(chk);
+
+
+  if ((tirada1 == true) && (tirada2 == true)) {
+    //reset all
+    tirada1 = false
+    tirada2 = false
+   
+    
+    combi_array30 = []
+    
+  }
+
+  if ((tirada1 == true) & (tirada2 == false)) {
+    fs.appendFileSync('test.txt',txt2 + "\n");
+    console.log(txt2);
+    tirada2 = true
+    
+  }
+
+  if (tirada1 == false) {
+    fs.appendFileSync('test.txt',txt2 + "\n");
+    console.log(txt2);
+    tirada1 = true
+    
+  }
+
+
+
+
+
+  
+}
+
+
 
 //fs.appendFileSync('test.txt',txt1 + "\n");
-fs.appendFileSync('test.txt',txt2 + "\n");
+//fs.appendFileSync('test.txt',txt2 + "\n");
 //fs.appendFileSync('test.txt',"\n");
 
 
@@ -100,7 +138,7 @@ if (fs.existsSync('test.txt')) { fs.unlink('test.txt', function (err) { if (err)
 setInterval(() => {
 
         var spin = randomInt(0,36);
-        
+        spin_num++
 
 
 
