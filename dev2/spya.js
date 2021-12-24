@@ -4,7 +4,7 @@ combi_array30 = []
 combi_array30_ordered = []
 tirada1 = false
 tirada2 = false
-
+tirada3 = false
 
 
 function randomInt(min, max) { // min and max included 
@@ -47,20 +47,13 @@ if (chk > 0) {
 
 
 
-  if ((tirada1 == true) && (tirada2 == true)) {
+  if ((tirada1 == true) && (tirada2 == true)  && (tirada3 == true)) {
     //reset all
     tirada1 = false
     tirada2 = false
-   
+    tirada2 = false
     
     combi_array30 = []
-    
-  }
-
-  if ((tirada1 == true) & (tirada2 == false)) {
-    fs.appendFileSync('test.txt',txt2 + "\n");
-    console.log(txt2);
-    tirada2 = true
     
   }
 
@@ -70,6 +63,16 @@ if (chk > 0) {
     tirada1 = true
     
   }
+
+
+  if ((tirada1 == true) & (tirada2 == false)) {
+    fs.appendFileSync('test.txt',txt2 + "\n");
+    console.log(txt2);
+    tirada2 = true
+    
+  }
+
+
 
 
 
@@ -139,10 +142,6 @@ setInterval(() => {
 
         var spin = randomInt(0,36);
         spin_num++
-
-
-
-        check_win(spin);
 
         push_array30(spin)
         
