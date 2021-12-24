@@ -30,7 +30,7 @@ function push_array30(spin,rep){
 
   combi_array30_ordered = combi_array30.slice();
 
-combi_array30_ordered.sort(function(a, b){return a - b});
+   combi_array30_ordered.sort(function(a, b){return a - b});
 
 var chk = calc_chk30(combi_array30)
 
@@ -164,9 +164,22 @@ setInterval(() => {
         var spin = randomInt(0,36);
         spin_num++
 
-
-
+        //check previous bet
         check_win(spin);
+
+
+        //actualizar array
+        push_array30(msg_out.spin,30)
+
+
+        //send spin & receive bet
+        //bet = push_array30(msg_out.spin,30)
+
+        //execute bet
+
+
+
+        
 
         push_array30(msg_out.spin,30)
         
