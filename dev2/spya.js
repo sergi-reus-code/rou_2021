@@ -31,9 +31,9 @@ combi_array30_ordered = []
 
 
 
-function push_array30(spin){
+function push_array30(spin,rep){
   if (!combi_array30.includes(spin))  {
-    if (combi_array30.length==30) {
+    if (combi_array30.length==Number(rep)) {
       combi_array30.pop();
     }
     combi_array30.unshift(spin)
@@ -62,9 +62,9 @@ console.log(txt2);
 console.log(chk);
 
 //fs.appendFileSync('test.txt',txt1 + "\n");
-fs.appendFileSync('test.txt',txt2 + "\n");
+//fs.appendFileSync('test.txt',txt2 + "\n");
 //fs.appendFileSync('test.txt',"\n");
-
+return chk
 
 }
 
@@ -97,6 +97,31 @@ return chk
 if (fs.existsSync('test.txt')) { fs.unlink('test.txt', function (err) { if (err) throw err; }); }
 
 
+//1 apuesta y plego
+function stra1(params) {
+  
+}
+
+//1 apuesta y si pierdo reapuesto
+function stra2(params) {
+  
+}
+
+//2 apuesta y plego
+function stra3(params) {
+  
+}
+//2 apuesta y si pierdo la segunda reapuesto
+function stra4(params) {
+  
+}
+
+
+
+
+
+
+
 
 
 
@@ -115,13 +140,13 @@ setInterval(() => {
 
         check_win(msg_out);
 
-        push_array30(msg_out.spin)
+        push_array30(msg_out.spin,30)
         
 
         
 
 
-}, 25);
+}, 100);
 
 
 
