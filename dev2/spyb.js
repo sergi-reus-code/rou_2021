@@ -4,7 +4,7 @@ combi_array30 = []
 combi_array30_ordered = []
 tirada1 = false
 tirada2 = false
-tirada3 = false
+
 
 
 function randomInt(min, max) { // min and max included 
@@ -30,7 +30,7 @@ function push_array30(spin,rep){
 
   combi_array30_ordered = combi_array30.slice();
 
-combi_array30_ordered.sort(function(a, b){return a - b});
+   combi_array30_ordered.sort(function(a, b){return a - b});
 
 var chk = calc_chk30(combi_array30)
 
@@ -46,13 +46,20 @@ if (chk > 0) {
 
 
 
-  if ((tirada1 == true) && (tirada2 == true)  && (tirada3 == true)) {
+  if ((tirada1 == true) && (tirada2 == true)) {
     //reset all
     tirada1 = false
     tirada2 = false
-    tirada2 = false
+   
     
     combi_array30 = []
+    
+  }
+
+  if ((tirada1 == true) & (tirada2 == false)) {
+    fs.appendFileSync('test.txt',txt2 + "\n");
+    console.log(txt2);
+    tirada2 = true
     
   }
 
@@ -62,16 +69,6 @@ if (chk > 0) {
     tirada1 = true
     
   }
-
-
-  if ((tirada1 == true) & (tirada2 == false)) {
-    fs.appendFileSync('test.txt',txt2 + "\n");
-    console.log(txt2);
-    tirada2 = true
-    
-  }
-
-
 
 
 
@@ -167,9 +164,22 @@ setInterval(() => {
         var spin = randomInt(0,36);
         spin_num++
 
-
-
+        //check previous bet
         check_win(spin);
+
+
+        //actualizar array
+        push_array30(msg_out.spin,30)
+
+
+        //send spin & receive bet
+        //bet = push_array30(msg_out.spin,30)
+
+        //execute bet
+
+
+
+        
 
         push_array30(msg_out.spin,30)
         
