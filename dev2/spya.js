@@ -167,11 +167,7 @@ setInterval(() => {
         var spin = randomInt(0,36);
         spin_num++
 
-
-
-        check_win(spin);
-
-        push_array30(msg_out.spin,30)
+        push_array30(spin,30)
         
 
         
