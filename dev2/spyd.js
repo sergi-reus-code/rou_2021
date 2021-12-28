@@ -24,14 +24,15 @@ var bet = []        //Array con la combinación para apostar
 
 var rep = 0;
 
-var martingala=[19,19,19,32]
+var martingala=[19,26,26,26,32]
 
 
 var indiceMartingala = 0
 var repeticionesTramoMartingala = martingala[indiceMartingala]
 
-var martingalaWin = [6.8,6,6.1,8.9]
+var martingalaWin = [1.7,2.1,2.7,8.7,12.7]
 var beneficioTotal = 0
+
 
 
 
@@ -97,7 +98,7 @@ setInterval(() => {
       restart()
               
     }else {
-      console.log("LOOSE");
+      console.log("LOOSE  ->  " + spin_num );
       indiceMartingala++
       bet = []
       repeticionesTramoMartingala = martingala[indiceMartingala]
